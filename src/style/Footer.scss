@@ -1,0 +1,70 @@
+@import "Variables.scss";
+
+#contact{
+    display:flex;
+    .map, .contact-container{
+        width:50%;
+    }
+    .contact-container{
+        background: $blue-footer;
+        .footer-title{
+            color: $white;
+        }
+        form{
+            div{
+                position: relative; //label
+            }
+            div:nth-child(2), div:nth-child(3){ //nom et message
+                width: 45%;
+                display: inline-block;
+            }
+            div:nth-child(2){
+                margin-right: 5%; //???TEMP??? 
+            }
+            .floating-label{
+                position:absolute;
+                left:5px;
+                color: grey;
+                
+            }
+            input, textarea{
+                background:none;
+                border: none;
+                border-bottom: 1px solid $grey;
+                color: $white;
+            }
+            input:focus, textarea:focus{
+                outline:none;
+            }
+            //inputs
+            #name, #phone, #email, #message{
+                width: 100%;                
+            }   
+            //Les boutons 
+            .form-btn{
+                button{
+                    border: none;
+                    border-radius: 10px;
+                    padding: 6px 12px;
+                    color: $white;
+                }
+                button:hover{
+                    cursor: pointer;
+                }
+                button:nth-of-type(2) { //Envoyer
+                    background: $blue;
+                }
+                button:nth-of-type(2):hover{
+                    background: $blue-nav;
+                }
+            }    
+        }
+        .copyright{
+            p{
+                text-align:center;
+                color: $grey-footer;
+            }
+        }
+        
+    }
+}
