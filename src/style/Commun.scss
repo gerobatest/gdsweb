@@ -9,3 +9,18 @@
 body{
     font-family: 'Times New Roman', Times, serif; //à changer
 }
+
+.title{
+    font-size: 45px;  //TEMP:
+    font-weight: lighter;
+    span{
+        font-size:60px;
+        font-weight: bold;
+    }
+}
+.blue-title{
+    color: $blue;
+}
+.orange-title{ //Géroba 
+    color: $orange;
+}
