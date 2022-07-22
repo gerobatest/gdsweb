@@ -6,6 +6,7 @@
         width:50%;
     }
     .contact-container{
+        padding: 1.5%; //TEMP???VARIABLE
         background: $blue-footer;
         .footer-title{
             color: $white;
@@ -14,18 +15,31 @@
             div{
                 position: relative; //label
             }
-            div:nth-child(2), div:nth-child(3){ //nom et message
-                width: 45%;
+            div:nth-child(2), div:nth-child(3){ //téléphone et émail
+                width: 47.5%; //???TEMP??? VARIABLE
                 display: inline-block;
             }
             div:nth-child(2){
-                margin-right: 5%; //???TEMP??? 
+                margin-right: 2.5%; //???TEMP??? VARIABLE
+            }
+            div:nth-child(3){
+                margin-left: 2.5%; //???TEMP??? VARIABLE
             }
             .floating-label{
                 position:absolute;
                 left:5px;
-                color: grey;
-                
+                top: 35px;
+                color: grey;   
+            }
+            input:focus ~ .floating-label,
+            textarea:focus ~ .floating-label,
+            input:not(:focus):valid ~ .floating-label,
+            textarea:not(:placeholder-shown)~.floating-label{ //?
+                top: 10px;
+                bottom: 10px;
+                left: 0px;
+                font-size: 12px;
+                opacity: 1;
             }
             input, textarea{
                 background:none;
@@ -33,13 +47,19 @@
                 border-bottom: 1px solid $grey;
                 color: $white;
             }
+            textarea{
+                height:70px;
+            }
             input:focus, textarea:focus{
                 outline:none;
             }
             //inputs
             #name, #phone, #email, #message{
                 width: 100%;                
-            }   
+            } 
+            input, textarea, .form-btn{
+                margin-top: 40px; //TEMP?? VARIABLE
+            }  
             //Les boutons 
             .form-btn{
                 button{
@@ -51,15 +71,51 @@
                 button:hover{
                     cursor: pointer;
                 }
-                button:nth-of-type(2) { //Envoyer
+                button:nth-of-type(1) { //Envoyer
                     background: $blue;
                 }
-                button:nth-of-type(2):hover{
+                button:nth-of-type(1):hover{
                     background: $blue-nav;
                 }
             }    
         }
+        .details-addresse{
+            .places-list{
+                display:flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                .single-place{
+                    img{
+                        width: 100%; /* or any custom size */
+                        height: 100%; 
+                        object-fit: contain;
+                    }
+                    .place-hover{
+                        display:none;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                        .placeBW{
+                            display:none;
+                        }
+                        .place-hover{
+                            display:block;
+                        }
+                    }
+                }
+                
+            }
+            p{
+                color:$grey;
+            }
+            .footer-info{
+                color: $white;
+            }
+        }
         .copyright{
+            border-top: 1px solid $grey;
+            padding-top: 15px; //Change?
             p{
                 text-align:center;
                 color: $grey-footer;

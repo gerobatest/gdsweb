@@ -2,7 +2,45 @@ import React, {useState} from 'react';
 import '../style/Footer.scss';
 import {FiSend} from 'react-icons/fi';
 
+import Map from "./Map/Map";
+import Layers from "./Map/Layers";
+import TileLayer from "./Map/TileLayer";
+import VectorLayer from "./Map/VectorLayer";
+import osm from "./Map/osm";
+import vector from "./Map/vector";
+import Controls from "./Map/Controls";
+import FullScreenControl from "./Map/FullScreenControl";
+import { Circle as CircleStyle,Style } from 'ol/style';
+import { fromLonLat, get } from 'ol/proj';
+import GeoJSON from 'ol/format/GeoJSON';
+import mapConfig from "../config.json";
+import Feature from 'ol/Feature';
+import Point from 'ol/geom/Point';
+import {Icon} from 'ol/style';
+
+
+const iconFeature = new Feature({
+    geometry: new Point([1.253639, 44.414870]),
+    name: '81 rue du Moulin, 46140 SAUZET, France'
+  });
+  
+  const iconStyle = new Style({
+    image: new Icon({
+      anchor: [0.5, 46],
+      anchorXUnits: 'fraction',
+      anchorYUnits: 'pixels',
+      src: '/location.avif',
+      scale: 1.5
+    }),
+  });
+  iconFeature.setStyle(iconStyle);
+  const geojsonObject1 = mapConfig.geojsonObject1;
+
 function Footer() {
+
+    const [center, setCenter] = useState([1.253327, 44.414888]); //le centre de la carte après chargement
+    const [zoom, setZoom] = useState(18)
+    const [showLayer2, setShowLayer2] = useState(true);
 
     const [showCancelButton, setShowCancelButton] = useState(false); //Bouton annuler
     const [showSendButton, setShowSendButton] = useState(false);  //Bouton envoyer 
@@ -63,7 +101,23 @@ function Footer() {
         <div id="contact">
             {/* La carte */}
             <div className="map">
-                Map
+            <Map center={fromLonLat(center)} zoom={zoom}>
+              <Layers>
+                <TileLayer
+                  source={osm()}
+                  zIndex={0}
+                />
+                {showLayer2 && (
+                  <VectorLayer
+                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject1, { featureProjection: get('EPSG:3857') }) })}
+                    style={iconStyle}
+                  />
+                )}
+              </Layers>
+              <Controls>
+                <FullScreenControl />
+              </Controls>
+            </Map>
             </div>
 
             <div className="contact-container">
@@ -80,7 +134,7 @@ function Footer() {
                             onChange={handleChange} 
                             required="required"
                             />
-                            {/* <span className="floating-label">Votre nom<span className="star">*</span></span> */}
+                            <span className="floating-label">Votre nom<span className="star">*</span></span> 
                         </div>
                         {/*Téléphone*/}
                         <div>
@@ -92,7 +146,7 @@ function Footer() {
                             onChange={handleChange} 
                             required="required"
                             />
-                            {/* <span className="floating-label">Votre téléphone<span className="star">*</span></span> */}
+                            <span className="floating-label">Votre téléphone<span className="star">*</span></span> 
                         </div>
                         {/* Email */}
                         <div>
@@ -104,7 +158,7 @@ function Footer() {
                             onChange= {handleChange} 
                             required="required"
                             />
-                            {/* <span className="floating-label">Votre émail<span className="star">*</span></span> */}
+                            <span className="floating-label">Votre émail<span className="star">*</span></span> 
                         </div>
                         {/* Message */}
                         <div>
@@ -115,13 +169,13 @@ function Footer() {
                             onChange={handleChange} 
                             required="required"
                             />
-                            {/* <span className="floating-label message" >Votre message</span> */}
+                            <span className="floating-label message" >Votre message</span> 
                         </div>
                         <div className="form-btn">
                             {/* {showCancelButton && ( */}
-                            <button onClick={cancelForm} type="button">
+                            {/* <button onClick={cancelForm} type="button">
                                 ANNULER
-                            </button>
+                            </button> */}
                             {/* )} */}
                             {/* {showSendButton && ( */}
                             <button
@@ -132,12 +186,42 @@ function Footer() {
                         </div>
                     </form>
                 </div>   
-                <div>
+                <div className="details-addresse">
                     <h1 className="footer-title">Nous rencontrer</h1>
+
+                    <div className="places-list">
+                        <div className="single-place">
+                            <img className="placeBW" src="/ligneSensBW.png" alt=""/>
+                            <img className="place-hover" src="/ligneSensCol.png" alt=""/>
+                        </div>
+                        <div className="single-place">
+                            <img className="placeBW" src="/GuadeloupeBW.png" alt=""/>
+                            <img className="place-hover" src="/GuadeloupeCol.png" alt=""/>
+                        </div>
+                        <div className="single-place">
+                            <img className="placeBW" src="/MartiniqueBW.png" alt=""/>
+                            <img className="place-hover" src="/MartiniqueCol.png" alt=""/>
+                        </div>
+                        <div className="single-place">
+                            <img  className="placeBW"src="GuyaneBW.png" alt=""/>
+                            <img className="place-hover" src="GuyaneCol.png" alt=""/>
+                        </div>
+                        <div className="single-place">
+                            <img  className="placeBW"src="ReunionBW.png" alt=""/>
+                            <img className="place-hover" src="ReunionCol.png" alt=""/>
+                        </div>
+                        <div className="single-place">
+                            <img className="placeBW" src="MauritiusBW.png" alt=""/>
+                            <img className="place-hover" src="MauritiusCol.png" alt=""/>
+                        </div>
+                    </div>
+
+                    <p>Addresse <span className="footer-info">81 rue du Moulin, 46140 SAUZET, France</span></p>
+                    <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
+                    <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p>
 
                 </div>
                 <div className="copyright">
-                    <hr/>
                     <img src="/gds-footer.png" alt="groupe gds logo"/> 
                     <p>Tous les droits sont réservés Groupe Gds {currentMonth} {currentYear}.</p>
                 </div>

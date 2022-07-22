@@ -1,0 +1,100 @@
+{
+    "center": [1.253639, 44.414870],
+      "geojsonObject1": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "location": "France",
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates":[
+                1.253639, 
+                44.414870
+              ]
+            }
+          }
+        ]
+      },
+      "geojsonObject2": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "location": "Guadeloupe",
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates":[
+                1.253639, 
+                44.414870
+              ]
+            }
+          }
+        ]
+      },
+      "geojsonObject3": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "location": "Martinique",
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates":[
+                1.253639, 
+                44.414870
+              ]
+            }
+          }
+        ]
+      },
+      "geojsonObject4": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "location": "Guyane",
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates":[
+                1.253639, 
+                44.414870
+              ]
+            }
+          }
+        ]
+      },
+      "geojsonObject5": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "location": "Réunion",
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates":[
+                1.253639, 
+                44.414870
+              ]
+            }
+          }
+        ]
+      },
+      "geojsonObject6": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "location": "Maurice",
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates":[
+                1.253639, 
+                44.414870
+              ]
+            }
+          }
+        ]
+      },
+    "sauzetLonLat": [1.253639, 44.414870]
+}
