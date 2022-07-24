@@ -1,11 +1,68 @@
 import React from 'react'
+import ArrayCollaborations from "./DataCollaborations";
+import Slider from "react-slick";
 import '../style/Collaborations.scss'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Collaborations() {
+
+   //Slider clients
+   const settings = {
+    autoplay: true,
+    infinite: true,
+    arrows: false,
+    pauseOnHover: true,
+    dots: true,
+    speed: 1000,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    initialSlide: 5,
+    responsive: [
+      {
+        breakpoint: 1281,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true
+        }
+      },
+      {
+        breakpoint: 993,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true
+        }
+      },
+      {
+        breakpoint: 577,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true
+        }
+      }
+    ]
+  };
+
   return (
     <>
-        <h1 className="title blue-title">ils nous ont <br/><span>fait confiance</span></h1>
-        <h3>Slider Noir et blanc</h3>
+        <hr/>
+        <h1 className="title blue-title">Ils nous ont <br/><span>fait confiance</span></h1>
+
+        <br/><br/>
+
+        <Slider {...settings}>
+              {ArrayCollaborations.map((item, index) => (
+              <div key="item" className="card"> 
+                
+                <img className="clientLogo" style={{top: item.style}} id={index} src={item.imgPath} alt={item.title} title={item.title}/>
+              </div>
+              ))}
+        </Slider>     
+
+        <br/><br/>
     </>
   )
 }

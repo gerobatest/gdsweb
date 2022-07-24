@@ -22,7 +22,12 @@ import {Icon} from 'ol/style';
 const iconFeature = new Feature({
     geometry: new Point([1.253639, 44.414870]),
     name: '81 rue du Moulin, 46140 SAUZET, France'
-  });
+});
+
+const iconMauritius = new Feature({
+    geometry: new Point([-20.16361347403224, 57.507731726107316]),
+    name: '19, Church Street PORT LOUIS'
+});
   
   const iconStyle = new Style({
     image: new Icon({
@@ -33,14 +38,29 @@ const iconFeature = new Feature({
       scale: 1.5
     }),
   });
+
   iconFeature.setStyle(iconStyle);
-  const geojsonObject1 = mapConfig.geojsonObject1;
+  iconMauritius.setStyle(iconStyle);
+
+  
+  const geojsonObject1 = mapConfig.geojsonObject1;//France sauzet
+  const geojsonObject2 = mapConfig.geojsonObject2; //Guadeloupe
+  const geojsonObject3 = mapConfig.geojsonObject3; //Martinique
+  const geojsonObject4 = mapConfig.geojsonObject4;  //Guyane
+  const geojsonObject5 = mapConfig.geojsonObject5; //Réunion
+  const geojsonObject6 = mapConfig.geojsonObject6; //Maurice
 
 function Footer() {
 
     const [center, setCenter] = useState([1.253327, 44.414888]); //le centre de la carte après chargement
     const [zoom, setZoom] = useState(18)
-    const [showLayer2, setShowLayer2] = useState(true);
+
+    const [showLayer1, setShowLayer1] = useState(true); //Sauzet
+    const [showLayer2, setShowLayer2] = useState(true); //Guadeloupe
+    const [showLayer3, setShowLayer3] = useState(true); //Martinique
+    const [showLayer4, setShowLayer4] = useState(true); //Guyane
+    const [showLayer5, setShowLayer5] = useState(true); //Réunion
+    const [showLayer6, setShowLayer6] = useState(true); //Maurice
 
     const [showCancelButton, setShowCancelButton] = useState(false); //Bouton annuler
     const [showSendButton, setShowSendButton] = useState(false);  //Bouton envoyer 
@@ -77,7 +97,7 @@ function Footer() {
     }
 
     //Efface tous les champs 
-    const cancelForm = () =>{
+    const cancelForm = () => {
         setShowCancelButton(false)
         setShowSendButton(false)
         setFormVal({
@@ -88,6 +108,12 @@ function Footer() {
         })
         document.getElementById("contact-form").reset();
     };
+
+    const handleLocation = () => {
+        console.log("Find location");
+        //setShowLayer6(!showLayer6);
+        setCenter( 55.317608, -20.950888);
+    }
 
     //mois actuel
     const MONTHS = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
@@ -107,9 +133,39 @@ function Footer() {
                   source={osm()}
                   zIndex={0}
                 />
-                {showLayer2 && (
+                {showLayer1 && (
                   <VectorLayer
                     source={vector({ features: new GeoJSON().readFeatures(geojsonObject1, { featureProjection: get('EPSG:3857') }) })}
+                    style={iconStyle}
+                  />
+                )}
+                {showLayer2 && (
+                  <VectorLayer
+                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject2, { featureProjection: get('EPSG:3857') }) })}
+                    style={iconStyle}
+                  />
+                )}
+                {showLayer3 && (
+                  <VectorLayer
+                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject3, { featureProjection: get('EPSG:3857') }) })}
+                    style={iconStyle}
+                  />
+                )}
+                {showLayer4 && (
+                  <VectorLayer
+                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject4, { featureProjection: get('EPSG:3857') }) })}
+                    style={iconStyle}
+                  />
+                )}
+                {showLayer5 && (
+                  <VectorLayer
+                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject5, { featureProjection: get('EPSG:3857') }) })}
+                    style={iconStyle}
+                  />
+                )}
+                {showLayer6 && (
+                  <VectorLayer
+                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject6, { featureProjection: get('EPSG:3857') }) })}
                     style={iconStyle}
                   />
                 )}
@@ -188,33 +244,59 @@ function Footer() {
                 </div>   
                 <div className="details-addresse">
                     <h1 className="footer-title">Nous rencontrer</h1>
-
                     <div className="places-list">
                         <div className="single-place">
                             <img className="placeBW" src="/ligneSensBW.png" alt=""/>
-                            <img className="place-hover" src="/ligneSensCol.png" alt=""/>
+                            <a >
+                                <img className="place-hover" src="/ligneSensCol.png" alt=""/>
+                            </a>
                         </div>
                         <div className="single-place">
                             <img className="placeBW" src="/GuadeloupeBW.png" alt=""/>
-                            <img className="place-hover" src="/GuadeloupeCol.png" alt=""/>
+                            <a >
+                                <img className="place-hover" src="/GuadeloupeCol.png" alt=""/>
+                            </a>
                         </div>
                         <div className="single-place">
                             <img className="placeBW" src="/MartiniqueBW.png" alt=""/>
-                            <img className="place-hover" src="/MartiniqueCol.png" alt=""/>
+                            <a >
+                                <img className="place-hover" src="/MartiniqueCol.png" alt=""/>
+                            </a>
                         </div>
                         <div className="single-place">
                             <img  className="placeBW"src="GuyaneBW.png" alt=""/>
-                            <img className="place-hover" src="GuyaneCol.png" alt=""/>
+                            <a >
+                                <img className="place-hover" src="GuyaneCol.png" alt=""/>
+                            </a>
                         </div>
                         <div className="single-place">
                             <img  className="placeBW"src="ReunionBW.png" alt=""/>
-                            <img className="place-hover" src="ReunionCol.png" alt=""/>
+                            <a >
+                                <img className="place-hover" src="ReunionCol.png" alt=""/>
+                            </a>
                         </div>
-                        <div className="single-place">
-                            <img className="placeBW" src="MauritiusBW.png" alt=""/>
-                            <img className="place-hover" src="MauritiusCol.png" alt=""/>
-                        </div>
+
+                        <button onClick={handleLocation} type="button">
+                            <div className="single-place">
+                                <img className="placeBW" src="MauritiusBW.png" alt=""/>
+                                <img className="place-hover" src="MauritiusCol.png" alt=""/>
+                            </div> 
+                        </button>
                     </div>
+
+                    {/* Test */}
+                    <input
+                        type="checkbox"
+                        checked={showLayer5}
+                        onChange={event => setShowLayer5(event.target.checked)}
+                    /> Montre La réunion
+
+                    <input
+                        type="checkbox"
+                        checked={showLayer6}
+                        onChange={event => setShowLayer6(event.target.checked)}
+                    /> Montre Maurice
+                    {/* Fin test*/}
 
                     <p>Addresse <span className="footer-info">81 rue du Moulin, 46140 SAUZET, France</span></p>
                     <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>

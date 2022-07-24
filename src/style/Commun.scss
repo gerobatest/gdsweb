@@ -10,6 +10,10 @@ body{
     font-family: 'Times New Roman', Times, serif; //à changer
 }
 
+p{
+    line-height: $lineHeightLg;
+}
+
 .title{
     font-size: 45px;  //TEMP:
     font-weight: lighter;
@@ -21,6 +25,6 @@ body{
 .blue-title{
     color: $blue;
 }
-.orange-title{ //Géroba 
+.orange-title, .orange{ //Géroba 
     color: $orange;
 }

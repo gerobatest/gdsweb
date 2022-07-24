@@ -1,0 +1,25 @@
+@import "Variables.scss";
+@import "Commun.scss";
+
+.innovation{
+    display:flex;
+    background: $grey-bg;
+    .sectionTexte, .sectionImage{
+      width: 50%;   
+    }
+    .sectionTexte{
+        padding: 1.5%; //TEMP???VARIABLE : Commun pour tous 
+        .secondTitle{
+            font-weight: lighter;
+        }
+        .geroba-link{
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    .arrow-right{
+        font-size: 18px;
+    }
+}

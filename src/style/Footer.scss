@@ -6,8 +6,12 @@
     .map, .contact-container{
         width:50%;
     }
+    .map{
+        background: rgb(196, 228, 196);
+        //height: 100%; //Pourquoi cache la carte? 
+    }
     .contact-container{
-        padding: 1.5%; //TEMP???VARIABLE
+        padding: 1.5%; //TEMP???VARIABLE : Commun pour tous 
         background: $blue-footer;
         .footer-title{
             color: $white;

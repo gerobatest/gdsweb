@@ -1,2 +1,13 @@
 @import "Variables.scss";
 @import "Commun.scss";
+
+//coloré sur hover
+.slick-slide img{
+    -webkit-filter: grayscale(100%); //N&B
+    filter: grayscale(100%);
+    &:hover{
+        -webkit-filter: none;
+        filter:none;
+        //transform:scale(1.1);
+    }
+}
