@@ -1,4 +1,5 @@
 import React from 'react';
+import { Parallax } from 'react-scroll-parallax';
 import '../style/Innovation.scss';
 import {BsArrowRightCircle} from "react-icons/bs";
 
@@ -8,8 +9,13 @@ export default function Innovation() {
         <div className="sectionTexte">
             <h1 className="title orange-title">Notre<br/><span>innovation</span></h1>
             <h1 className="secondTitle">Maitrise d'oeuvre</h1>
-            {/* Logos geroba */}
-            <img src="https://www.gerobamaster.fr/resources/images/icones/logos/geroba.png" alt="Geroba"></img>
+
+            {/* Logos geroba image à remplacer*/}
+            <div className="image-innovation">
+                <img src="/favicon.ico" alt="Geroba"></img>
+                <img src="/logo-geroba.avif" alt="Geroba"></img>
+            </div>
+
             <p>
                 Une solution fullweb, bâtie autour de deux modules, terrain et bureau
                 de façon d’avoir une gestion dynamique du patrimoine, suivant une
@@ -24,11 +30,13 @@ export default function Innovation() {
                 remplacement et la Gestion du patrimoine dans les temps.
             </p>
             <br/>
-            <a href="#" className="geroba-link orange"><BsArrowRightCircle className="arrow-right"/> En savoir plus</a>
+            <a href="#" className="geroba-link"><BsArrowRightCircle className="arrow-right"/> En savoir plus</a>
         </div>
         {/* Image avec effet parallaxe */}
         <div className="sectionImage">
-            <img src="" alt="Tablette Geroba"/>
+            <Parallax translateX={['320px', '-100px']}> 
+                <img src="/tablette.png" alt="Tablette Geroba"/>
+            </Parallax>
         </div>
     </div>
   )

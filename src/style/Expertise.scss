@@ -8,10 +8,10 @@
         display: flex;
 
         h1{
-            width: 40%;
+            width: 30%;
         }
         div{
-            width: 60%;
+            width: 70%;
         }
     }
 
@@ -23,16 +23,18 @@
         li{
             list-style: none;
             text-align: center;
-            font-size: 13px;
+            
 
-            a{
-                text-decoration: none;
+            button{
+                background: none;
+                border: none;
                 color: $grey-link;
                 font-weight: bold;
+                font-size: 11px;
 
                 &:hover{
                     color: $blue;
-                    transform: scale(1.2); //? 
+                    transform: scale(1.05); //? 
                 }
             }
         }
@@ -102,6 +104,7 @@
         position: relative;
         padding: 1.5%; //TEMP???VARIABLE : Commun pour tous
         display: flex;
+        transition: all 2s ease-in-out;
         .sectionText{
             width: 60%; //Variable
             .text-content{

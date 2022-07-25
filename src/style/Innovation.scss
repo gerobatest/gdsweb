@@ -12,7 +12,24 @@
         .secondTitle{
             font-weight: lighter;
         }
+        .image-innovation{
+            position: relative; //effac
+            display:flex;
+
+            //Codes à modifier selon les images réelles
+            img:nth-child(1){
+                height: 120px;
+            }
+            img:nth-child(2){
+                position: absolute;
+                height: 50px;
+                top: 30%;
+                transform: translateX(100%);
+            }
+            //Fin commentaire 
+        }
         .geroba-link{
+            color: $black;
             text-decoration: none;
             &:hover{
                 text-decoration: underline;
@@ -21,5 +38,6 @@
     }
     .arrow-right{
         font-size: 18px;
+        color: $orange;
     }
 }

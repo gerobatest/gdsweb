@@ -1,18 +1,24 @@
+import APropos from "./components/APropos";
 import Expertise from "./components/Expertise";
-import Collaborations from "./components/Collaborations";
-import Actualite from "./components/Actualite";
 import Innovation from "./components/Innovation";
+import Actualite from "./components/Actualite";
+import Collaborations from "./components/Collaborations";
 import Footer from "./components/Footer";
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 
 function App() {
   return (
     <>
-      {/* <Actualite/>*/}
+       {/* */} <APropos/>
+     
       <Expertise/>
-      {/* <Collaborations/> 
-      <Innovation/>
-      <Footer/> */}
+      <ParallaxProvider> 
+        <Innovation/>
+      </ParallaxProvider>
+      {/**/} <Actualite/>
+      <Collaborations/> 
+      <Footer/> 
     </>
   );
 }
