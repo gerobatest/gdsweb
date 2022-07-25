@@ -10,9 +10,9 @@ function App() {
     <>
       {/* <Actualite/>*/}
       <Expertise/>
-      <Collaborations/> 
+      {/* <Collaborations/> 
       <Innovation/>
-      <Footer/>
+      <Footer/> */}
     </>
   );
 }
