@@ -1,6 +1,10 @@
 import React from 'react';
 import '../style/Expertise.scss';
 import {BsArrowRightCircle} from "react-icons/bs";
+import {BiLink} from "react-icons/bi";
+import {FaAngleDoubleUp} from "react-icons/fa";
+
+
 
 export default function Expertise() {
   return (
@@ -94,12 +98,16 @@ export default function Expertise() {
 
 
         <div className="gallery-content">
-          <div className="sectionTexte">
-            <div>
+
+          <div className="sectionText">
+
+            <div className="text-content">
               <h1>Route et équipements de la route</h1>
               <p>Notre savoir-faire intègre la signalisation au sens large, les dispositifs de mise en sécurité d’un itinéraire ou de
                 points particuliers liés à son utilisation (points d’arrêts ou abris bus, chantier, etc.), mais aussi les dispositifs
                 d’exploitation du réseau.</p>
+
+              <br/>
 
               Cela concerne les sous-domaines suivants :
               <ul>
@@ -109,6 +117,8 @@ export default function Expertise() {
                 <li>Autres équipements de la route : signalisation lumineuse tricolore (SLT), dispositifs de retenue (DR).</li>
               </ul>
 
+              <br/>
+
               Nos interventions portent sur tous types de projets :
               <ul>
                 <li>Gestion au quotidien du domaine public et de ses équipements.</li>
@@ -116,10 +126,14 @@ export default function Expertise() {
                 <li>Étude sur des opérations de travaux neufs.</li> 
               </ul>
 
+              <br/>
+
               <p>
                 Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
                 métiers dédiés pour assurer la cohérence du traitement.
               </p>
+
+              <br/>
 
               Il peut s’agir également d’études de sécurité routière.
               <ul>
@@ -136,18 +150,23 @@ export default function Expertise() {
                 </li>
               </ul>
 
+              <br/>
+
               <p>
                 Dans tous les cas, la concertation avec les utilisateurs et, éventuellement, les différents gestionnaires de voirie,
                 est obligatoire pour la bonne compréhension du projet.
               </p>
             </div>
-            <div>
-              <button>Voir nos références</button>
-            </div>
+
+            <br/>
+
+            <button className="btn-reference"><BiLink/> Voir nos références</button>
+
+            <button  className="btn-up"><FaAngleDoubleUp className="arrowUp"/></button>
+
           </div>
 
-          <img src="" alt=""/>
-
+          <img src="/test.jpg" alt=""/>
 
         </div>
 

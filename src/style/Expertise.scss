@@ -45,7 +45,6 @@
         width: 100%;
         //height: 600px;
         margin: 0px auto;
-        background: blue;
 
         .single-gallery{
             position: relative;
@@ -71,6 +70,7 @@
                 left: 10px;
 
                 &:hover{
+                    cursor: pointer;
                     text-decoration: underline;
                 }
             }
@@ -95,8 +95,59 @@
                 inset: 0;
                 mix-blend-mode: multiply;
             }
+        }   
+    }
+
+    .gallery-content{
+        position: relative;
+        padding: 1.5%; //TEMP???VARIABLE : Commun pour tous
+        display: flex;
+        .sectionText{
+            width: 60%; //Variable
+            .text-content{
+                padding: 1.5%; //TEMP???VARIABLE 
+                border-left: 3px solid $blue;
+              ul{
+                margin-left: 25px;
+                }  
+            } 
+            .btn-up{
+                position: absolute;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 8px 10px;
+                border: 1px solid $blue;
+                border-radius: 50%;
+                background: none;
+                .arrowUp{
+                    color: $blue;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    background: $blue;
+                    .arrowUp{
+                        color: $white;
+                    }
+                }
+            }
+        }
+        .btn-reference{
+            border: none;
+            padding: 8px 10px; //Commun?
+            background: $blue;
+            color :$white;
+            border-radius: 15px;
+
+            &:hover{
+                cursor: pointer;
+                background: $blue-nav;
+            }
+        }
+        img{
+            width: 40%; //Non responsive
         }
 
-       
-    }
+    } 
 }
