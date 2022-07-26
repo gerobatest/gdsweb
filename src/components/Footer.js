@@ -244,6 +244,7 @@ function Footer() {
                 </div>   
                 <div className="details-addresse">
                     <h1 className="footer-title">Nous rencontrer</h1>
+                    
                     <div className="places-list">
                         <div className="single-place">
                             <img className="placeBW" src="/ligneSensBW.png" alt=""/>

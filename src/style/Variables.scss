@@ -7,12 +7,22 @@ $white: #ffffff;
 $black: #000;
 $orange: #EB7139; //Géroba
 $grey: #797979;  //texte articles
+$grey-slider: #878787; //couleur slider employés
 $grey-bg: #E2E1E1; //gerobe: innovation
 $grey-footer: #616160; //Copyright 
 $grey-link: #929292; //navbar notre expertise
 
+//font-family
+$Helvetica: Helvetica Neue LT Std;
+
 
 //Interlignes
-$lineHeightLg: 20px;
+$lineHeightLg: 22px;
+
+//Espace entre chaque section 
+$sectionspacingLg: 80px; //écran large
+
+//padding
+$sectionPaddingLg: 60px;
 
 //Dimensions responsives

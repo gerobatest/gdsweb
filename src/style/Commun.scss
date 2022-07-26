@@ -4,14 +4,19 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family: $Helvetica;
 }
 
 body{
     font-family: 'Times New Roman', Times, serif; //à changer
 }
 
-p{
+p, li{
     line-height: $lineHeightLg;
+}
+
+li{
+    margin-left: 15px;
 }
 
 .title{
@@ -27,4 +32,33 @@ p{
 }
 .orange-title, .orange{ //Géroba 
     color: $orange;
+}
+
+@mixin logoPays{
+    .places-list{
+        margin: 30px 0px;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .single-place{
+            img{
+                width: 100%; /* or any custom size */
+                height: 100%; 
+                object-fit: contain;
+            }
+            .place-hover{
+                display:none;
+            }
+            &:hover{
+                cursor: pointer;
+                .placeBW{
+                    display:none;
+                }
+                .place-hover{
+                    display:block;
+                }
+            }
+        }  
+    }
 }

@@ -85,14 +85,16 @@
             }    
         }
         .details-addresse{
-            .places-list{
+
+            @include logoPays;
+            /*.places-list{
                 display:flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
 
                 .single-place{
                     img{
-                        width: 100%; /* or any custom size */
+                        width: 100%; 
                         height: 100%; 
                         object-fit: contain;
                     }
@@ -108,9 +110,9 @@
                             display:block;
                         }
                     }
-                }
-                
-            }
+                }  
+            }*/
+
             p{
                 color:$grey;
             }

@@ -10,15 +10,16 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 function App() {
   return (
     <>
-       {/* */} <APropos/>
-     
-      <Expertise/>
+      {/**/}
+      <APropos/>
+      {/*<Expertise/>
       <ParallaxProvider> 
-        <Innovation/>
+        <Innovation/> 
       </ParallaxProvider>
-      {/**/} <Actualite/>
+      <Actualite/>
       <Collaborations/> 
-      <Footer/> 
+      <Footer/>*/}
+      
     </>
   );
 }

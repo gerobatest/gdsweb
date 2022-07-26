@@ -1,2 +1,117 @@
 @import "Variables.scss";
 @import "Commun.scss";
+@import "Footer.scss";
+
+.about{
+    display: block;
+    margin-top: $sectionspacingLg;
+    .about-visible{
+        display: flex;
+
+        .title-container{
+            width: 30%; //style commun à revoir 
+            height: 100%; //pour l'instant aide à mettre la nouvelle section au bas
+            .title{
+                padding-left: $sectionPaddingLg;
+            }
+        }
+
+        .sectionText{
+            padding : 0 $sectionPaddingLg; //TEMP???VARIABLE
+            width: 70%; //style commun à revoir
+            border-left: 3px solid $blue;
+         
+
+            @include logoPays;
+            h1{
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .about-invisible{
+        margin-top: 20px;
+        .about-branch{
+            display: flex;
+            .fill{
+                width: 30%;
+            }
+            .branch-details{
+                width: 70%;
+                padding : 0 $sectionPaddingLg;
+
+                h1{
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+    }
+
+}
+
+/*Alice carousel*/
+
+.alice-carousel {
+    margin-top: 50px;
+    
+    li{
+        position: relative;
+        padding-bottom: 60px;
+    }
+
+
+}
+
+
+
+.item{
+    margin: auto;
+    height: 225px;
+    width: 225px;
+    border-radius: 50%;
+    background: $grey-slider;
+    position: none;
+    
+    
+
+    img{
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        overflow: hide;
+    }
+    
+    .emp-btn, .employeeInfo{
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        text-align: center;
+    }
+
+    .employeeInfo{
+        bottom: 0;
+        .function{
+            color: $grey-slider; 
+        }
+        .email{
+            text-decoration: none;
+        }
+    }
+
+    .emp-btn{
+        bottom: 75px
+    }
+
+    &:hover{
+        background: purple;
+
+        img{
+            height: 80%;
+        }
+    }
+}
