@@ -1,5 +1,5 @@
 import React from 'react'
-import ArrayCollaborations from "./DataCollaborations";
+import ArrayCollaborations from "./data/DataCollaborations";
 import Slider from "react-slick";
 import '../style/Collaborations.scss'
 import "slick-carousel/slick/slick.css"; 

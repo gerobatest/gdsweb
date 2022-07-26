@@ -1,11 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AliceCarousel from 'react-alice-carousel';
-import {GrAddCircle} from 'react-icons/gr';
-//import EmployeeMauritius from "./DataMauritius";
+import {IoMdAddCircleOutline} from 'react-icons/io';
+import {FaAngleDoubleUp} from "react-icons/fa";
+import EmployeeMauritius from "./data/EmployeeMauritius";
+import DetailsMauritius from "./data/DetailsMauritius";
 import 'react-alice-carousel/lib/alice-carousel.css';
 import '../style/APropos.scss';
 
 export default function APropos() {
+
+    const [showContent, setShowContent] = useState(false);
+    const [showInfo, setShowInfo] = useState(false);
+
+    const handleClick = () => {
+        setShowContent(true);
+    }
+
+    const hideClick = () => {
+        setShowContent(false);
+    }
+
+    const showDetails = () => {
+        setShowInfo(!showInfo);
+    }
 
     const responsive = {
         0: { items: 1 },
@@ -15,43 +32,25 @@ export default function APropos() {
         2560: { items: 6}
     };
 
-    const EmployeeMauritius = [
-        {
-            nom: 'Jimmy Mayotte', 
-            position: 'Directeur Exécutif', 
-            mail: 'lj.mayotte@groupe-gds.eu',
-            couleurMail: '#82368C',
-            imgPath: '/woman.png'
-        },
-        {
-            nom: 'Deborah Noirette', 
-            position: 'Responsable Entreprise', 
-            mail: 'd.noirette@groupe-gds.eu ',
-            couleurMail: '#82368C',
-            imgPath: '/woman.png'
-        },
-        {
-            nom: 'José Rakotondrazafy', 
-            position: 'Déveoppeur Team Lead', 
-            mail: 'jt.rakotondrazafy@groupe-gds.eu',
-            couleurMail: '#82368C',
-            imgPath: '/woman.png'
-        }
-    ];
-    
-    const items = [  
-        EmployeeMauritius.map((item, index) => (    
-            <div key="item" className="item" data-value="1">
+
+    const items = EmployeeMauritius.map( (item, index) => {
+        return (
+            <div key={index} className="item" data-value="1">
                 <img src={item.imgPath} alt=""/>
-                <p className="emp-btn"><GrAddCircle className="plus-info"/></p>
-                <div className="employeeInfo">
-                    <h3 className="name"><b>{item.nom}</b></h3>
-                    <p className="function">{item.position}</p>
-                    <p ><a className="email" style={{color: item.couleurMail}} href={'mailto: ' + item.mail + ''}>{item.mail}</a></p>
-                </div>
-            </div>,
-        ))
-    ];
+                <button onClick={showDetails} className="emp-btn"><IoMdAddCircleOutline className="plus-info"/></button>
+
+                {showInfo && 
+                    <div className="employeeInfo">
+                        <h3 className="name"><b>{item.nom}</b></h3>
+                        <p className="function">{item.position}</p>
+                        <p ><a className="email" style={{color: item.couleurMail}} href={'mailto: ' + item.mail + ''}>{item.mail}</a></p>
+                    </div>
+                }
+
+            </div>
+        );
+    });
+
 
 
     return (
@@ -128,7 +127,7 @@ export default function APropos() {
                             <img className="place-hover" src="ReunionCol.png" alt=""/>
                         </a>
                     </div>
-                    <button type="button">
+                    <button type="button" onClick={handleClick}>
                         <div className="single-place">
                             <img className="placeBW" src="MauritiusBW.png" alt=""/>
                             <img className="place-hover" src="MauritiusCol.png" alt=""/>
@@ -139,36 +138,37 @@ export default function APropos() {
             </div>
         </div>
 
-        <div className="about-invisible">
-            <div className="about-branch">
-                <div className="fill"></div>
-                <div className="branch-details">
-                    <h1>GDS Mauritius</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                        aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-                        commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
-                        feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te
-                        feugait nulla facilisi.
-                        Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                    </p>
+        {showContent && 
+            <div className="about-invisible">
+                <div className="about-branch">
+                    <div className="fill"></div>
+
+                    {DetailsMauritius.map((item, index) => (
+                        <div className="branch-details" key={index}>
+                            <h1 style={{color: item.couleurTitre}}>{item.titre}</h1>
+                            <p>
+                                {item.description}
+                            </p>
+                        </div>
+                    ))}
+
                 </div>
-            </div>
-            {/* Slider pour les employés */}
+            
+                {/* Slider pour les employés */}
+                <AliceCarousel
+                    infinite
+                    mouseTracking
+                    disableDotsControls 
+                    items={items}
+                    responsive={responsive}
+                    controlsStrategy="alternate"
+                /> 
 
-            <AliceCarousel
-                infinite
-                mouseTracking
-                disableDotsControls 
-                items={items}
-                responsive={responsive}
-                controlsStrategy="alternate"
-            />
+                <button  className="btn-up" onClick={hideClick}><FaAngleDoubleUp className="arrowUp"/></button>
+            </div> 
+        }
 
-            {/* <div className="employee-slider">
-            </div> */}
 
-        </div> 
     </div>
   )
 }
