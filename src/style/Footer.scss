@@ -11,11 +11,13 @@
         //height: 100%; //Pourquoi cache la carte? 
     }
     .contact-container{
-        padding: 1.5%; //TEMP???VARIABLE : Commun pour tous 
+        padding: 40px $sectionPaddingLg;
         background: $blue-footer;
+
         .footer-title{
             color: $white;
         }
+
         form{
             div{
                 position: relative; //label
@@ -86,6 +88,7 @@
         }
         .details-addresse{
 
+            margin-top: 50px;
             @include logoPays;
             /*.places-list{
                 display:flex;

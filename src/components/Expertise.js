@@ -1,5 +1,6 @@
 import React, {useState, useRef} from 'react';
 import '../style/Expertise.scss';
+import GalleryPictures from "./data/GalleryPictures";
 import {BsArrowRightCircle} from "react-icons/bs";
 import {BiLink} from "react-icons/bi";
 import {FaAngleDoubleUp} from "react-icons/fa";
@@ -72,13 +73,15 @@ export default function Expertise() {
 
         <div className="nav-gallery">
 
-          <div className="single-gallery">
-            <img src="/gallery1.jpg" alt=""></img>
-            <h3>Route et équipements de la route</h3>
+        {GalleryPictures.map((item, index) => (
+          <div className="single-gallery" key={index}>
+            <img src={item.imgPath} alt=""></img>
+            <h3>{item.titre}</h3>
             <button onClick={showDivSection} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
+        ))}
 
-          <div className="single-gallery">
+          {/* <div className="single-gallery">
             <img src="/gallery1.jpg" alt=""></img>
             <h3>Route et équipements de la route</h3>
             <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
@@ -118,7 +121,8 @@ export default function Expertise() {
             <img src="/gallery1.jpg" alt=""></img>
             <h3>Route et équipements de la route</h3>
             <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button> 
-          </div> 
+          </div>  */}
+
         </div>
 
 

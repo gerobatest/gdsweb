@@ -177,7 +177,7 @@ function Footer() {
             </div>
 
             <div className="contact-container">
-                <div>
+                <div className="form">
                     <h1 className="footer-title">Contactez-nous</h1>
                     <form id="contact-form">
                         {/* Nom */}
@@ -242,6 +242,7 @@ function Footer() {
                         </div>
                     </form>
                 </div>   
+
                 <div className="details-addresse">
                     <h1 className="footer-title">Nous rencontrer</h1>
                     

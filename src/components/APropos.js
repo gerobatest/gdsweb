@@ -37,7 +37,7 @@ export default function APropos() {
         return (
             <div key={index} className="item" data-value="1">
                 <img src={item.imgPath} alt=""/>
-                <button onClick={showDetails} className="emp-btn"><IoMdAddCircleOutline className="plus-info"/></button>
+                <button onClick={showDetails} className="emp-btn" id="emp-btn"><IoMdAddCircleOutline className="plus-info"/></button>
 
                 {showInfo && 
                     <div className="employeeInfo">

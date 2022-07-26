@@ -4,13 +4,15 @@
 .innovation{
     display:flex;
     background: $grey-bg;
+    padding-top: $sectionspacingLg;
     .sectionTexte, .sectionImage{
       width: 50%;   
     }
-    .sectionTexte{
-        padding: 1.5%; //TEMP???VARIABLE : Commun pour tous 
+    .sectionTexte{ 
+        padding: 0px $sectionPaddingLg;
         .secondTitle{
             font-weight: lighter;
+            margin-bottom: 20px;
         }
         .image-innovation{
             position: relative; //effac

@@ -51,8 +51,6 @@ export default function Collaborations() {
         <hr/>
         <h1 className="title blue-title">Ils nous ont <br/><span>fait confiance</span></h1>
 
-        <br/><br/>
-
         <Slider {...settings}>
               {ArrayCollaborations.map((item, index) => (
               <div key="item" className="card"> 
@@ -61,8 +59,6 @@ export default function Collaborations() {
               </div>
               ))}
         </Slider>     
-
-        <br/><br/>
     </>
   )
 }

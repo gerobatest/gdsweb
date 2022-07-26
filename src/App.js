@@ -12,13 +12,13 @@ function App() {
     <>
       {/**/}
       <APropos/>
-      {/*<Expertise/>
+      <Expertise/>
       <ParallaxProvider> 
         <Innovation/> 
       </ParallaxProvider>
-      <Actualite/>
+      {/**/}<Actualite/>
       <Collaborations/> 
-      <Footer/>*/}
+      <Footer/>
       
     </>
   );
