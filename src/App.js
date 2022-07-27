@@ -1,3 +1,4 @@
+import Carousel from "./components/Carousel";
 import APropos from "./components/APropos";
 import Expertise from "./components/Expertise";
 import Innovation from "./components/Innovation";
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       {/**/}
+      <Carousel/>
       <APropos/>
       <Expertise/>
       <ParallaxProvider> 

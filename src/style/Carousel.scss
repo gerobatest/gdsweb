@@ -1,0 +1,119 @@
+@import 'Commun.scss';
+@import "Variables.scss";
+
+
+.slider{
+  width:100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  //Navbar
+  .navbar{
+    position: absolute;
+    left: 40px;
+    bottom: 150px;
+
+    .header{
+      .navlinks{
+        list-style: none;
+        display: flex;
+        width: 100%;
+
+        .link{
+          padding: 0px 20px;
+
+          &:hover{
+            transform: scale(1.15); 
+            font-family: Helvetica Neue 95 Black;
+          }
+
+          //Les liens de navigation
+          .nav-link{
+            font-family: Helvetica Neue Lt Std 65 Medium;
+            font-size: 12pt;
+            color: $blue-nav;
+            text-decoration: none;
+            text-shadow: 1px 1.5px $black; 
+            position: relative;
+          }
+
+          .nav-link::after { 
+            content: "";
+            position: absolute;
+            height: 3px;
+            background-color:$blueactive;
+            width: 0;
+            left: 0px;
+            bottom: -10px;
+            transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;    
+          }
+
+          .nav-link:hover { 
+           
+            color:$blueactive; 
+            cursor: pointer;
+          }
+
+          .nav-link:hover::after { 
+            width: 14px;
+            border-radius: 10px;  
+          }
+        }
+      }
+    }
+  }
+
+
+  //fin navbar
+  //point slide
+  .container-dots {
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+
+      //le button de slide de carousel 
+      .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          margin: 0 6px;
+          border-style: solid;
+          border:2px solid $blue-nav;
+          box-shadow: 1px 1px 1px 1px black;
+
+          &.active {
+            background: $blueactive;
+          }
+      }    
+    } 
+}
+
+
+//fin point slide 
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  opacity: 0;
+  transform: translateX(50%); //eto 
+  transition: all .5s ease;
+  img{
+    height: 100%;
+      width: 100%;
+  }
+}
+
+.current {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+
+
