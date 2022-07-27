@@ -4,7 +4,7 @@
 .innovation{
     display:flex;
     background: $grey-bg;
-    padding-top: $sectionspacingLg;
+    padding: $sectionspacingLg 0;
     .sectionTexte, .sectionImage{
       width: 50%;   
     }

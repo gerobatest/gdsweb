@@ -66,7 +66,7 @@ function Slider() {
                 <ul className='navlinks'>
                     <li className='link'>
                         <a className='nav-link'>ACCUEIL</a>
-                        </li>
+                    </li>
                     <li className='link' >
                         <a className='nav-link'>A NOTRE PROPOS</a>
                     </li>
