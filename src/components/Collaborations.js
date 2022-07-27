@@ -47,8 +47,9 @@ export default function Collaborations() {
   };
 
   return (
-    <>
+    <div className="collaboration">
         <hr/>
+        {/* Titre */}
         <h1 className="title blue-title">Ils nous ont <br/><span>fait confiance</span></h1>
 
         <Slider {...settings}>
@@ -59,6 +60,6 @@ export default function Collaborations() {
               </div>
               ))}
         </Slider>     
-    </>
+    </div>
   )
 }

@@ -2,6 +2,7 @@
 @import "Commun.scss";
 
 #contact{
+    margin-top: $sectionspacingLg;
     display:flex;
     .map, .contact-container{
         width:50%;

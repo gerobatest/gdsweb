@@ -20,7 +20,7 @@ function App() {
       </ParallaxProvider>
       {/**/}<Actualite/>
       <Collaborations/> 
-      <Footer/>
+      {/**/}<Footer/>
       
     </>
   );

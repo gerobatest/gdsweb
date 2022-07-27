@@ -24,7 +24,7 @@ export default function Actualite() {
 
             {/* Un article de presse */}
             <div className="singlePublication">
-              <img src="article1.jpg" alt="description"/>
+              <img src="\article1.jpg" alt="description"/>
               <p> 
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
                 <a href="/"> Lire plus</a>
