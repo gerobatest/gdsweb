@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import {sliderData} from "./data/DataSlider";
+import {BsArrowDownCircle} from "react-icons/bs";
 import '../style/Carousel.scss';
 
 
@@ -61,6 +62,7 @@ function Slider() {
             ))}
         </div>
 
+       {/* Barre de navigation */}
         <div className='navbar'>
             <nav className='header'>
                 <ul className='navlinks'>
@@ -85,6 +87,12 @@ function Slider() {
                 </ul>
             </nav>
         </div>
+
+        {/* Flèche pointé au bas  */}
+        <div className = "arrowDown">
+            <BsArrowDownCircle className = "arrowDownIcon"/>
+        </div>
+
     </div>   
   )
 }

@@ -10,7 +10,8 @@ import '../style/APropos.scss';
 export default function APropos() {
 
     const [showContent, setShowContent] = useState(false);
-    const [showInfo, setShowInfo] = useState(false);
+
+    const [showInfo, setShowInfo] = useState(null);
 
     const handleClick = () => {
         setShowContent(true);
@@ -20,8 +21,16 @@ export default function APropos() {
         setShowContent(false);
     }
 
-    const showDetails = () => {
+    const showDetails = (e) => {
+        console.log(e);
         setShowInfo(!showInfo);
+
+        /*if(showInfo === index){
+            setShowInfo(!showInfo);
+        } else {
+            setShowInfo(true);
+        }*/
+            
     }
 
     const responsive = {
@@ -35,17 +44,17 @@ export default function APropos() {
 
     const items = EmployeeMauritius.map( (item, index) => {
         return (
-            <div key={index} className="item" data-value="1">
+            <div key={index}  className="item" data-value="1">
                 <img src={item.imgPath} alt=""/>
-                <button onClick={showDetails} className="emp-btn" id="emp-btn"><IoMdAddCircleOutline className="plus-info"/></button>
+                <button onClick={() => showDetails(item)} className="emp-btn" id="emp-btn"><IoMdAddCircleOutline className="plus-info"/></button>
 
-                {showInfo && 
+                {showInfo &&
                     <div className="employeeInfo">
                         <h3 className="name"><b>{item.nom}</b></h3>
                         <p className="function">{item.position}</p>
                         <p ><a className="email" style={{color: item.couleurMail}} href={'mailto: ' + item.mail + ''}>{item.mail}</a></p>
                     </div>
-                }
+                } 
 
             </div>
         );
@@ -134,11 +143,12 @@ export default function APropos() {
                         </div> 
                     </button>
                 </div>
-                 {/* Les différentes branches */}
+                {/* Les différentes branches */}
             </div>
         </div>
 
         {showContent && 
+            // Texte et titre
             <div className="about-invisible">
                 <div className="about-branch">
                     <div className="fill"></div>

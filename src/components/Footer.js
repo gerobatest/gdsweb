@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import '../style/Footer.scss';
 import {FiSend} from 'react-icons/fi';
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
 import Map from "./Map/Map";
 import Layers from "./Map/Layers";
@@ -64,6 +65,23 @@ function Footer() {
 
     const [showCancelButton, setShowCancelButton] = useState(false); //Bouton annuler
     const [showSendButton, setShowSendButton] = useState(false);  //Bouton envoyer 
+
+    const scrollable = useRef(null); 
+  
+    //const scrollHeight = scrollable.current?.clientHeight / 2;
+    const scrollHeight = 10;
+  
+    const scrollUp = (e) => {
+      e.preventDefault();
+      const scrollLength = -scrollHeight; //calcul moitié de la div final
+      scrollable.current.scrollBy({top: scrollLength, behavior: "smooth"});
+    }
+  
+    const scrollDown = (e) => {
+      e.preventDefault();
+      const scrollLength = scrollHeight; //calcul moitié de la div final
+      scrollable.current.scrollBy({top: scrollLength, behavior: "smooth"})
+    }
 
      //Les valeurs depuis la forme
     const [formVal, setFormVal] = useState({
@@ -217,16 +235,24 @@ function Footer() {
                             <span className="floating-label">Votre émail<span className="star">*</span></span> 
                         </div>
                         {/* Message */}
+
                         <div>
-                            <textarea
-                            name='message' 
-                            id="message"
-                            placeholder=" " 
-                            onChange={handleChange} 
-                            required="required"
+                            <textarea 
+                              ref={scrollable}
+                              name='message' 
+                              id="message"
+                              placeholder=" " 
+                              onChange={handleChange} 
+                              required="required"
                             />
                             <span className="floating-label message" >Votre message</span> 
+
+                            {/* Boutons qui remplacent le scrollbar */}
+                            <button className="scroll-up" onClick={scrollUp}><IoIosArrowUp/></button>
+                            <button className="scroll-down" onClick={scrollDown}><IoIosArrowDown/></button>
                         </div>
+
+
                         <div className="form-btn">
                             {/* {showCancelButton && ( */}
                             {/* <button onClick={cancelForm} type="button">

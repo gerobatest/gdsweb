@@ -1,36 +1,43 @@
+import { v4 as uuidv4 } from "uuid";
+
 const EmployeeMauritius = [
     {
-        nom: 'Jimmy Mayotte', 
+        id: uuidv4(),
+        nom: 'John Doe', 
         position: 'Directeur Exécutif', 
-        mail: 'lj.mayotte@groupe-gds.eu',
+        mail: 'john@groupe-gds.eu',
         couleurMail: '#82368C',
         imgPath: '/man.png'
     },
     {
-        nom: 'Deborah Noirette', 
+        id: uuidv4(),
+        nom: 'Jane Doe', 
         position: 'Responsable Entreprise', 
-        mail: 'd.noirette@groupe-gds.eu ',
+        mail: 'jane@groupe-doe.eu ',
         couleurMail: '#82368C',
         imgPath: '/woman.png'
     },
     {
-        nom: 'José Rakotondrazafy', 
+        id: uuidv4(),
+        nom: 'John Doe', 
         position: 'Développeur Team Lead', 
-        mail: 'jt.rakotondrazafy@groupe-gds.eu',
+        mail: 'jt.rakotondrazafy@doe.eu',
         couleurMail: '#82368C',
         imgPath: '/man.png'
     },
     {
-        nom: 'Fabienne Tsioriniaina', 
+        id: uuidv4(),
+        nom: 'Jane Doe', 
         position: 'Développeur', 
-        mail: 'f.tsioriniaina@gds-mu.com',
+        mail: 'jane@doe-mu.com',
         couleurMail: '#82368C',
         imgPath: '/woman.png'
     },
     {
-        nom: 'Ristin Tsokizep Fokone', 
+        id: uuidv4(),
+        nom: 'John Doe', 
         position: 'QA Tester', 
-        mail: 'r.fokone@gds-mu.com',
+        mail: 'john@doe-mu.com',
         couleurMail: '#82368C',
         imgPath: '/man.png'
     }

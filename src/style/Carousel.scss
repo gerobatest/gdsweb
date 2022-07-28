@@ -11,13 +11,15 @@
   //Navbar
   .navbar{
     position: absolute;
-    left: 40px;
+    left: 20px;
     bottom: 150px;
 
     .header{
       .navlinks{
         list-style: none;
         display: flex;
+        justify-content: space-between;
+        
         width: 100%;
 
         .link{
@@ -61,6 +63,18 @@
           }
         }
       }
+    }
+  }
+
+  //Flèche direction au bas
+  .arrowDown{
+    position: absolute;
+    left: 60px;
+    bottom: 12%;
+
+    .arrowDownIcon{
+      font-size: 38px;
+      color: $blue-nav;
     }
   }
 

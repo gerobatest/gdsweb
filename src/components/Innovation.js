@@ -1,9 +1,24 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import '../style/Innovation.scss';
 import {BsArrowRightCircle} from "react-icons/bs";
 
 export default function Innovation() {
+
+  const imageParallax = useRef(null);
+
+  const scrollImage = () => {
+    //imageParallax.style.transform = 'translateX(320px, -100px)';
+    console.log("hi");
+  }
+
+  const handleParallax = () => {
+    //Vérifie la position
+  }
+
+ scrollImage();
+
+
   return (
     <div className="innovation">
         <div className="sectionTexte">
@@ -34,9 +49,12 @@ export default function Innovation() {
         </div>
         {/* Image avec effet parallaxe */}
         <div className="sectionImage">
-            <Parallax translateX={['320px', '-100px']}> 
-                <img src="/tablette.png" alt="Tablette Geroba"/>
-            </Parallax>
+
+            <img ref={imageParallax} src="/tablette.png" alt="Tablette Geroba"/>
+
+            {/* <Parallax translateX={['320px', '-100px']}> 
+                <img ref={imageParallax} src="/tablette.png" alt="Tablette Geroba"/>
+            </Parallax> */}
         </div>
     </div>
   )

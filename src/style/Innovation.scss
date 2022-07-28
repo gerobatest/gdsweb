@@ -40,6 +40,10 @@
     }
     .sectionImage{
         overflow: hidden;
+
+        img{
+            transition: all 2s ease-in;
+        }
     }
     .arrow-right{
         font-size: 18px;

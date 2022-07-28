@@ -16,7 +16,9 @@
         background: $blue-footer;
 
         .footer-title{
+            font-family: Helvetica Neue LT Std 55 Roman;
             color: $white;
+            font-size: 28pt;
         }
 
         form{
@@ -42,8 +44,8 @@
             input:focus ~ .floating-label,
             textarea:focus ~ .floating-label,
             input:not(:focus):valid ~ .floating-label,
-            textarea:not(:placeholder-shown)~.floating-label{ //?
-                top: 10px;
+            textarea:not(:placeholder-shown)~.floating-label{ //Place des labels quand on écrit sur les champs 
+                top: 15px;
                 bottom: 10px;
                 left: 0px;
                 font-size: 12px;
@@ -57,6 +59,25 @@
             }
             textarea{
                 height:70px;
+                padding-right:15px;
+                overflow: hidden;
+            }
+            .scroll-up, .scroll-down{
+                //background: $white;
+                border: none;
+                //color: $blue-footer;
+                position:absolute;
+                right:0px;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .scroll-up{
+                top: 25px;
+            }
+            .scroll-down{
+                bottom:0px;
             }
             input:focus, textarea:focus{
                 outline:none;
