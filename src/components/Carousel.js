@@ -1,45 +1,67 @@
 import {useState, useEffect} from 'react';
 import {sliderData} from "./data/DataSlider";
-import {BsArrowDownCircle} from "react-icons/bs";
+import {Link} from 'react-scroll';
+import {BsArrowDownCircle, BsArrowUpCircleFill} from "react-icons/bs";
 import '../style/Carousel.scss';
 
 
 function Slider() {
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideLength = sliderData.length;
-  const autoScroll = true;
-  let slideInterval;
-  let intervalTime = 5000;
+    const [currentSlide, setCurrentSlide] = useState(0);
+    //montre ou cache bouton haut de page 
+    const [showButton, setShowButton] = useState(false);
 
-  const nextSlide = () => {
-      setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
-  };
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+            setShowButton(true);
+        } else {
+            setShowButton(false);
+        }
+        });
+    }, []);
 
-  const prevSlide = () => {
-      setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
-  };
 
-  function auto () {
-      slideInterval = setInterval(nextSlide, intervalTime)
-  }
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' 
+        });
+    };
 
-  useEffect(() =>{
-      setCurrentSlide(0)
-  }, [])
+    const slideLength = sliderData.length;
+    const autoScroll = true;
+    let slideInterval;
+    let intervalTime = 5000;
 
-  useEffect(() =>{
-    if (autoScroll){
-        auto();
+    const nextSlide = () => {
+        setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
+    };
+
+    function auto () {
+        slideInterval = setInterval(nextSlide, intervalTime)
     }
-    return () => clearInterval(slideInterval);
-    }, [currentSlide]);
-    const moveDot = index => {
-    setCurrentSlide(index)
-  }
 
-  return (
-    <div className='slider'>
+    useEffect(() =>{
+        setCurrentSlide(0)
+    }, [])
+
+    useEffect(() =>{
+        if (autoScroll){
+            auto();
+        }
+        return () => clearInterval(slideInterval);
+        }, [currentSlide]);
+        const moveDot = index => {
+        setCurrentSlide(index)
+    }
+
+    return (
+    <div className='slider' id="accueil">
 
         {sliderData.map((slide, index) =>{
             return(     
@@ -67,22 +89,22 @@ function Slider() {
             <nav className='header'>
                 <ul className='navlinks'>
                     <li className='link'>
-                        <a className='nav-link'>ACCUEIL</a>
+                        <Link className='nav-link' to="accueil" spy={true} smooth={true} duration={1000} offset={0}>ACCUEIL</Link>  
                     </li>
                     <li className='link' >
-                        <a className='nav-link'>A NOTRE PROPOS</a>
+                        <Link className='nav-link' to="about" spy={true} smooth={true} duration={1000} offset={0}>A NOTRE PROPOS</Link>  
                     </li>
                     <li className='link'>
-                        <a className='nav-link'>NOTRE EXPERTISE</a>
+                        <Link className='nav-link' to="expertise" spy={true} smooth={true} duration={1000} offset={0}>NOTRE EXPERTISE</Link>  
                     </li>
                     <li className='link'>
-                        <a className='nav-link'>INNOVATION</a>
+                        <Link className='nav-link' to="innovation" spy={true} smooth={true} duration={1000} offset={0}>INNOVATION</Link> 
                     </li>
                     <li className='link'>
-                        <a className='nav-link'>ACTUALITÉ</a>
+                        <Link className='nav-link' to="actualite" spy={true} smooth={true} duration={1000} offset={0}>ACTUALITÉ</Link> 
                     </li>
                     <li className='link'>
-                        <a className='nav-link'>CONTACTEZ-NOUS</a>
+                        <Link className='nav-link' to="contact" spy={true} smooth={true} duration={1000} offset={0}>CONTACTEZ-NOUS</Link> 
                     </li>
                 </ul>
             </nav>
@@ -92,6 +114,13 @@ function Slider() {
         <div className = "arrowDown">
             <BsArrowDownCircle className = "arrowDownIcon"/>
         </div>
+
+        {/* Flèche qui remonte la page */}
+        {showButton && (
+            <Link to="/#" onClick={scrollToTop} className="btn-top">
+                <BsArrowUpCircleFill size="32px" color="$grey-footer"/>
+            </Link>
+        )}
 
     </div>   
   )

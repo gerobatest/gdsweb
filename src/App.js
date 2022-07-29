@@ -11,17 +11,16 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 function App() {
   return (
     <>
-      {/**/}
+      {/**/}{/**/}
       <Carousel/>
       <APropos/>
       <Expertise/>
       <ParallaxProvider> 
         <Innovation/> 
       </ParallaxProvider>
-      {/**/}<Actualite/>
-      <Collaborations/> 
-      {/**/}<Footer/>
-      
+      <Actualite/>
+      {/**/}<Collaborations/> 
+      <Footer/>
     </>
   );
 }

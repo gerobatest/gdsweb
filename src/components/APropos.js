@@ -63,7 +63,7 @@ export default function APropos() {
 
 
     return (
-    <div className="about">
+    <div className="about" id="about">
         <div className="about-visible">
             <div className="title-container">
                 <h1 className="title blue-title">À notre<br/><span>propos</span></h1>

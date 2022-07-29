@@ -20,7 +20,7 @@ export default function Innovation() {
 
 
   return (
-    <div className="innovation">
+    <div className="innovation" id="innovation">
         <div className="sectionTexte">
             <h1 className="title orange-title">Notre<br/><span>innovation</span></h1>
             <h1 className="secondTitle">Maitrise d'oeuvre</h1>

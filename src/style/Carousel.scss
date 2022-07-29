@@ -103,6 +103,20 @@
           }
       }    
     } 
+
+    //Scroll to top btn
+    .btn-top{
+      position:fixed;
+      bottom: 10px;
+      right: 10px;
+      opacity:0.8;
+      z-index:9999;
+
+      &:hover{
+        opacity:1;
+        cursor:pointer;
+      }
+    }
 }
 
 

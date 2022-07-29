@@ -215,7 +215,7 @@ function Footer() {
                             <input 
                             type="text" 
                             id="phone" 
-                            name="fname" 
+                            name="phone" 
                             defaultValue={formVal.fname} 
                             onChange={handleChange} 
                             required="required"
@@ -254,17 +254,19 @@ function Footer() {
 
 
                         <div className="form-btn">
-                            {/* {showCancelButton && ( */}
-                            {/* <button onClick={cancelForm} type="button">
+                            {showCancelButton && ( 
+                              <button 
+                                onClick={cancelForm} 
+                                type="button">
                                 ANNULER
-                            </button> */}
-                            {/* )} */}
-                            {/* {showSendButton && ( */}
-                            <button
-                            type="submit">
-                            <FiSend/> ENVOYER
-                            </button>
-                            {/* )} */}
+                              </button> 
+                             )} 
+                            {showSendButton && ( 
+                              <button
+                                type="submit">
+                                <FiSend/> ENVOYER
+                              </button>
+                           )} 
                         </div>
                     </form>
                 </div>   
@@ -304,31 +306,57 @@ function Footer() {
                             </a>
                         </div>
 
-                        <button onClick={handleLocation} type="button">
+                        <div onClick={handleLocation}>
                             <div className="single-place">
                                 <img className="placeBW" src="MauritiusBW.png" alt=""/>
                                 <img className="place-hover" src="MauritiusCol.png" alt=""/>
                             </div> 
-                        </button>
+                        </div>
                     </div>
 
-                    {/* Test */}
+
+                    {/*Test*/}
+                    <input
+                        type="checkbox"
+                        checked={showLayer5}
+                        onChange={event => setShowLayer1(event.target.checked)}
+                    /> Montre Ligne et Sens
+
+                    <input
+                        type="checkbox"
+                        checked={showLayer5}
+                        onChange={event => setShowLayer2(event.target.checked)}
+                    /> Montre Guadeloupe
+
+                    <input
+                        type="checkbox"
+                        checked={showLayer5}
+                        onChange={event => setShowLayer3(event.target.checked)}
+                    /> Montre Martinique
+
+                    <input
+                        type="checkbox"
+                        checked={showLayer5}
+                        onChange={event => setShowLayer4(event.target.checked)}
+                    /> Montre Guyane
+
                     <input
                         type="checkbox"
                         checked={showLayer5}
                         onChange={event => setShowLayer5(event.target.checked)}
                     /> Montre La réunion
 
-                    <input
+                   <input
                         type="checkbox"
                         checked={showLayer6}
                         onChange={event => setShowLayer6(event.target.checked)}
                     /> Montre Maurice
-                    {/* Fin test*/}
+                    {/*Fin test*/}
 
-                    <p>Addresse <span className="footer-info">81 rue du Moulin, 46140 SAUZET, France</span></p>
+
+                    <p>Adresse <span className="footer-info">81 rue du Moulin, 46140 SAUZET, France</span></p>
                     <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
-                    <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p>
+                    <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
 
                 </div>
                 <div className="copyright">

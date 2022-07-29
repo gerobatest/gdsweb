@@ -4,6 +4,21 @@
 
 .expertise{
     margin-top: $sectionspacingLg;
+    position: relative;
+
+    //position de la ligne de séparation
+    .separator{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -40px;
+        margin: auto;
+        right: 0;
+        border-top: 0px solid $blue;
+        width: 60%;
+        background: $blue;
+    }
+
     .top-section{
         display: flex;
         h1{

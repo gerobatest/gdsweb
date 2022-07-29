@@ -36,9 +36,12 @@ export default function Expertise() {
   return (
     <div className="expertise" id="expertise" ref={expertiseSection}>
 
+        {/* Ligne de séparation bleue */}
+        <hr className="separator"/>
+
         <div className="top-section">
           <h1 className="title blue-title">Notre<br/>
-          <span>expertise</span>
+            <span>expertise</span>
           </h1>
         
           <div>
