@@ -2,6 +2,7 @@ import React, {useState, useRef} from 'react';
 import '../style/Footer.scss';
 import {FiSend} from 'react-icons/fi';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import {contactLigneSens, contactGuadeloupe, contactMartinique, contactGuyane, contactReunion, contactMauritius} from './data/Contact';
 
 import Map from "./Map/Map";
 import Layers from "./Map/Layers";
@@ -11,7 +12,7 @@ import osm from "./Map/osm";
 import vector from "./Map/vector";
 import Controls from "./Map/Controls";
 import FullScreenControl from "./Map/FullScreenControl";
-import { Circle as CircleStyle,Style } from 'ol/style';
+import { Circle as CircleStyle, Style } from 'ol/style';
 import { fromLonLat, get } from 'ol/proj';
 import GeoJSON from 'ol/format/GeoJSON';
 import mapConfig from "../config.json";
@@ -30,6 +31,7 @@ const iconMauritius = new Feature({
     name: '19, Church Street PORT LOUIS'
 });
   
+  //La marqueur orange 
   const iconStyle = new Style({
     image: new Icon({
       anchor: [0.5, 46],
@@ -62,6 +64,13 @@ function Footer() {
     const [showLayer4, setShowLayer4] = useState(true); //Guyane
     const [showLayer5, setShowLayer5] = useState(true); //Réunion
     const [showLayer6, setShowLayer6] = useState(true); //Maurice
+
+    const [ showContactSauzet, setShowContactSauzet] = useState(true); //l'adresse montrée est initialement celle en France
+    const [ showContactGuadeloupe, setShowContactGuadeloupe] = useState(false);
+    const [ showContactMartinique, setShowContactMartinique] = useState(false);
+    const [ showContactGuyane, setShowContactGuyane] = useState(false);
+    const [ showContactReunion, setShowContactReunion] = useState(false);
+    const [ showContactMauritius, setShowContactMauritius] = useState(false);
 
     const [showCancelButton, setShowCancelButton] = useState(false); //Bouton annuler
     const [showSendButton, setShowSendButton] = useState(false);  //Bouton envoyer 
@@ -127,10 +136,77 @@ function Footer() {
         document.getElementById("contact-form").reset();
     };
 
-    const handleLocation = () => {
-        console.log("Find location");
-        //setShowLayer6(!showLayer6);
-        setCenter( 55.317608, -20.950888);
+    //Doit rediriger la carte en France (Sauzet) 
+    const showSauzet = () => {
+      setShowContactSauzet(true);
+      setShowContactGuadeloupe(false);
+      setShowContactGuyane(false);
+      setShowContactMartinique(false);
+      setShowContactReunion(false);
+      setShowContactMauritius(false);
+      setCenter([ 1.253639, 44.414870]);
+      setZoom(18);
+    }
+
+    //Doit rediriger la carte à Guadeloupe 
+    const showGuadeloupe = () => {
+      setShowContactSauzet(false);
+      setShowContactMartinique(false);
+      setShowContactGuyane(false);
+      setShowContactReunion(false);
+      setShowContactMauritius(false);
+      setShowContactGuadeloupe(true);
+      setCenter([-61.46677890245789, 16.205681152216087]);
+      setZoom(18);
+    }
+
+    //Doit rediriger la carte en Martinique
+    const showMartinique = () => {
+      setShowContactSauzet(false);
+      setShowContactGuadeloupe(false);
+      setShowContactGuyane(false);
+      setShowContactReunion(false);
+      setShowContactMauritius(false);
+      setShowContactMartinique(true);
+      setCenter([-60.971897, 14.574446]);
+      setZoom(18);
+    }
+
+    //Doit rediriger la carte à la Réunion 
+    const showReunion = () => {
+      setShowContactSauzet(false);
+      setShowContactGuadeloupe(false);
+      setShowContactGuyane(false);
+      setShowContactMartinique(false);
+      setShowContactMauritius(false);
+      setShowContactReunion(true);
+      setCenter([55.317608, -20.950888]);
+      setZoom(18);
+    }
+
+    //Doit rediriger la carte au Guyane
+    const showGuyane = () => {
+      setShowContactSauzet(false);
+      setShowContactGuadeloupe(false);
+      setShowContactMartinique(false);
+      setShowContactReunion(false);
+      setShowContactMauritius(false);
+      setShowContactGuyane(true);
+      setCenter([-52.2678864630662, 4.907547165591122]);
+      setZoom(18);
+    }
+
+
+    //Doit rediriger la carte à Maurice
+    const showMauritius = () => {
+      setShowContactSauzet(false);
+      setShowContactGuadeloupe(false);
+      setShowContactGuyane(false);
+      setShowContactMartinique(false);
+      setShowContactReunion(false);
+      setShowContactMauritius(true);
+      setCenter([57.507731726107316, -20.16361347403224]);
+      setZoom(18);
     }
 
     //mois actuel
@@ -145,53 +221,53 @@ function Footer() {
         <div id="contact">
             {/* La carte */}
             <div className="map">
-            <Map center={fromLonLat(center)} zoom={zoom}>
-              <Layers>
-                <TileLayer
-                  source={osm()}
-                  zIndex={0}
-                />
-                {showLayer1 && (
-                  <VectorLayer
-                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject1, { featureProjection: get('EPSG:3857') }) })}
-                    style={iconStyle}
+              <Map center={fromLonLat(center)} zoom={zoom}>
+                <Layers>
+                  <TileLayer
+                    source={osm()}
+                    zIndex={0}
                   />
-                )}
-                {showLayer2 && (
-                  <VectorLayer
-                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject2, { featureProjection: get('EPSG:3857') }) })}
-                    style={iconStyle}
-                  />
-                )}
-                {showLayer3 && (
-                  <VectorLayer
-                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject3, { featureProjection: get('EPSG:3857') }) })}
-                    style={iconStyle}
-                  />
-                )}
-                {showLayer4 && (
-                  <VectorLayer
-                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject4, { featureProjection: get('EPSG:3857') }) })}
-                    style={iconStyle}
-                  />
-                )}
-                {showLayer5 && (
-                  <VectorLayer
-                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject5, { featureProjection: get('EPSG:3857') }) })}
-                    style={iconStyle}
-                  />
-                )}
-                {showLayer6 && (
-                  <VectorLayer
-                    source={vector({ features: new GeoJSON().readFeatures(geojsonObject6, { featureProjection: get('EPSG:3857') }) })}
-                    style={iconStyle}
-                  />
-                )}
-              </Layers>
-              <Controls>
-                <FullScreenControl />
-              </Controls>
-            </Map>
+                  {showLayer1 && (
+                    <VectorLayer
+                      source={vector({ features: new GeoJSON().readFeatures(geojsonObject1, { featureProjection: get('EPSG:3857') }) })}
+                      style={iconStyle}
+                    />
+                  )}
+                  {showLayer2 && (
+                    <VectorLayer
+                      source={vector({ features: new GeoJSON().readFeatures(geojsonObject2, { featureProjection: get('EPSG:3857') }) })}
+                      style={iconStyle}
+                    />
+                  )}
+                  {showLayer3 && (
+                    <VectorLayer
+                      source={vector({ features: new GeoJSON().readFeatures(geojsonObject3, { featureProjection: get('EPSG:3857') }) })}
+                      style={iconStyle}
+                    />
+                  )}
+                  {showLayer4 && (
+                    <VectorLayer
+                      source={vector({ features: new GeoJSON().readFeatures(geojsonObject4, { featureProjection: get('EPSG:3857') }) })}
+                      style={iconStyle}
+                    />
+                  )}
+                  {showLayer5 && (
+                    <VectorLayer
+                      source={vector({ features: new GeoJSON().readFeatures(geojsonObject5, { featureProjection: get('EPSG:3857') }) })}
+                      style={iconStyle}
+                    />
+                  )}
+                  {showLayer6 && (
+                    <VectorLayer
+                      source={vector({ features: new GeoJSON().readFeatures(geojsonObject6, { featureProjection: get('EPSG:3857') }) })}
+                      style={iconStyle}
+                    />
+                  )}
+                </Layers>
+                <Controls>
+                  <FullScreenControl />
+                </Controls>
+              </Map>
             </div>
 
             <div className="contact-container">
@@ -275,88 +351,89 @@ function Footer() {
                     <h1 className="footer-title">Nous rencontrer</h1>
                     
                     <div className="places-list">
-                        <div className="single-place">
+
+                        <div className="single-place" onClick={showSauzet}>
                             <img className="placeBW" src="/ligneSensBW.png" alt=""/>
-                            <a >
-                                <img className="place-hover" src="/ligneSensCol.png" alt=""/>
-                            </a>
-                        </div>
-                        <div className="single-place">
-                            <img className="placeBW" src="/GuadeloupeBW.png" alt=""/>
-                            <a >
-                                <img className="place-hover" src="/GuadeloupeCol.png" alt=""/>
-                            </a>
-                        </div>
-                        <div className="single-place">
-                            <img className="placeBW" src="/MartiniqueBW.png" alt=""/>
-                            <a >
-                                <img className="place-hover" src="/MartiniqueCol.png" alt=""/>
-                            </a>
-                        </div>
-                        <div className="single-place">
-                            <img  className="placeBW"src="GuyaneBW.png" alt=""/>
-                            <a >
-                                <img className="place-hover" src="GuyaneCol.png" alt=""/>
-                            </a>
-                        </div>
-                        <div className="single-place">
-                            <img  className="placeBW"src="ReunionBW.png" alt=""/>
-                            <a >
-                                <img className="place-hover" src="ReunionCol.png" alt=""/>
-                            </a>
+                            <img className="place-hover" src="/ligneSensCol.png" alt=""/>
                         </div>
 
-                        <div onClick={handleLocation}>
-                            <div className="single-place">
-                                <img className="placeBW" src="MauritiusBW.png" alt=""/>
-                                <img className="place-hover" src="MauritiusCol.png" alt=""/>
-                            </div> 
+                        <div className="single-place" onClick={showGuadeloupe}>
+                          <img className="placeBW" src="/GuadeloupeBW.png" alt=""/>
+                          <img className="place-hover" src="/GuadeloupeCol.png" alt=""/>
                         </div>
+
+                        <div className="single-place" onClick={showMartinique}>
+                            <img className="placeBW" src="/MartiniqueBW.png" alt=""/>
+                            <img className="place-hover" src="/MartiniqueCol.png" alt=""/>
+                        </div>
+
+                        <div className="single-place" onClick={showGuyane}>
+                            <img  className="placeBW"src="GuyaneBW.png" alt=""/>
+                            <img className="place-hover" src="GuyaneCol.png" alt=""/>
+                        </div>
+
+                        <div className="single-place" onClick={showReunion}>
+                            <img  className="placeBW"src="ReunionBW.png" alt=""/>  
+                            <img className="place-hover" src="ReunionCol.png" alt=""/>
+                        </div>
+
+                     
+                        <div className="single-place" onClick={showMauritius}>
+                            <img className="placeBW" src="MauritiusBW.png" alt=""/>
+                            <img className="place-hover" src="MauritiusCol.png" alt=""/>
+                        </div> 
+                        
                     </div>
 
 
-                    {/*Test*/}
-                    <input
-                        type="checkbox"
-                        checked={showLayer5}
-                        onChange={event => setShowLayer1(event.target.checked)}
-                    /> Montre Ligne et Sens
+                    {/* Adresse et contact de chaque branche */}
+                    { showContactSauzet && (
+                    <> 
+                      <p>Adresse <span className="footer-info">81 rue du Moulin, 46140 SAUZET, France</span></p>
+                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
+                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                    </>
+                    )}
 
-                    <input
-                        type="checkbox"
-                        checked={showLayer5}
-                        onChange={event => setShowLayer2(event.target.checked)}
-                    /> Montre Guadeloupe
+                    { showContactGuadeloupe && (
+                    <> 
+                      <p>Adresse <span className="footer-info">171 rue Wiliam Youyoute Dunnoyer 97190 GOSIER, Guadeloupe</span></p>
+                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
+                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                    </>
+                    )}
 
-                    <input
-                        type="checkbox"
-                        checked={showLayer5}
-                        onChange={event => setShowLayer3(event.target.checked)}
-                    /> Montre Martinique
+                    { showContactMartinique && (
+                    <> 
+                      <p>Adresse <span className="footer-info">24 rue Raymond Berger ZAC La Marie 97224 DUCOS, Martinique</span></p>
+                      <p>Téléphone <span className="footer-info">+33 (0) 5 96 42 31 67</span ></p>
+                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                    </>
+                    )}
 
-                    <input
-                        type="checkbox"
-                        checked={showLayer5}
-                        onChange={event => setShowLayer4(event.target.checked)}
-                    /> Montre Guyane
+                    { showContactGuyane && (
+                    <> 
+                      <p>Adresse <span className="footer-info">607 route des Plages 97354 Rémire-Montjoly, Guyane</span></p>
+                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
+                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                    </>
+                    )}
 
-                    <input
-                        type="checkbox"
-                        checked={showLayer5}
-                        onChange={event => setShowLayer5(event.target.checked)}
-                    /> Montre La réunion
-
-                   <input
-                        type="checkbox"
-                        checked={showLayer6}
-                        onChange={event => setShowLayer6(event.target.checked)}
-                    /> Montre Maurice
-                    {/*Fin test*/}
-
-
-                    <p>Adresse <span className="footer-info">81 rue du Moulin, 46140 SAUZET, France</span></p>
-                    <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
-                    <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                    { showContactReunion && (
+                    <> 
+                      <p>Adresse <span className="footer-info">16 rue Claude Chappe CS 71151 97829 LE PORT CEDEX, La Réunion</span></p>
+                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
+                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                    </>
+                    )}
+                    
+                    { showContactMauritius && (
+                    <> 
+                      <p>Adresse <span className="footer-info">19, Church Street PORT LOUIS, Mauritius</span></p>
+                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
+                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                    </>
+                    )}
 
                 </div>
                 <div className="copyright">
