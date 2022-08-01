@@ -9,14 +9,24 @@ import {FaAngleDoubleUp} from "react-icons/fa";
 
 export default function Expertise() {
 
-    //states
-    const [showContent, setShowContent] = useState(false);
+    //states pouchaque menu
+    const [showRoute, setShowRoute] = useState(false); //Route et équipements de la route
+    const [showSignaletique, setShowSignaletique] = useState(false); //signalétique
+    const [showDesign, setShowDesign] = useState(false); //Design
+    const [showDeplacement, setShowDeplacement] = useState(false); //Deplacement
+    const [showIngenierie, setShowIngenierie] = useState(false); //Ingenierie
+    const [showProduction, setShowProduction] = useState(false); //Production
+    const [showAide, setShowAide] = useState(false); //Aide
+
 
     const moreContent = useRef(null);
     const expertiseSection = useRef(null);
 
-    const showDivSection = () => {
-      setShowContent(true);
+    //Route et équipements de la route
+    //Montre les sections
+    const showRouteInfo= () => {
+      setShowRoute(true);
+      setShowSignaletique(false);
       
       window.scrollTo({
         behavior: "smooth",
@@ -24,13 +34,24 @@ export default function Expertise() {
       });
       // moreContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-
+    //Cache la section
     const hideDivSection = () => {
-      setShowContent(false);
+      setShowRoute(false);
       window.scrollTo({
         behavior: "smooth",
         top: expertiseSection.current.offsetTop
       });
+    }
+
+    //Signalétique
+    const showSignaletiqueInfo = () => { //Signalétique
+      setShowSignaletique(true);
+      setShowRoute(false);
+    }
+
+    
+    const hideSignaletiqueDetails = () => {
+      setShowSignaletique(false);
     }
   
   return (
@@ -50,7 +71,7 @@ export default function Expertise() {
                   de déplacement. Cette organisation permet à Groupe GDS d’affecter aux projets, des équipes opérationnelles à la fois spécialisées
                   et pluridisciplinaires.
               </p>
-              Groupe GDS est ainsi un partenaire pour :
+              <p>Groupe GDS est ainsi un partenaire pour :</p>
               <ul>
                   <li>
                   l’amélioration de la sécurité et le confort des déplacements,
@@ -63,73 +84,82 @@ export default function Expertise() {
         </div>
 
         <ul className="nav-expertise">
-          <li><button onClick={showDivSection}> Route et équipements de la route</button></li>
-          <li><button onClick={showDivSection}>Signalétique</button></li>
-          <li><button onClick={showDivSection}>Design et graphisme</button></li>
-          <li><button onClick={showDivSection}>Déplacements et Aménagements</button></li>
-          <li><button onClick={showDivSection}>Ingénierie du trafic</button></li>
-          <li><button onClick={showDivSection}>Production et expertise de données territoriales</button></li>
-          <li><button onClick={showDivSection}>Aide à la gestion des Collectivités</button></li>
+          <li><button onClick={showRouteInfo}> Route et équipements de la route</button></li>
+          <li><button onClick={showSignaletiqueInfo}>Signalétique</button></li>
+          <li><button onClick={showDesign}>Design et graphisme</button></li>
+          <li><button onClick={showDeplacement}>Déplacements et Aménagements</button></li>
+          <li><button onClick={showIngenierie}>Ingénierie du trafic</button></li>
+          <li><button onClick={showProduction}>Production et expertise de données territoriales</button></li>
+          <li><button onClick={showAide}>Aide à la gestion des Collectivités</button></li>
         </ul>
 
         <hr/>
 
+        {/* La gallerie menue  */}
         <div className="nav-gallery">
 
-        {GalleryPictures.map((item, index) => (
-          <div className="single-gallery" key={index}>
-            <img src={item.imgPath} alt=""></img>
-            <h3>{item.titre}</h3>
-            <button onClick={showDivSection} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
-          </div>
-        ))}
-
-          {/* <div className="single-gallery">
-            <img src="/gallery1.jpg" alt=""></img>
-            <h3>Route et équipements de la route</h3>
-            <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+          <div className="single-gallery">
+                <img src="/gallery1.jpg" alt=""></img>
+                <h3>Route et équipements de la route</h3>
+                <button onClick={showRouteInfo} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
-            <img src="/gallery1.jpg" alt=""></img>
-            <h3>Route et équipements de la route</h3>
-            <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <img src="/gallery2.jpg" alt=""></img>
+                <h3>Signalétique</h3>
+                <button onClick={showSignaletique} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
-            <img src="/gallery1.jpg" alt=""></img>
-            <h3>Route et équipements de la route</h3>
-            <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <img src="/gallery3.jpg" alt=""></img>
+                <h3>Design et graphisme</h3>
+                <button onClick={showDesign} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
-            <img src="/gallery1.jpg" alt=""></img>
-            <h3>Route et équipements de la route</h3>
-            <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <img src="/gallery4.jpg" alt=""></img>
+                <h3>Déplacements et Aménagements</h3>
+                <button onClick={showDeplacement} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
-            <img src="/gallery1.jpg" alt=""></img>
-            <h3>Route et équipements de la route</h3>
-            <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <img src="/gallery5.jpg" alt=""></img>
+                <h3>Ingénierie du trafic</h3>
+                <button onClick={showIngenierie} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
-            <img src="/gallery1.jpg" alt=""></img>
-            <h3>Route et équipements de la route</h3>
-            <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <img src="/gallery6.jpg" alt=""></img>
+                <h3>Production et expertise de données territoriales</h3>
+                <button onClick={showProduction} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
-            <img src="/gallery1.jpg" alt=""></img>
-            <h3>Route et équipements de la route</h3>
-            <button className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button> 
-          </div>  */}
+                <img src="/gallery7.jpg" alt=""></img>
+                <h3>Aide à la gestion des Collectivités</h3>
+                <button onClick={showAide} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+          </div>
+
+          <div className="single-gallery">
+                <img src="/gallery8.jpg" alt=""></img>
+                <h3> </h3>
+                {/* <button onClick={showDivSection} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button> */}
+          </div>
+
+
+
+          {/* {GalleryPictures.map((item, index) => (
+            <div className="single-gallery" key={index}>
+              <img src={item.imgPath} alt=""></img>
+              <h3>{item.titre}</h3>
+              <button onClick={showDivSection} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+            </div>
+          ))} */}
 
         </div>
 
-
-        {showContent ? 
+        {/* Route et équipements de la route */}
+        {showRoute &&
           <div className="gallery-content" ref={moreContent}>
             <div className="sectionText">
               <div className="text-content">
@@ -200,7 +230,49 @@ export default function Expertise() {
             <img src="/test.jpg" alt=""/>
 
           </div>
-        : null }
+        }
+
+
+        {/* Signalétique*/}
+        {showSignaletique &&
+          <div className="gallery-content" ref={moreContent}>
+            <div className="sectionText">
+              <div className="text-content">
+                <h1>Signalétique</h1>
+                <p>Notre savoir-faire intègre la signalisation au sens large, les dispositifs de mise en sécurité d’un itinéraire ou de
+                  points particuliers liés à son utilisation (points d’arrêts ou abris bus, chantier, etc.), mais aussi les dispositifs
+                  d’exploitation du réseau.</p>
+
+                <br/>
+                
+                <p>
+                  Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
+                  métiers dédiés pour assurer la cohérence du traitement.
+                </p>
+
+                <br/>
+
+                <br/>
+
+                <p>
+                  Dans tous les cas, la concertation avec les utilisateurs et, éventuellement, les différents gestionnaires de voirie,
+                  est obligatoire pour la bonne compréhension du projet.
+                </p>
+              </div>
+
+              <br/>
+
+              <button className="btn-reference"><BiLink/> Voir nos références</button>
+
+              {/* Remonte la section */}
+              <button  className="btn-up" onClick={hideSignaletiqueDetails}><FaAngleDoubleUp className="arrowUp"/></button>
+
+            </div>
+
+            <img src="/test.jpg" alt=""/>
+
+          </div>
+        }
 
 
 
