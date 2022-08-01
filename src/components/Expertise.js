@@ -34,6 +34,7 @@ export default function Expertise() {
       });
       // moreContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
     //Cache la section
     const hideDivSection = () => {
       setShowRoute(false);
@@ -46,12 +47,97 @@ export default function Expertise() {
     //Signalétique
     const showSignaletiqueInfo = () => { //Signalétique
       setShowSignaletique(true);
+      setShowDesign(false);
+      setShowDeplacement(false);
+      setShowIngenierie(false);
+      setShowProduction(false);
       setShowRoute(false);
+      setShowAide(false);
     }
 
     
     const hideSignaletiqueDetails = () => {
       setShowSignaletique(false);
+    }
+
+    //Design
+    const showDesignInfo = () => { //Signalétique
+      setShowDesign(true);
+      setShowSignaletique(false);
+      setShowDeplacement(false);
+      setShowIngenierie(false);
+      setShowProduction(false);
+      setShowRoute(false);
+      setShowAide(false);
+    }
+
+    
+    const hideDesignDetails = () => {
+      setShowDesign(false);
+    }
+
+    //Deplacement
+    const showDeplacementInfo = () => { //Signalétique
+      setShowDeplacement(true);
+      setShowSignaletique(false);
+      setShowDesign(false);
+      setShowIngenierie(false);
+      setShowProduction(false);
+      setShowRoute(false);
+      setShowAide(false);
+    }
+
+    
+    const hideDeplacementDetails = () => {
+      setShowDeplacement(false);
+    }
+
+    //Ingenierie
+    const showIngenierieInfo = () => { //Signalétique
+      setShowIngenierie(true);
+      setShowProduction(false);
+      setShowSignaletique(false);
+      setShowDesign(false);
+      setShowDeplacement(false);
+      setShowRoute(false);
+      setShowAide(false);
+    }
+
+    
+    const hideIngenierieDetails = () => {
+      setShowIngenierie(false);
+    }
+
+    //Production
+    const showProductionInfo = () => { //Signalétique
+      setShowProduction(true);
+      setShowSignaletique(false);
+      setShowDesign(false);
+      setShowDeplacement(false);
+      setShowIngenierie(false);
+      setShowRoute(false);
+      setShowAide(false);
+    }
+
+    
+    const hideProductionDetails = () => {
+      setShowProduction(false);
+    }
+
+    //Aide
+    const showAideInfo = () => { //Signalétique
+      setShowAide(true);
+      setShowSignaletique(false);
+      setShowDesign(false);
+      setShowDeplacement(false);
+      setShowIngenierie(false);
+      setShowProduction(false);
+      setShowRoute(false);
+    }
+
+    
+    const hideAideDetails = () => {
+      setShowAide(false);
     }
   
   return (
@@ -86,11 +172,11 @@ export default function Expertise() {
         <ul className="nav-expertise">
           <li><button onClick={showRouteInfo}> Route et équipements de la route</button></li>
           <li><button onClick={showSignaletiqueInfo}>Signalétique</button></li>
-          <li><button onClick={showDesign}>Design et graphisme</button></li>
-          <li><button onClick={showDeplacement}>Déplacements et Aménagements</button></li>
-          <li><button onClick={showIngenierie}>Ingénierie du trafic</button></li>
-          <li><button onClick={showProduction}>Production et expertise de données territoriales</button></li>
-          <li><button onClick={showAide}>Aide à la gestion des Collectivités</button></li>
+          <li><button onClick={showDesignInfo}>Design et graphisme</button></li>
+          <li><button onClick={showDeplacementInfo}>Déplacements et Aménagements</button></li>
+          <li><button onClick={showIngenierieInfo}>Ingénierie du trafic</button></li>
+          <li><button onClick={showProductionInfo}>Production et expertise de données territoriales</button></li>
+          <li><button onClick={showAideInfo}>Aide à la gestion des Collectivités</button></li>
         </ul>
 
         <hr/>
@@ -107,37 +193,37 @@ export default function Expertise() {
           <div className="single-gallery">
                 <img src="/gallery2.jpg" alt=""></img>
                 <h3>Signalétique</h3>
-                <button onClick={showSignaletique} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <button onClick={showSignaletiqueInfo} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
                 <img src="/gallery3.jpg" alt=""></img>
                 <h3>Design et graphisme</h3>
-                <button onClick={showDesign} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <button onClick={showDesignInfo} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
                 <img src="/gallery4.jpg" alt=""></img>
                 <h3>Déplacements et Aménagements</h3>
-                <button onClick={showDeplacement} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <button onClick={showDeplacementInfo} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
                 <img src="/gallery5.jpg" alt=""></img>
                 <h3>Ingénierie du trafic</h3>
-                <button onClick={showIngenierie} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <button onClick={showIngenierieInfo} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
                 <img src="/gallery6.jpg" alt=""></img>
                 <h3>Production et expertise de données territoriales</h3>
-                <button onClick={showProduction} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <button onClick={showProductionInfo} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
                 <img src="/gallery7.jpg" alt=""></img>
                 <h3>Aide à la gestion des Collectivités</h3>
-                <button onClick={showAide} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
+                <button onClick={showAideInfo} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button>
           </div>
 
           <div className="single-gallery">
@@ -145,8 +231,6 @@ export default function Expertise() {
                 <h3> </h3>
                 {/* <button onClick={showDivSection} className="btn-gallery"><BsArrowRightCircle/> En savoir plus</button> */}
           </div>
-
-
 
           {/* {GalleryPictures.map((item, index) => (
             <div className="single-gallery" key={index}>
@@ -266,6 +350,212 @@ export default function Expertise() {
 
               {/* Remonte la section */}
               <button  className="btn-up" onClick={hideSignaletiqueDetails}><FaAngleDoubleUp className="arrowUp"/></button>
+
+            </div>
+
+            <img src="/test.jpg" alt=""/>
+
+          </div>
+        }
+
+
+        {/* Design*/}
+        {showDesign &&
+          <div className="gallery-content" ref={moreContent}>
+            <div className="sectionText">
+              <div className="text-content">
+                <h1>Design et graphisme</h1>
+                <p>Notre savoir-faire intègre la signalisation au sens large, les dispositifs de mise en sécurité d’un itinéraire ou de
+                  points particuliers liés à son utilisation (points d’arrêts ou abris bus, chantier, etc.), mais aussi les dispositifs
+                  d’exploitation du réseau.</p>
+
+                <br/>
+                
+                <p>
+                  Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
+                  métiers dédiés pour assurer la cohérence du traitement.
+                </p>
+
+                <br/>
+
+                <br/>
+
+                <p>
+                  Dans tous les cas, la concertation avec les utilisateurs et, éventuellement, les différents gestionnaires de voirie,
+                  est obligatoire pour la bonne compréhension du projet.
+                </p>
+              </div>
+
+              <br/>
+
+              <button className="btn-reference"><BiLink/> Voir nos références</button>
+
+              {/* Remonte la section */}
+              <button  className="btn-up" onClick={hideDesignDetails}><FaAngleDoubleUp className="arrowUp"/></button>
+
+            </div>
+
+            <img src="/test.jpg" alt=""/>
+
+          </div>
+        }
+
+        {/*Deplacement*/}
+        {showDeplacement &&
+          <div className="gallery-content" ref={moreContent}>
+            <div className="sectionText">
+              <div className="text-content">
+                <h1>Déplacements et Aménagements</h1>
+                <p>Notre savoir-faire intègre la signalisation au sens large, les dispositifs de mise en sécurité d’un itinéraire ou de
+                  points particuliers liés à son utilisation (points d’arrêts ou abris bus, chantier, etc.), mais aussi les dispositifs
+                  d’exploitation du réseau.</p>
+
+                <br/>
+                
+                <p>
+                  Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
+                  métiers dédiés pour assurer la cohérence du traitement.
+                </p>
+
+                <br/>
+
+                <br/>
+
+                <p>
+                  Dans tous les cas, la concertation avec les utilisateurs et, éventuellement, les différents gestionnaires de voirie,
+                  est obligatoire pour la bonne compréhension du projet.
+                </p>
+              </div>
+
+              <br/>
+
+              <button className="btn-reference"><BiLink/> Voir nos références</button>
+
+              {/* Remonte la section */}
+              <button  className="btn-up" onClick={hideDeplacementDetails}><FaAngleDoubleUp className="arrowUp"/></button>
+
+            </div>
+
+            <img src="/test.jpg" alt=""/>
+
+          </div>
+        }
+
+        {/*Ingenierie*/}
+        {showIngenierie &&
+          <div className="gallery-content" ref={moreContent}>
+            <div className="sectionText">
+              <div className="text-content">
+                <h1>Ingénierie du trafic</h1>
+                <p>Notre savoir-faire intègre la signalisation au sens large, les dispositifs de mise en sécurité d’un itinéraire ou de
+                  points particuliers liés à son utilisation (points d’arrêts ou abris bus, chantier, etc.), mais aussi les dispositifs
+                  d’exploitation du réseau.</p>
+
+                <br/>
+                
+                <p>
+                  Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
+                  métiers dédiés pour assurer la cohérence du traitement.
+                </p>
+
+                <br/>
+
+                <br/>
+
+                <p>
+                  Dans tous les cas, la concertation avec les utilisateurs et, éventuellement, les différents gestionnaires de voirie,
+                  est obligatoire pour la bonne compréhension du projet.
+                </p>
+              </div>
+
+              <br/>
+
+              <button className="btn-reference"><BiLink/> Voir nos références</button>
+
+              {/* Remonte la section */}
+              <button  className="btn-up" onClick={hideIngenierieDetails}><FaAngleDoubleUp className="arrowUp"/></button>
+
+            </div>
+
+            <img src="/test.jpg" alt=""/>
+
+          </div>
+        }
+
+        {/*Production*/}
+        {showProduction&&
+          <div className="gallery-content" ref={moreContent}>
+            <div className="sectionText">
+              <div className="text-content">
+                <h1>Production et expertise de données territoriales</h1>
+                <p>Notre savoir-faire intègre la signalisation au sens large, les dispositifs de mise en sécurité d’un itinéraire ou de
+                  points particuliers liés à son utilisation (points d’arrêts ou abris bus, chantier, etc.), mais aussi les dispositifs
+                  d’exploitation du réseau.</p>
+
+                <br/>
+                
+                <p>
+                  Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
+                  métiers dédiés pour assurer la cohérence du traitement.
+                </p>
+
+                <br/>
+
+                <br/>
+
+                <p>
+                  Dans tous les cas, la concertation avec les utilisateurs et, éventuellement, les différents gestionnaires de voirie,
+                  est obligatoire pour la bonne compréhension du projet.
+                </p>
+              </div>
+
+              <br/>
+
+              <button className="btn-reference"><BiLink/> Voir nos références</button>
+
+              {/* Remonte la section */}
+              <button  className="btn-up" onClick={hideProductionDetails}><FaAngleDoubleUp className="arrowUp"/></button>
+
+            </div>
+
+            <img src="/test.jpg" alt=""/>
+
+          </div>
+        }
+
+        {/*Aide*/}
+        {showAide &&
+          <div className="gallery-content" ref={moreContent}>
+            <div className="sectionText">
+              <div className="text-content">
+                <h1>Aide à la gestion des Collectivités</h1>
+                <p>Notre savoir-faire intègre la signalisation au sens large, les dispositifs de mise en sécurité d’un itinéraire ou de
+                  points particuliers liés à son utilisation (points d’arrêts ou abris bus, chantier, etc.), mais aussi les dispositifs
+                  d’exploitation du réseau.</p>
+
+                <br/>
+                
+                <p>
+                  Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
+                  métiers dédiés pour assurer la cohérence du traitement.
+                </p>
+
+                <br/>
+
+                <br/>
+
+                <p>
+                  Dans tous les cas, la concertation avec les utilisateurs et, éventuellement, les différents gestionnaires de voirie,
+                  est obligatoire pour la bonne compréhension du projet.
+                </p>
+              </div>
+
+              <br/>
+
+              <button className="btn-reference"><BiLink/> Voir nos références</button>
+
+              {/* Remonte la section */}
+              <button  className="btn-up" onClick={hideAideDetails}><FaAngleDoubleUp className="arrowUp"/></button>
 
             </div>
 
