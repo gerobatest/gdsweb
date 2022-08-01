@@ -20,7 +20,6 @@ import DetailsMauritius from "./data/DetailsMauritius";
 import 'react-alice-carousel/lib/alice-carousel.css';
 import '../style/APropos.scss';
 
-
 export default function APropos() {
 
     const [editIndex, setEditIndex] = useState(null);
@@ -30,7 +29,13 @@ export default function APropos() {
     const [showInfoLigne, setShowInfoLigne] = useState(false);
     const handleClickLigne = () => {
         setShowContentLigne(true);
+        setShowContentGuadeloupe(false);
+        setShowContentMartinique(false);
+        setShowContentGuyane(false);
+        setShowContentRe(false);
+        setShowContent(false);
     }
+
     const hideClickLigne = () => {
         setShowContentLigne(false);
     }
@@ -45,6 +50,11 @@ export default function APropos() {
     const [showInfoGuadeloupe, setShowInfoGuadeloupe] = useState(false);
     const handleClickGuadeloupe = () => {
         setShowContentGuadeloupe(true);
+        setShowContentLigne(false);
+        setShowContentMartinique(false);
+        setShowContentGuyane(false);
+        setShowContentRe(false);
+        setShowContent(false);
     }
     const hideClickGuadeloupe = () => {
         setShowContentGuadeloupe(false);
@@ -59,7 +69,12 @@ export default function APropos() {
     const [showContentMartinique, setShowContentMartinique] = useState(false);
     const [showInfoMartinique, setShowInfoMartinique] = useState(false);
     const handleClickMartinique = () => {
-        setShowContentMartinique(true);
+        setShowContentMartinique(false);
+        setShowContentLigne(true);
+        setShowContentGuadeloupe(false);
+        setShowContentGuyane(false);
+        setShowContentRe(false);
+        setShowContent(false);
     }
     const hideClickMartinique = () => {
         setShowContentMartinique (false);
@@ -75,6 +90,11 @@ export default function APropos() {
     const [showInfoGuyane, setShowInfoGuyane] = useState(false);
     const handleClickGuyane = () => {
         setShowContentGuyane(true);
+        setShowContentLigne(false);
+        setShowContentGuadeloupe(false);
+        setShowContentMartinique(false);
+        setShowContentRe(false);
+        setShowContent(false);
     }
     const hideClickGuyane = () => {
         setShowContentGuyane(false);
@@ -90,6 +110,11 @@ export default function APropos() {
       const [showInfoRe, setShowInfoRe] = useState(false);
       const handleClickRe = () => {
           setShowContentRe(true);
+          setShowContentLigne(false);
+        setShowContentGuadeloupe(false);
+        setShowContentMartinique(false);
+        setShowContentGuyane(false);
+        setShowContent(false);
       }
       const hideClickRe = () => {
           setShowContentRe(false);
@@ -106,6 +131,11 @@ export default function APropos() {
     const [showInfo, setShowInfo] = useState(false);
     const handleClick = () => {
         setShowContent(true);
+        setShowContentLigne(false);
+        setShowContentGuadeloupe(false);
+        setShowContentMartinique(false);
+        setShowContentGuyane(false);
+        setShowContentRe(false);
     }
     const hideClick = () => {
         setShowContent(false);
