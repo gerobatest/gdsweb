@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import {IoMdAddCircleOutline, IoIosCloseCircleOutline} from 'react-icons/io';
 import {FaAngleDoubleUp} from "react-icons/fa";
@@ -23,10 +23,12 @@ import '../style/APropos.scss';
 export default function APropos() {
 
     const [editIndex, setEditIndex] = useState(null);
+    const infoLigne = useRef(null);
 
     /*fonction clique Ligne&Sens*/
     const [showContentLigne, setShowContentLigne] = useState(false);
     const [showInfoLigne, setShowInfoLigne] = useState(false);
+    
     const handleClickLigne = () => {
         setShowContentLigne(true);
         setShowContentGuadeloupe(false);
@@ -34,14 +36,14 @@ export default function APropos() {
         setShowContentGuyane(false);
         setShowContentRe(false);
         setShowContent(false);
+        infoLigne.scrollIntoView( { behavior: 'smooth', block: 'start' } );
     }
-
     const hideClickLigne = () => {
         setShowContentLigne(false);
     }
     const showDetailsLigne = () => {
         setShowInfoLigne(!showInfoLigne);
-    } 
+    }  
     /*fonction clique Ligne*/
 
 
@@ -69,8 +71,8 @@ export default function APropos() {
     const [showContentMartinique, setShowContentMartinique] = useState(false);
     const [showInfoMartinique, setShowInfoMartinique] = useState(false);
     const handleClickMartinique = () => {
-        setShowContentMartinique(false);
-        setShowContentLigne(true);
+        setShowContentMartinique(true);
+        setShowContentLigne(false);
         setShowContentGuadeloupe(false);
         setShowContentGuyane(false);
         setShowContentRe(false);
@@ -109,8 +111,8 @@ export default function APropos() {
       const [showContentRe, setShowContentRe] = useState(false);
       const [showInfoRe, setShowInfoRe] = useState(false);
       const handleClickRe = () => {
-          setShowContentRe(true);
-          setShowContentLigne(false);
+        setShowContentRe(true);
+        setShowContentLigne(false);
         setShowContentGuadeloupe(false);
         setShowContentMartinique(false);
         setShowContentGuyane(false);
@@ -386,7 +388,7 @@ export default function APropos() {
 
         {/*pour appeler le contenu de chaque branche, ici c'est pour Ligne*/}
         {showContentLigne && 
-            <div className="about-invisible">
+            <div className="about-invisible" ref={infoLigne}>
                 <div className="about-branch">
                     <div className="fill"></div>
                     {DetailsLigne.map((item, index) => (

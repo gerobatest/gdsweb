@@ -1,23 +1,27 @@
 import React, {useRef} from 'react';
 import { Parallax } from 'react-scroll-parallax';
+//import {AnimatedOnScroll} from "react-animated-css-onscroll";
 import '../style/Innovation.scss';
+//import "animate.css/animate.min.css";
 import {BsArrowRightCircle} from "react-icons/bs";
+import handleViewport from 'react-in-viewport';
 
-export default function Innovation() {
 
-  const imageParallax = useRef(null);
+const Block = (props) => {
+  const { inViewport, forwardedRef } = props;
+ 
+  return (
+      <div className="sectionImage">
+         <img style={ {transform: 'translateX(0%)'}} src="/tablette.png" alt="Tablette Geroba"/> 
+      </div>
+  );
+};
 
-  const scrollImage = () => {
-    //imageParallax.style.transform = 'translateX(320px, -100px)';
-    console.log("hi");
-  }
+const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 
-  const handleParallax = () => {
-    //Vérifie la position
-  }
+export default function Innovation(props) {
 
- scrollImage();
-
+  const imageParallax = useRef();
 
   return (
     <div className="innovation" id="innovation">
@@ -47,15 +51,18 @@ export default function Innovation() {
             <br/>
             <a href="#" className="geroba-link"><BsArrowRightCircle className="arrow-right"/> En savoir plus</a>
         </div>
-        {/* Image avec effet parallaxe */}
+        
+
+        <ViewportBlock/>
+
+        {/* Image avec effet parallaxe 
         <div className="sectionImage">
+         <img ref={imageParallax} src="/tablette.png" alt="Tablette Geroba"/> 
 
-            <img ref={imageParallax} src="/tablette.png" alt="Tablette Geroba"/>
-
-            {/* <Parallax translateX={['320px', '-100px']}> 
-                <img ref={imageParallax} src="/tablette.png" alt="Tablette Geroba"/>
-            </Parallax> */}
-        </div>
+          <Parallax translateX={['320px', '-100px']}> 
+              <img ref={imageParallax} src="/tablette.png" alt="Tablette Geroba"/>
+          </Parallax> 
+        </div>*/}
     </div>
   )
 }

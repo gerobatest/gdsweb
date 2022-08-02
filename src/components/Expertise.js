@@ -18,26 +18,39 @@ export default function Expertise() {
     const [showProduction, setShowProduction] = useState(false); //Production
     const [showAide, setShowAide] = useState(false); //Aide
 
-
-    const moreContent = useRef(null);
-    const expertiseSection = useRef(null);
+    //Reference pour chaque section, là où le window scroll
+    const routeContent = useRef();
+    const signaletiqueContent = useRef();
+    const designContent = useRef();
+    const deplacementContent = useRef();
+    const ingenierieContent = useRef();
+    const productionContent = useRef();
+    const aideContent = useRef();
+    const expertiseSection = useRef();
 
     //Route et équipements de la route
     //Montre les sections
     const showRouteInfo= () => {
       setShowRoute(true);
       setShowSignaletique(false);
+      setShowDesign(false);
+      setShowDeplacement(false);
+      setShowIngenierie(false);
+      setShowProduction(false);
+      setShowAide(false);
       
-      window.scrollTo({
+      /*window.scrollTo({
         behavior: "smooth",
-        top: moreContent.current.offsetTop
-      });
-      // moreContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        top: routeContent.current.offsetTop
+      });*/
+
+      routeContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' }); //marche avec deux clicks
     }
 
-    //Cache la section
+    //Cache la section Route
     const hideDivSection = () => {
       setShowRoute(false);
+
       window.scrollTo({
         behavior: "smooth",
         top: expertiseSection.current.offsetTop
@@ -53,11 +66,18 @@ export default function Expertise() {
       setShowProduction(false);
       setShowRoute(false);
       setShowAide(false);
+
+      signaletiqueContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
     const hideSignaletiqueDetails = () => {
       setShowSignaletique(false);
+
+      window.scrollTo({
+        behavior: "smooth",
+        top: expertiseSection.current.offsetTop
+      });
     }
 
     //Design
@@ -69,11 +89,18 @@ export default function Expertise() {
       setShowProduction(false);
       setShowRoute(false);
       setShowAide(false);
+
+      designContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
     const hideDesignDetails = () => {
       setShowDesign(false);
+
+      window.scrollTo({
+        behavior: "smooth",
+        top: expertiseSection.current.offsetTop
+      });
     }
 
     //Deplacement
@@ -85,11 +112,18 @@ export default function Expertise() {
       setShowProduction(false);
       setShowRoute(false);
       setShowAide(false);
+
+      deplacementContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
     const hideDeplacementDetails = () => {
       setShowDeplacement(false);
+
+      window.scrollTo({
+        behavior: "smooth",
+        top: expertiseSection.current.offsetTop
+      });
     }
 
     //Ingenierie
@@ -101,11 +135,18 @@ export default function Expertise() {
       setShowDeplacement(false);
       setShowRoute(false);
       setShowAide(false);
+
+      ingenierieContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
     const hideIngenierieDetails = () => {
       setShowIngenierie(false);
+
+      window.scrollTo({
+        behavior: "smooth",
+        top: expertiseSection.current.offsetTop
+      });
     }
 
     //Production
@@ -117,11 +158,18 @@ export default function Expertise() {
       setShowIngenierie(false);
       setShowRoute(false);
       setShowAide(false);
+
+      productionContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
     const hideProductionDetails = () => {
       setShowProduction(false);
+
+      window.scrollTo({
+        behavior: "smooth",
+        top: expertiseSection.current.offsetTop
+      });
     }
 
     //Aide
@@ -133,11 +181,18 @@ export default function Expertise() {
       setShowIngenierie(false);
       setShowProduction(false);
       setShowRoute(false);
+
+      aideContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
     const hideAideDetails = () => {
       setShowAide(false);
+
+      window.scrollTo({
+        behavior: "smooth",
+        top: expertiseSection.current.offsetTop
+      });
     }
   
   return (
@@ -244,7 +299,7 @@ export default function Expertise() {
 
         {/* Route et équipements de la route */}
         {showRoute &&
-          <div className="gallery-content" ref={moreContent}>
+          <div className="gallery-content" ref={routeContent}>
             <div className="sectionText">
               <div className="text-content">
                 <h1>Route et équipements de la route</h1>
@@ -254,7 +309,7 @@ export default function Expertise() {
 
                 <br/>
 
-                Cela concerne les sous-domaines suivants :
+                <p>Cela concerne les sous-domaines suivants :</p>
                 <ul>
                   <li>Signalisation de jalonnement (diagnostic, schéma directeur, projet de définition, …).</li>
                   <li>Signalisation de police (diagnostic, plan de signalisation, rédaction des arrêtés, …).</li>
@@ -264,7 +319,7 @@ export default function Expertise() {
 
                 <br/>
 
-                Nos interventions portent sur tous types de projets :
+                <p>Nos interventions portent sur tous types de projets :</p>
                 <ul>
                   <li>Gestion au quotidien du domaine public et de ses équipements.</li>
                   <li>Expertise et définition de l’amélioration de la situation existante.</li>
@@ -280,7 +335,7 @@ export default function Expertise() {
 
                 <br/>
 
-                Il peut s’agir également d’études de sécurité routière.
+                <p>Il peut s’agir également d’études de sécurité routière.</p>
                 <ul>
                   <li>
                     Nous réalisons une étude détaillée de la zone à sécuriser (observations, comptages, relevés, analyse de
@@ -311,6 +366,7 @@ export default function Expertise() {
 
             </div>
 
+            {/* Image descriptif */}
             <img src="/test.jpg" alt=""/>
 
           </div>
@@ -319,7 +375,7 @@ export default function Expertise() {
 
         {/* Signalétique*/}
         {showSignaletique &&
-          <div className="gallery-content" ref={moreContent}>
+          <div className="gallery-content" ref={signaletiqueContent}>
             <div className="sectionText">
               <div className="text-content">
                 <h1>Signalétique</h1>
@@ -336,8 +392,6 @@ export default function Expertise() {
 
                 <br/>
 
-                <br/>
-
                 <p>
                   Dans tous les cas, la concertation avec les utilisateurs et, éventuellement, les différents gestionnaires de voirie,
                   est obligatoire pour la bonne compréhension du projet.
@@ -350,9 +404,9 @@ export default function Expertise() {
 
               {/* Remonte la section */}
               <button  className="btn-up" onClick={hideSignaletiqueDetails}><FaAngleDoubleUp className="arrowUp"/></button>
-
             </div>
 
+            {/* Image descriptif */}
             <img src="/test.jpg" alt=""/>
 
           </div>
@@ -361,7 +415,7 @@ export default function Expertise() {
 
         {/* Design*/}
         {showDesign &&
-          <div className="gallery-content" ref={moreContent}>
+          <div className="gallery-content" ref={designContent}>
             <div className="sectionText">
               <div className="text-content">
                 <h1>Design et graphisme</h1>
@@ -375,8 +429,6 @@ export default function Expertise() {
                   Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
                   métiers dédiés pour assurer la cohérence du traitement.
                 </p>
-
-                <br/>
 
                 <br/>
 
@@ -395,6 +447,7 @@ export default function Expertise() {
 
             </div>
 
+            {/* Image descriptif */}
             <img src="/test.jpg" alt=""/>
 
           </div>
@@ -402,22 +455,19 @@ export default function Expertise() {
 
         {/*Deplacement*/}
         {showDeplacement &&
-          <div className="gallery-content" ref={moreContent}>
+          <div className="gallery-content" ref={deplacementContent}>
             <div className="sectionText">
               <div className="text-content">
                 <h1>Déplacements et Aménagements</h1>
                 <p>Notre savoir-faire intègre la signalisation au sens large, les dispositifs de mise en sécurité d’un itinéraire ou de
                   points particuliers liés à son utilisation (points d’arrêts ou abris bus, chantier, etc.), mais aussi les dispositifs
                   d’exploitation du réseau.</p>
-
                 <br/>
                 
                 <p>
                   Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
                   métiers dédiés pour assurer la cohérence du traitement.
                 </p>
-
-                <br/>
 
                 <br/>
 
@@ -436,6 +486,7 @@ export default function Expertise() {
 
             </div>
 
+            {/* Image descriptif */}
             <img src="/test.jpg" alt=""/>
 
           </div>
@@ -443,7 +494,7 @@ export default function Expertise() {
 
         {/*Ingenierie*/}
         {showIngenierie &&
-          <div className="gallery-content" ref={moreContent}>
+          <div className="gallery-content" ref={ingenierieContent}>
             <div className="sectionText">
               <div className="text-content">
                 <h1>Ingénierie du trafic</h1>
@@ -457,8 +508,6 @@ export default function Expertise() {
                   Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
                   métiers dédiés pour assurer la cohérence du traitement.
                 </p>
-
-                <br/>
 
                 <br/>
 
@@ -477,6 +526,7 @@ export default function Expertise() {
 
             </div>
 
+            {/* Image descriptif */}
             <img src="/test.jpg" alt=""/>
 
           </div>
@@ -484,7 +534,7 @@ export default function Expertise() {
 
         {/*Production*/}
         {showProduction&&
-          <div className="gallery-content" ref={moreContent}>
+          <div className="gallery-content" ref={productionContent}>
             <div className="sectionText">
               <div className="text-content">
                 <h1>Production et expertise de données territoriales</h1>
@@ -498,8 +548,6 @@ export default function Expertise() {
                   Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
                   métiers dédiés pour assurer la cohérence du traitement.
                 </p>
-
-                <br/>
 
                 <br/>
 
@@ -518,6 +566,7 @@ export default function Expertise() {
 
             </div>
 
+            {/* Image descriptif */}
             <img src="/test.jpg" alt=""/>
 
           </div>
@@ -525,7 +574,7 @@ export default function Expertise() {
 
         {/*Aide*/}
         {showAide &&
-          <div className="gallery-content" ref={moreContent}>
+          <div className="gallery-content" ref={aideContent}>
             <div className="sectionText">
               <div className="text-content">
                 <h1>Aide à la gestion des Collectivités</h1>
@@ -539,8 +588,6 @@ export default function Expertise() {
                   Nous garantissons à la fois notre capacité à réaliser les études attendues ainsi que l’utilisation de logiciels
                   métiers dédiés pour assurer la cohérence du traitement.
                 </p>
-
-                <br/>
 
                 <br/>
 
@@ -559,12 +606,11 @@ export default function Expertise() {
 
             </div>
 
+            {/* Image descriptif */}
             <img src="/test.jpg" alt=""/>
 
           </div>
         }
-
-
 
     </div>
   )

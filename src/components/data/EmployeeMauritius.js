@@ -7,7 +7,7 @@ const EmployeeMauritius = [
         position: 'Directeur Exécutif', 
         mail: 'john@groupe-gds.eu',
         couleurMail: '#82368C',
-        imgPath: '/man.png'
+        imgPath: '/man2.png'
     },
     {
         id: uuidv4(),
@@ -23,7 +23,7 @@ const EmployeeMauritius = [
         position: 'Développeur Team Lead', 
         mail: 'jt.rakotondrazafy@doe.eu',
         couleurMail: '#82368C',
-        imgPath: '/man.png'
+        imgPath: '/man3.png'
     },
     {
         id: uuidv4(),
@@ -39,7 +39,7 @@ const EmployeeMauritius = [
         position: 'QA Tester', 
         mail: 'john@doe-mu.com',
         couleurMail: '#82368C',
-        imgPath: '/man.png'
+        imgPath: '/man3.png'
     }
 ];
 

@@ -119,7 +119,20 @@
         position: relative;
         padding: 1.5%; //TEMP???VARIABLE : Commun pour tous
         display: flex;
-        transition: all 2s ease-in-out;
+        
+        @include keyframes(fadeIn){
+            0%{
+                opacity: 0;
+                }
+            50%{
+                opacity: 0.5;
+                }
+            100%{
+                opacity: 1;
+            }
+        }
+        @include animate(fadeIn, 0.8s, linear, 1);
+        
         .sectionText{
             width: 60%; //Variable
             .text-content{

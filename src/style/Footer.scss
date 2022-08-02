@@ -9,6 +9,7 @@
     }
     .map{
         background: rgb(196, 228, 196);
+        object-fit: fill; //pour que la carte occupe toute la partie disponible
     }
     .contact-container{
         padding: 40px $sectionPaddingLg;
@@ -120,9 +121,23 @@
 
             p{
                 color:$grey;
+                transition: all 1s ease-in-out; //on veut ajouter un effet
             }
             .footer-info{
                 color: $white;
+
+                @include keyframes(fadeIn){
+                    0%{
+                        opacity: 0;
+                        }
+                    50%{
+                        opacity: 0.5;
+                        }
+                    100%{
+                        opacity: 1;
+                    }
+                }
+                @include animate(fadeIn, 0.8s, linear, 1);
             }
         }
         .copyright{

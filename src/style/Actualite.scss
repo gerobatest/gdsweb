@@ -80,8 +80,33 @@
                     margin-top: 25px;
                     color: $grey;
                 }
+                a{
+                    text-decoration: none;
+                    color:$blue;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }
 
+    //ajoute l'animation scroll horizontal pour chaque section d'article
+    #post2021, #post2020, #postPress{
+        @include keyframes(scrollLeft){
+            0%{
+                transform: translateX(90%);
+            }
+            45%{
+                transform: translateX(65%);
+            }
+            75%{
+                transform: translateX(45%);
+            }
+           100%{
+                transform: translateX(0%);
+            }
+        }
+        @include animate(scrollLeft, 0.7s, linear, 1);
+    }
 }

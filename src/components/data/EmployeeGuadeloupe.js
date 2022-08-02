@@ -5,7 +5,7 @@ const EmployeeGuadeloupe = [
         position: 'Directeur Exécutif', 
         mail: 'lj.mayotte@groupe-gds.eu',
         couleurMail: '#EC6608',
-        imgPath: '/man.png'
+        imgPath: '/man2.png'
     },
     {
         nom: 'Deborah Noirette', 
@@ -19,21 +19,21 @@ const EmployeeGuadeloupe = [
         position: 'Développeur Team Lead', 
         mail: 'jt.rakotondrazafy@groupe-gds.eu',
         couleurMail: '#EC6608',
-        imgPath: '/man.png'
+        imgPath: '/man3.png'
     },
     {
         nom: 'Fabienne Tsioriniaina', 
         position: 'Développeur', 
         mail: 'f.tsioriniaina@gds-mu.com',
         couleurMail: '#EC6608',
-        imgPath: '/woman.png'
+        imgPath: '/woman2.png'
     },
     {
         nom: 'Ristin Tsokizep Fokone', 
         position: 'Développeur', 
         mail: 'r.fokone@gds-mu.com',
         couleurMail: '#EC6608',
-        imgPath: '/man.png'
+        imgPath: '/man3.png'
     }
 ];
 

@@ -21,17 +21,12 @@ import Point from 'ol/geom/Point';
 import {Icon} from 'ol/style';
 
 
-const iconFeature = new Feature({
+/*const iconFeature = new Feature({
     geometry: new Point([1.253639, 44.414870]),
     name: '81 rue du Moulin, 46140 SAUZET, France'
-});
+});*/
 
-const iconMauritius = new Feature({
-    geometry: new Point([-20.16361347403224, 57.507731726107316]),
-    name: '19, Church Street PORT LOUIS'
-});
-  
-  //La marqueur orange 
+  //La marqueur orange (location)
   const iconStyle = new Style({
     image: new Icon({
       anchor: [0.5, 46],
@@ -42,10 +37,9 @@ const iconMauritius = new Feature({
     }),
   });
 
-  iconFeature.setStyle(iconStyle);
-  iconMauritius.setStyle(iconStyle);
+  /*iconFeature.setStyle(iconStyle);*/
 
-  
+  //Ce paragraphe récupère les données géographique de chaque location depuis config.json
   const geojsonObject1 = mapConfig.geojsonObject1;//France sauzet
   const geojsonObject2 = mapConfig.geojsonObject2; //Guadeloupe
   const geojsonObject3 = mapConfig.geojsonObject3; //Martinique
@@ -75,11 +69,13 @@ function Footer() {
     const [showCancelButton, setShowCancelButton] = useState(false); //Bouton annuler
     const [showSendButton, setShowSendButton] = useState(false);  //Bouton envoyer 
 
+    //fait référence à la textarea 
     const scrollable = useRef(null); 
   
     //const scrollHeight = scrollable.current?.clientHeight / 2;
     const scrollHeight = 10;
   
+    //Scoll les textes dans le textarea
     const scrollUp = (e) => {
       e.preventDefault();
       const scrollLength = -scrollHeight; //calcul moitié de la div final
@@ -92,7 +88,7 @@ function Footer() {
       scrollable.current.scrollBy({top: scrollLength, behavior: "smooth"})
     }
 
-     //Les valeurs depuis la forme
+    //Les valeurs depuis la forme
     const [formVal, setFormVal] = useState({
         name:'',
         phone:'',
@@ -101,6 +97,7 @@ function Footer() {
         error: null
     });
 
+    //Montre et/ou cache les boutons envoyer et/ou annuler
     const handleChange = (e) => {
         const {name,value} = e.target
         setFormVal(prevState=>{
@@ -219,6 +216,7 @@ function Footer() {
 
     return (
         <div id="contact">
+          
             {/* La carte */}
             <div className="map">
               <Map center={fromLonLat(center)} zoom={zoom}>

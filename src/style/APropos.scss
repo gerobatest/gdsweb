@@ -33,6 +33,19 @@
         margin: 20px 0px;
         position: relative;
 
+        @include keyframes(fadeIn){
+            0%{
+                opacity: 0;
+                }
+            50%{
+                opacity: 0.5;
+                }
+            100%{
+                opacity: 1;
+            }
+        }
+        @include animate(fadeIn, 0.8s, linear, 1);
+
         .about-branch{
             display: flex;
             .fill{
@@ -137,7 +150,20 @@
     .employeeInfo{
         //display: none;
         bottom: 0;
-        transition: all .2s;
+
+        @include keyframes(fadeIn){
+            0%{
+                opacity: 0;
+                }
+            50%{
+                opacity: 0.5;
+                }
+            100%{
+                opacity: 1;
+            }
+        }
+        @include animate(fadeIn, 0.8s, linear, 1);
+
         .function{
             color: $grey-slider; 
         }

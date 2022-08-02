@@ -1,6 +1,7 @@
 @import "Variables.scss";
 @import "Commun.scss";
 
+
 .innovation{
     display:flex;
     background: $grey-bg;
@@ -31,7 +32,8 @@
             //Fin commentaire 
         }
         .geroba-link{
-            color: $black;
+            //color: $grey-txt;
+            color: $orange;
             text-decoration: none;
             &:hover{
                 text-decoration: underline;
@@ -42,7 +44,21 @@
         overflow: hidden;
 
         img{
-            transition: all 2s ease-in;
+            transform: translateX(85%);
+
+            @include keyframes(parallax){
+                0%{
+                    transform: translateX(85%);
+                    }
+                50%{
+                    transform: translateX(55%);opacity: 0.5;
+                    }
+                100%{
+                    transform: translateX(0%);
+                }
+            }
+            @include animate(parallax, 0.8s, linear, 1);  
+            //transition: all 0.3s ease-in;
         }
     }
     .arrow-right{

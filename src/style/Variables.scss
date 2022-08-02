@@ -11,6 +11,8 @@ $blck-link: #1D1D1B;
 $orange: #EB7139; //Géroba
 $grey: #797979;  //texte articles
 $grey-slider: #878787; //couleur slider employés
+$grey-txt: #575756; //texte à notre propos
+$grey-description: #BDBCBC; //texte description pour chaque branche 
 $grey-bg: #E2E1E1; //gerobe: innovation
 $grey-footer: #616160; //Copyright 
 $grey-link: #929292; //navbar notre expertise
@@ -36,3 +38,13 @@ $sectionspacingLg: 80px; //écran large
 $sectionPaddingLg: 60px;
 
 //Dimensions responsives
+//animation quand on clique sur une date (horizontal scrooll)
+@mixin animate($animation,$duration,$method,$times){
+    animation: $animation $duration $method $times;
+}
+
+@mixin keyframes($name){
+    @keyframes #{$name}{
+        @content;
+    }
+}
