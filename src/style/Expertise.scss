@@ -162,3 +162,106 @@
 
     } 
 }
+
+//Responsive styles
+@include mediaXs{
+    .expertise{
+         .top-section{
+            display: block;
+            h1{
+                margin-bottom: 25px;
+                padding: 0px $sectionPaddingXs;
+                width: 100%;
+            }
+            div{
+                width: 100%;
+                padding: 0px $sectionPaddingXs;
+            }
+        }
+
+        .nav-expertise{
+            display: none; //on cache pour l'instant
+        }
+
+        .nav-gallery{
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin: 0px auto;
+    
+            .single-gallery{
+                width: 100%;
+                //height: 50%;
+    
+                h3, .btn-gallery{
+                    display: block;
+                    font-size: $fontsizeSm;
+                }
+    
+                .btn-gallery{
+                    background:none;
+                    border: none;
+                    bottom: 15px;
+                    left: 10px;
+    
+                    &:hover{
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+            }  
+        }
+        .gallery-content{
+            display: block;
+            .sectionText{
+                width: 100%;
+            }
+            img{
+                display: none; //cacher pour l'instant
+            }
+        }
+    }
+}
+
+@include mediaSm{
+    .expertise{
+
+       .nav-expertise{
+           display: none; //on cache pour l'instant
+       }
+
+       .nav-gallery{
+   
+           .single-gallery{
+               width: 50%;
+   
+               h3, .btn-gallery{
+                    display: block;
+                   font-size: $fontsizeSm;
+               }
+           }  
+       }
+   }
+}
+
+@include mediaMd{
+    .expertise{
+
+       .nav-expertise{
+           display: none; //on cache pour l'instant
+       }
+
+       .nav-gallery{
+   
+           .single-gallery{
+               width: 50%;
+   
+               h3, .btn-gallery{
+                    display: block;
+                   font-size: $fontsizeSm;
+               }
+           }  
+       }
+   }
+}

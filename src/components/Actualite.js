@@ -8,8 +8,6 @@ export default function Actualite() {
   const [showPost2021, setShowPost2021] = useState(true); //initialement, ce sont les postes de 2021 qui sont montrées
   const [showPress, setShowPress] = useState(false);
 
-  const all2021Posts = useRef(null);
-
   const handlePost2021 = () => {
     setShowPost2021(true);
     setShowPost2020(false);

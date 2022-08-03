@@ -38,19 +38,21 @@ li{
 //Le style pour les branches 
 @mixin logoPays{
     .places-list{
-        background: pink;
         margin: 30px 0px;
         display:flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center; 
 
         .single-place{
-            background: yellow;
+
             img{
-                width: 100%; /* or any custom size */
-                height: 100%; 
+                max-width:100%;
+                max-height:100%;
                 object-fit: contain;
-                background: green;
+                display:flex;
+                flex-wrap: wrap;
+                align-items: center; 
             }
             .place-hover{
                 display:none;
@@ -91,5 +93,74 @@ li{
                 color: $white;
             }
         }
+    }
+}
+
+//Responsive styles
+@include mediaXs{
+    p, li{
+        line-height: $lineHeightSm;
+        font-size: $fontsizeSm;
+        color: $grey-txt;
+    }
+    .title{
+        font-size: 35px;  //TEMP:
+        font-weight: lighter;
+        span{
+            font-size:45px;
+            font-weight: bold;
+        }
+    }
+}
+
+@include mediaSm{
+    p, li{
+        line-height: $lineHeightSm;
+        font-size: $fontsizeSm;
+        color: $grey-txt;
+    }
+    .title{
+        font-size: 30px;  //TEMP:
+        font-weight: lighter;
+        span{
+            font-size:40px;
+            font-weight: bold;
+        }
+    }
+}
+
+@include mediaMd{
+    p, li{
+        line-height: $lineHeightMd;
+        font-size: $fontsizeMd;
+        color: $grey-txt;
+    }
+    .title{
+        font-size: 35px;  //TEMP:
+        font-weight: lighter;
+        span{
+            font-size:45px;
+            font-weight: bold;
+        }
+    }
+}
+
+@include mediaXl{
+    p, li{
+        line-height: $lineHeightXl;
+        font-size: $fontsizeXl;
+        color: $grey-txt;
+    }
+}
+
+@include mediaXxl{
+    .superContainer{
+        width: 2560px;
+        margin: auto;
+    }
+    p, li{
+        line-height: $lineHeightXxl;
+        font-size: $fontsizeXxl;
+        color: $grey-txt;
     }
 }

@@ -3,7 +3,7 @@
 
 
 .slider{
-  width:100%;
+  max-width:100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -141,6 +141,39 @@
   transform: translateX(0);
 }
 
+//Responsive styles
+@include mediaXs{
+  .slider{
+    height: 65vh;
+
+    .navbar{
+      display: none; //cacher pour l'instant
+    }
+  }
+}
+
+@include mediaSm{
+  .slider{
+    height: 50vh;
+
+    .navbar{
+      display: none; //cacher pour l'instant
+    }
+  }
+}
+
+@include mediaMd{
+  .slider{
+    height: 50vh;
+  }
+}
+
+
+@include mediaXxl{
+  .slider{
+    height: 65vh;
+  }
+}
 
 
 

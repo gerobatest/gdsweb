@@ -110,3 +110,30 @@
         @include animate(scrollLeft, 0.7s, linear, 1);
     }
 }
+
+//Responsive styles
+@include mediaXs{
+    .actualite{
+        margin-top: $sectionspacingSm;
+
+        .title-container{
+            width: 100%;
+            padding-left:$sectionPaddingXs;
+        }
+        .actu-container{
+            display: block;
+    
+            //Les liens
+            .nav-actu-container{
+                padding: 0 $sectionPaddingXs;
+                padding-top: $sectionspacingSm;
+                width: 100%;
+            }
+
+            .publication{
+                width: 100%;
+            }
+        }      
+    }
+
+}

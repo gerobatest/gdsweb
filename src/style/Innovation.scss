@@ -66,3 +66,20 @@
         color: $orange;
     }
 }
+
+
+//Responsive
+@include mediaXs{
+    .innovation{
+        display:block;
+        background: $grey-bg;
+        padding: $sectionspacingSm 0;
+        .sectionTexte, .sectionImage{
+          width: 100%;   
+        }
+        .sectionTexte{
+            padding: 0px $sectionPaddingXs;
+             
+        }
+    }
+}

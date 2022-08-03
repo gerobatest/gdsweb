@@ -33,15 +33,31 @@ $Helvetica: Helvetica;
 
 
 //Interlignes
-$lineHeightLg: 22px;
+$lineHeightSm:20px; 
+$lineHeightMd:22px;
+$lineHeightLg:24px;
+$lineHeightXl:38px;
+$lineHeightXxl: 48px;
+
+//Dimension text
+$fontsizeSm: 14px; //Mobile
+$fontsizeMd: 16px; //iPad Air
+$fontsizeLg: 17px; //Desktop
+$fontsizeXl: 24px; //Large screens 
+$fontsizeXxl: 35px;
 
 //Espace entre chaque section 
+$sectionspacingSm: 50px; //écran large
+$sectionspacingMd: 60px; //écran large
 $sectionspacingLg: 80px; //écran large
+$sectionspacingXl: 90px; //écran large
 
 //padding
+$sectionPaddingXs: 8px;
+$sectionPaddingMd: 15px;
 $sectionPaddingLg: 60px;
 
-//Dimensions responsives
+
 //animation quand on clique sur une date (horizontal scrooll)
 @mixin animate($animation,$duration,$method,$times){
     animation: $animation $duration $method $times;
@@ -49,6 +65,51 @@ $sectionPaddingLg: 60px;
 
 @mixin keyframes($name){
     @keyframes #{$name}{
+        @content;
+    }
+}
+
+
+//Dimensions responsives
+// Media Query : Responsive
+//Phone
+@mixin mediaXs{
+    @media screen and (max-width:576px){
+        @content;
+    }
+}
+
+//Portrait tablets & Large phones
+@mixin mediaSm {
+    @media screen and (min-width: 577px) and (max-width: 768px){
+      @content;
+    }
+}
+  
+//Tablette & Large phones
+@mixin mediaMd {
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+        @content;
+    }
+}
+
+//Desktop 
+@mixin mediaLg{
+    @media screen and (min-width: 993px) and (max-width: 1366px) {
+        @content;
+    }
+}
+
+//Widescreen 
+@mixin mediaXl {
+    @media screen and (min-width: 1367px) and (max-width: 2559px){
+        @content;
+    }
+}
+
+//4K
+@mixin mediaXxl {
+    @media screen and (min-width: 2560px) {
         @content;
     }
 }

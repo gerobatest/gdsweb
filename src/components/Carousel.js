@@ -115,12 +115,12 @@ function Slider() {
             <BsArrowDownCircle className = "arrowDownIcon"/>
         </div>
 
-        {/* Flèche qui remonte la page */}
+        {/* Flèche qui remonte la page 
         {showButton && (
-            <Link to="/#" onClick={scrollToTop} className="btn-top">
+            <Link to="/" onClick={scrollToTop} className="btn-top">
                 <BsArrowUpCircleFill size="32px" color="$grey-footer"/>
             </Link>
-        )}
+        )}*/}
 
     </div>   
   )

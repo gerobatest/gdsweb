@@ -457,6 +457,7 @@ export default function APropos() {
                     ))}
                 </div>
                 {/* Slider pour les employés à Martinique */}
+
                 <AliceCarousel
                     infinite
                     mouseTracking
@@ -465,6 +466,7 @@ export default function APropos() {
                     responsive={responsive}
                     controlsStrategy="alternate"
                 /> 
+
                 <button  className="btnUp" onClick={hideClickMartinique }><FaAngleDoubleUp className="arrowUp"/></button>
             </div> 
         }

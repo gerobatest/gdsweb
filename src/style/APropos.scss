@@ -10,7 +10,6 @@
 
         .title-container{
             width: 30%; //style commun à revoir 
-            height: 100%; //pour l'instant aide à mettre la nouvelle section au bas
             .title{
                 padding: 0% $sectionPaddingLg;
             }
@@ -20,7 +19,6 @@
             position: relative;
             padding : 0 $sectionPaddingLg; //TEMP???VARIABLE
             width: 70%; //style commun à revoir
-            //border-left: 3px solid $blue;
 
             .titre{
                 //font-family: 'Helvetica Neue LT Std 75 Bold';
@@ -109,26 +107,36 @@
 
 .alice-carousel {
     position: relative;
+    max-width: 100%;
     margin-top: 50px;
+
+    &__wrapper{
+        width:90%;
+        margin: auto;
+    }
     
     li{
-        position: relative;
+        //position: relative;
         padding-bottom: 60px;
     }
 
-    //Modifier la position
+    //Modifier la position des flèches 
     &__prev-btn, &__next-btn{
+        z-index: 9;
         position: absolute;
         top: 45%;
-        width: 25px;
-
+        width: 75px;
+        
         span{
             font-size: 25px;
+            padding: 2px 10px;
+            border-radius: 50%;
+            border: 1px solid $black;
         }
     }
 
     &__next-btn{
-        right: 6px;
+        right: 0; 
         transform: translateY(-45%); 
     }
     &__prev-btn{
@@ -216,4 +224,70 @@
         }
     }
 } 
+
+
+//Responsive styles
+@include mediaXs{
+    .about{
+        margin-top: $sectionspacingSm;
+        .about-visible{
+            display: block;
+
+            .ligne{
+                display: none;
+            }
+    
+            .title-container{
+                width: 100%; //style commun à revoir 
+                margin-bottom: 25px;
+                .title{
+                    padding-left: $sectionPaddingXs;
+                }
+            }
+    
+            .sectionText{
+                padding : 0 $sectionPaddingXs;
+                width: 100%; 
+            }       
+        }
+
+        .about-invisible{
+            padding-bottom: 20px; //place le  bouton revenir plus au bas;
+
+    
+            .about-branch{
+                display: block;
+                .fill{
+                    display:none;
+                }
+                .branch-details{
+                    width: 100%;
+                    padding : 0 $sectionPaddingXs;
+    
+                    h1{
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+    
+        }
+    }
+}
+
+@include mediaSm{
+    .about{
+        .sectionText{
+            .places-list{
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+    }
+
+}
+
+@include mediaMd{
+
+}
+
 

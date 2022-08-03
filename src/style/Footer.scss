@@ -147,7 +147,77 @@
                 text-align:center;
                 color: $grey-footer;
             }
+        }     
+    }
+}
+
+//Responsive
+@include mediaXs{
+    #contact{
+        //margin-top: $sectionspacingLg;
+        //display:block;
+        flex-direction: column;
+        .map, .contact-container{
+            width:100%;
         }
-        
+        .map{
+            height: 250px;
+            order: 2;
+        }
+        .contact-container{
+            padding: 20px $sectionPaddingXs;
+            order: 1;
+            form{
+                div:nth-child(2), div:nth-child(3){ //téléphone et émail
+                    width: 100%; //???TEMP??? VARIABLE
+                }
+                div:nth-child(2){
+                    margin-right: 0; 
+                }
+                div:nth-child(3){
+                    margin-left: 0; 
+                }
+            }
+        }
+    }
+}
+
+@include mediaSm{
+    #contact{
+        .contact-container{
+            padding: 20px $sectionPaddingXs;
+            order: 1;
+            form{
+                div:nth-child(2), div:nth-child(3){ //téléphone et émail
+                    width: 100%; 
+                }
+                div:nth-child(2){
+                    margin-right: 0; 
+                }
+                div:nth-child(3){
+                    margin-left: 0; 
+                }
+            }
+        }
+    }
+}
+
+@include mediaMd{
+    #contact{
+        .contact-container{
+            padding: 20px $sectionPaddingMd;
+            order: 1;
+            form{
+                div:nth-child(2), div:nth-child(3){ //téléphone et émail
+                    width: 100%; 
+                }
+                div:nth-child(2){
+                    margin-right: 0; 
+                }
+                div:nth-child(3){
+                    margin-left: 0; 
+                }
+            }
+        }
     }
 }
