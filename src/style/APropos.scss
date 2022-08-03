@@ -17,9 +17,27 @@
         }
 
         .sectionText{
+            position: relative;
             padding : 0 $sectionPaddingLg; //TEMP???VARIABLE
             width: 70%; //style commun à revoir
-            border-left: 3px solid $blue;
+            //border-left: 3px solid $blue;
+
+            .titre{
+                //font-family: 'Helvetica Neue LT Std 75 Bold';
+                color:#3C3C3B;
+                //letter-spacing: 1cm;
+            }
+
+            .ligne{
+                border-left: 3px solid $blue;
+                height: 80px;
+                position: absolute;
+                left: 2px;
+                margin-left: 3px;
+                top: 0;
+                border-radius: 10px;
+                margin-top: 7.5px;
+            }
          
 
             @include logoPays;

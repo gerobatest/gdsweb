@@ -1,0 +1,86 @@
+@import 'Commun.scss';
+@import "Variables.scss";
+.Navbarfloat {
+    z-index: 99; // c'est pour retirer le couches exemple sous couche
+    height: 63px;
+    display: flex;
+    justify-content: end; //menu
+    overflow: hidden;
+    align-items: center; 
+    top: 0;
+    position: sticky;
+    margin-top: -25px !important;
+  }
+  .menu-bars {
+    font-size: 20pt;
+    background: none;
+    width: 40px;
+    color: $blueactive;
+    cursor: pointer;
+  }
+  .menu-barss{
+    font-size: 25pt;
+    background: none;
+    width: 40px;
+    color: $blueactive;
+    cursor: pointer;
+  }
+  .nav-menu {
+    background-color: $slidenavfond2;
+    width: 100%;;
+    display: flex;
+    position:absolute;
+    top: 0;
+    left: 100%;
+    transition: 850ms;
+    height: 50px;
+    margin-top: 12px; 
+  }
+  .nav-menu.active {
+    left: 0;
+    transition: 350ms;
+  }
+  .nav-links{
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style: none;
+    text-align: center;
+    margin: 0 30px;
+  }
+  .nav-item .nav-links {
+    text-decoration: none;
+    color:$slidenav2;
+    font-size: 12pt;
+    display: flex;
+    text-align: center;
+  }
+  .actives{
+    padding-bottom: 10px;
+    border-bottom:  1px solid $blueactive;
+    border-radius: 1.5px;
+  }
+  .nav-item .nav-links:hover {
+    color: $blueactive;
+  }
+  .nav-menu-items {
+    display: flex; 
+    width: 100%;
+  }
+ .navbar-toggle {
+    display: flex;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style: none;
+    list-style: none;
+    position: absolute;
+    right: 0;
+  }
+  span {
+    margin-left: 16px;
+  }

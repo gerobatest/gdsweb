@@ -38,16 +38,19 @@ li{
 //Le style pour les branches 
 @mixin logoPays{
     .places-list{
+        background: pink;
         margin: 30px 0px;
         display:flex;
         flex-wrap: wrap;
         justify-content: space-between;
 
         .single-place{
+            background: yellow;
             img{
                 width: 100%; /* or any custom size */
                 height: 100%; 
                 object-fit: contain;
+                background: green;
             }
             .place-hover{
                 display:none;
