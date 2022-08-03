@@ -2,6 +2,9 @@ import React, {useState, useRef} from 'react';
 import "../style/Actualite.scss";
 import {BsArrowRightCircle} from "react-icons/bs";
 
+import Slider from "react-slick";
+import AliceCarousel from 'react-alice-carousel';
+
 export default function Actualite() {
 
   const [showPost2020, setShowPost2020] = useState(false);
@@ -26,6 +29,42 @@ export default function Actualite() {
     setShowPost2021(false);  
   }
 
+  //Dimension résponsive pour chaque carousel 
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    993: { items: 3 },
+    1281: { items: 5},
+    2560: { items: 6}
+};
+
+
+  const items = [
+    <div className="singlePublication">
+      <img src="\article2.jpg" alt="description"/>
+      <p> 
+        2021 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+        <a href="/"> <BsArrowRightCircle/> En savoir plus </a>
+      </p>
+    </div>,
+    <div className="singlePublication">
+      <img src="\test1.png" alt="description"/>
+      <p> 
+        2021 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+        <a href=""> <BsArrowRightCircle/> En savoir plus</a>
+      </p>
+    </div>,
+    <div className="singlePublication">
+      <img src="\article1.jpg" alt="description"/>
+      <p> 
+        2021 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+        <a href=""> <BsArrowRightCircle/> En savoir plus</a>
+      </p>
+    </div>
+  ]
+
+
+
   return (
 
     <div className="actualite" id="actualite">
@@ -47,32 +86,16 @@ export default function Actualite() {
           {/* Les publications de 2021*/}
           {showPost2021 && 
             <div className="publication" id="post2021">
-              {/* Un article de presse */}
-              <div className="singlePublication">
-                <img src="\article2.jpg" alt="description"/>
-                <p> 
-                  2021 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href="/"> <BsArrowRightCircle/> En savoir plus </a>
-                </p>
-              </div>
 
-              {/* Un article de presse*/}
-              <div className="singlePublication">
-                <img src="\test1.png" alt="description"/>
-                <p> 
-                  2021 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href=""> <BsArrowRightCircle/> En savoir plus</a>
-                </p>
-              </div>
-
-              {/* Un article de presse*/}
-              <div className="singlePublication">
-                <img src="\article1.jpg" alt="description"/>
-                <p> 
-                  2021 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href=""> <BsArrowRightCircle/> En savoir plus</a>
-                </p>
-              </div>
+              <AliceCarousel
+                    infinite
+                    mouseTracking
+                    disableDotsControls 
+                    items={items}
+                    responsive={responsive}
+                    controlsStrategy="alternate"
+                /> 
+          
             </div> 
           }
 

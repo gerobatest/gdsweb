@@ -61,14 +61,17 @@
         .publication{
             padding: 0 $sectionPaddingLg;
             width: 70%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            //overflow: hidden;
+            margin: auto;
+            //display: flex;
+            //flex-wrap: wrap;
+            //justify-content: space-between;
 
 
             //Un article de presse
             .singlePublication{
-                width: 30%;
+                width: 70%;
+
 
                 img{
                     width: 100%;
@@ -110,6 +113,9 @@
         @include animate(scrollLeft, 0.7s, linear, 1);
     }
 }
+
+//Slider 
+
 
 //Responsive styles
 @include mediaXs{

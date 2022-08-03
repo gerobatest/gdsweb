@@ -13,12 +13,11 @@
     margin-top: 70px;
     max-width:100%;
     
-
     //sous-container
     .slick-list{
         //padding-bottom: 20px; //redescend les boutons au bas
         //Chaque item du slider 
-        .slick-slide img {
+        .slick-slide .clientLogo {
             -webkit-filter: grayscale(100%); //N&B
             filter: grayscale(100%);
             display:block;

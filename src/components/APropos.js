@@ -149,7 +149,7 @@ export default function APropos() {
 
 
 
-    //Dimension résponsive pour chaque carousel aaaaaaaaaaaaaa
+    //Dimension résponsive pour chaque carousel 
     const responsive = {
         0: { items: 1 },
         568: { items: 2 },

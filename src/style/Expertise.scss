@@ -138,8 +138,12 @@
             .text-content{
                 padding: 1.5%; //TEMP???VARIABLE 
                 border-left: 3px solid $blue;
-              ul{
-                margin-left: 25px;
+
+                h1{
+                    margin-bottom: 20px;
+                }
+                ul{
+                    margin-left: 25px;
                 }  
             } 
             @include buttonClose;
