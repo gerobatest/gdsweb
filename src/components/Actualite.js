@@ -33,13 +33,13 @@ export default function Actualite() {
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
-    993: { items: 3 },
-    1281: { items: 5},
-    2560: { items: 6}
+    993: { items: 2 },
+    1281: { items: 3},
+    2560: { items: 3}
 };
 
 
-  const items = [
+  const items2021 = [
     <div className="singlePublication">
       <img src="\article2.jpg" alt="description"/>
       <p> 
@@ -61,6 +61,58 @@ export default function Actualite() {
         <a href=""> <BsArrowRightCircle/> En savoir plus</a>
       </p>
     </div>
+  ]
+
+  const items2020 = [
+    <div className="singlePublication">
+    <img src="\article3.jpg" alt="description"/>
+    <p> 
+      2020 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+      <a href="/"> <BsArrowRightCircle/> En savoir plus</a>
+    </p>
+  </div>,
+
+  <div className="singlePublication">
+    <img src="\test2.png" alt="description"/>
+    <p> 
+      2020 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+      <a href=""> <BsArrowRightCircle/> En savoir plus</a>
+    </p>
+  </div>,
+
+  <div className="singlePublication">
+    <img src="\article1.jpg" alt="description"/>
+    <p> 
+      2020 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+      <a href=""> <BsArrowRightCircle/> En savoir plus</a>
+    </p>
+  </div>
+  ]
+
+  const itemsPress = [
+    <div className="singlePublication">
+    <img src="\article3.jpg" alt="description"/>
+    <p> 
+      Press Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+      <a href="/"> <BsArrowRightCircle/> En savoir plus</a>
+    </p>
+  </div>,
+
+  <div className="singlePublication">
+    <img src="\test3.png" alt="description"/>
+    <p> 
+      ¨Press Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+      <a href="/"> <BsArrowRightCircle/> En savoir plus</a>
+    </p>
+  </div>,
+
+  <div className="singlePublication">
+    <img src="\article1.jpg" alt="description"/>
+    <p> 
+      Press Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+      <a href="/"> <BsArrowRightCircle/> En savoir plus</a>
+    </p>
+  </div>
   ]
 
 
@@ -91,7 +143,7 @@ export default function Actualite() {
                     infinite
                     mouseTracking
                     disableDotsControls 
-                    items={items}
+                    items={items2021}
                     responsive={responsive}
                     controlsStrategy="alternate"
                 /> 
@@ -103,33 +155,16 @@ export default function Actualite() {
 
           {/* Les publications de 2020*/}
           {showPost2020 && 
+
             <div className="publication" id="post2020">
-              {/* Un article de presse */}
-              <div className="singlePublication">
-                <img src="\article3.jpg" alt="description"/>
-                <p> 
-                  2020 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href="/"> <BsArrowRightCircle/> En savoir plus</a>
-                </p>
-              </div>
-
-              {/* Un article de presse*/}
-              <div className="singlePublication">
-                <img src="\test2.png" alt="description"/>
-                <p> 
-                  2020 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href=""> <BsArrowRightCircle/> En savoir plus</a>
-                </p>
-              </div>
-
-              {/* Un article de presse*/}
-              <div className="singlePublication">
-                <img src="\article1.jpg" alt="description"/>
-                <p> 
-                  2020 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href=""> <BsArrowRightCircle/> En savoir plus</a>
-                </p>
-              </div>
+              <AliceCarousel
+                    infinite
+                    mouseTracking
+                    disableDotsControls 
+                    items={items2020}
+                    responsive={responsive}
+                    controlsStrategy="alternate"
+              /> 
             </div>
           }
 
@@ -137,32 +172,16 @@ export default function Actualite() {
           {/*Apparition presse*/}
           {showPress &&
             <div className="publication" id="postPress">
-              {/* Un article de presse */}
-              <div className="singlePublication">
-                <img src="\article3.jpg" alt="description"/>
-                <p> 
-                  Press Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href="/"> <BsArrowRightCircle/> En savoir plus</a>
-                </p>
-              </div>
+           
+           <AliceCarousel
+                infinite
+                mouseTracking
+                disableDotsControls 
+                items={itemsPress}
+                responsive={responsive}
+                controlsStrategy="alternate"
+            /> 
 
-              {/* Un article de presse*/}
-              <div className="singlePublication">
-                <img src="\test3.png" alt="description"/>
-                <p> 
-                  ¨Press Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href=""> <BsArrowRightCircle/> En savoir plus</a>
-                </p>
-              </div>
-
-              {/* Un article de presse*/}
-              <div className="singlePublication">
-                <img src="\article1.jpg" alt="description"/>
-                <p> 
-                  Press Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
-                  <a href=""> <BsArrowRightCircle/> En savoir plus</a>
-                </p>
-              </div>
             </div>
           }
 
