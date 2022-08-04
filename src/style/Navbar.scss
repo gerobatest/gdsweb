@@ -1,5 +1,6 @@
 @import 'Commun.scss';
 @import "Variables.scss";
+
 .Navbarfloat {
     z-index: 99; // c'est pour retirer le couches exemple sous couche
     height: 63px;
@@ -38,7 +39,7 @@
   }
   .nav-menu.active {
     left: 0;
-    transition: 350ms;
+    transition: 290ms;
   }
   .nav-links{
     display: flex;
@@ -84,3 +85,116 @@
   span {
     margin-left: 16px;
   }
+
+
+
+
+@include mediaXs{
+  .Navbarfloat{
+    z-index: 90;
+    left: 100%;
+    display: block;
+    overflow: visible;
+    width: 290px;
+  }
+  .menu-bars {
+    position: absolute;
+    top: 10px; 
+    right: 14px;
+  }
+  .nav-menu-items{
+    display: block; //redescend chaque lien de navigation
+    width: 90%;
+    height: 290px;
+  }
+  .nav-menu{
+    height: 290px;
+    position: absolute;
+    display: none;
+  }
+  .nav-menu.active {
+    display: block;
+  }
+  .nav-item{
+    margin-bottom: 10px;
+  }
+  .navbar-toggle{
+    position: absolute;
+    top: 0px; 
+    right: 15px;
+  }
+}
+
+
+@include mediaSm{
+  .Navbarfloat{
+    z-index: 90;
+    left: 100%;
+    display: block;
+    overflow-x: visible;
+    width: 380px;
+  }
+  .menu-bars {
+    position: absolute;
+    top: 10px; 
+    right: 14px;
+  }
+  .nav-menu-items{
+    display: block; //redescend chaque lien de navigation
+    width: 70%;
+    height: 290px;
+  }
+  .nav-menu{
+    height: 290px;
+    position: absolute;
+    display: none;
+  }
+  .nav-menu.active {
+    display: block;
+  }
+  .nav-item{
+    margin-bottom: 10px;
+  }
+  .navbar-toggle{
+    position: absolute;
+    top: 0px; 
+    right: 15px;
+  }
+}
+
+
+@include mediaMd{
+  .Navbarfloat{
+    z-index: 90;
+    left: 100%;
+    display: block;
+    overflow: visible;
+    width: 380px;
+  }
+  .menu-bars {
+    position: absolute;
+    top: 10px; 
+    right: 14px;
+  }
+  .nav-menu-items{
+    display: block; //redescend chaque lien de navigation
+    width: 70%;
+    height: 290px;
+  }
+  .nav-menu{
+    height: 290px;
+    position: absolute;
+    display: none;
+  }
+  .nav-menu.active {
+    display: block;
+  }
+  .nav-item{
+    margin-bottom: 10px;
+  }
+  .navbar-toggle{
+    position: absolute;
+    top: 0px; 
+    right: 15px;
+  }
+}

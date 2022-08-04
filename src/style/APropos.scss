@@ -297,7 +297,21 @@
 
 @include mediaXxl{
     .about{
-        .about-invisible{
+        .about-visible{
+            .sectionText{
+                .titre{
+                    font-size: 32px;
+                }
+            }
+        }
+        .about-invisible{    
+            .about-branch{
+                .branch-details{
+                    .titre{
+                        font-size: 32px;
+                    }
+                }
+            }     
             .item{
                 .employeeInfo{
                     h3{

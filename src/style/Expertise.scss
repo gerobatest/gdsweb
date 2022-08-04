@@ -187,12 +187,17 @@
             display: none; //on cache pour l'instant
         }
 
+        hr{
+            display: none;
+        }
+
         .nav-gallery{
             display: flex; 
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
-            margin: 0px auto;
+            margin: 0 auto;
+            margin-top: 20px;
     
             .single-gallery{
                 width: 100%;
@@ -235,7 +240,12 @@
            display: none; //on cache pour l'instant
        }
 
+        hr{
+            display: none;
+        }
+
        .nav-gallery{
+            margin-top: 20px;
    
            .single-gallery{
                width: 50%;
@@ -256,8 +266,12 @@
            display: none; //on cache pour l'instant
        }
 
+        hr{
+            display: none;
+        }
+
        .nav-gallery{
-   
+            margin-top: 20px;
            .single-gallery{
                width: 50%;
    

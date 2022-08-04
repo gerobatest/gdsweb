@@ -165,4 +165,12 @@ li{
         font-size: $fontsizeXxl;
         color: $grey-txt;
     }
+    .title{
+        font-size: 80px;  //TEMP:
+        font-weight: lighter;
+        span{
+            font-size:100px;
+            font-weight: bold;
+        }
+    }
 }

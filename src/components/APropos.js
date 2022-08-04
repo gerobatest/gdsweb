@@ -393,7 +393,7 @@ export default function APropos() {
                     <div className="fill"></div>
                     {DetailsLigne.map((item, index) => (
                         <div className="branch-details" key={index}>
-                            <h1 style={{color: item.couleurTitre}}>{item.titre}</h1>
+                            <h1 className="titre" style={{color: item.couleurTitre}}>{item.titre}</h1>
                             <p>
                                 {item.description}
                             </p>

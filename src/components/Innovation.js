@@ -1,27 +1,11 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import { Parallax } from 'react-scroll-parallax';
 //import {AnimatedOnScroll} from "react-animated-css-onscroll";
 import '../style/Innovation.scss';
 //import "animate.css/animate.min.css";
 import {BsArrowRightCircle} from "react-icons/bs";
-import handleViewport from 'react-in-viewport';
-
-
-const Block = (props) => {
-  const { inViewport, forwardedRef } = props;
- 
-  return (
-      <div className="sectionImage">
-         <img style={ {transform: 'translateX(0%)'}} src="/tablette.png" alt="Tablette Geroba"/> 
-      </div>
-  );
-};
-
-const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 
 export default function Innovation(props) {
-
-  const imageParallax = useRef();
 
   return (
     <div className="innovation" id="innovation">
@@ -53,16 +37,13 @@ export default function Innovation(props) {
         </div>
         
 
-        <ViewportBlock/>
-
-        {/* Image avec effet parallaxe 
+        {/* Image avec effet parallaxe */}
         <div className="sectionImage">
-         <img ref={imageParallax} src="/tablette.png" alt="Tablette Geroba"/> 
-
           <Parallax translateX={['320px', '-100px']}> 
-              <img ref={imageParallax} src="/tablette.png" alt="Tablette Geroba"/>
+              <img src="/tablette.png" alt="Tablette Geroba"/>
           </Parallax> 
-        </div>*/}
+        </div>
+
     </div>
   )
 }

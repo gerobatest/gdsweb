@@ -143,3 +143,25 @@
     }
 
 }
+
+
+@include mediaXxl{
+    .actualite{
+        .actu-container{
+            //Les liens
+            .nav-actu-container{
+                h1{
+                    font-size: 35px;
+                }
+                .nav-actu{
+                    
+                    li {
+                        .nav-actu-link{
+                            font-size: 28px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
