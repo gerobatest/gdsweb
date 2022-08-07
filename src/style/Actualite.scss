@@ -71,6 +71,7 @@
             //Un article de presse
             .singlePublication{
                 width: 70%;
+                margin: auto;
 
 
                 img{
@@ -99,12 +100,6 @@
         @include keyframes(scrollLeft){
             0%{
                 transform: translateX(90%);
-            }
-            45%{
-                transform: translateX(65%);
-            }
-            75%{
-                transform: translateX(45%);
             }
            100%{
                 transform: translateX(0%);

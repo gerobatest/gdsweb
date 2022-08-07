@@ -151,6 +151,26 @@
     }
 }
 
+.branch-details{ //table
+    tr{
+        td{
+            padding: 5px 5px;
+            text-align: justify;
+
+            strong{
+                color: $blue;
+            }
+        }
+        .col1{
+            padding-left: 0;
+            color: $grey;
+        }
+        .col2{
+            color:$white;
+        }
+    }
+}
+
 //Responsive
 @include mediaXs{
     #contact{

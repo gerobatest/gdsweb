@@ -11,9 +11,17 @@ body{
     font-family: 'Times New Roman', Times, serif; //à changer
 }
 
+//preload images 
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
+    //content:url("slide1.jpg");
+    //content:url("/slide1.jpg") url("/slide2.jpg") url("/slide3.jpg");   // load images
+ }
+
 p, li{
     line-height: $lineHeightLg;
     color: $grey-txt;
+    text-align: justify;
 }
 
 li{
@@ -28,6 +36,7 @@ li{
         font-weight: bold;
     }
 }
+
 .blue-title{
     color: $blue;
 }
@@ -40,11 +49,10 @@ li{
     .places-list{
         margin: 30px 0px;
         display:flex;
-        flex-wrap: wrap;
-        //justify-content: space-between;
-        justify-content: space-evenly;
-        align-items: center; 
-        align-content: center;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-end;  //cette partie de code marche mais les Reunion et Maurice n'ont pas de lettres qui vont au bas
+        align-items: baseline;
 
         .single-place{
 
