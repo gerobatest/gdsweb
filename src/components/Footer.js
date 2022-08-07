@@ -387,49 +387,139 @@ function Footer() {
                     {/* Adresse et contact de chaque branche */}
                     { showContactSauzet && (
                     <> 
-                      <p>Adresse <span className="footer-info">81 rue du Moulin, 46140 SAUZET, France</span></p>
-                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
-                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                      <table className="branch-details">
+                        <tr>
+                          <td className="col1">Adresse</td>
+                          <td className="col2">81 rue du Moulin, 46140 SAUZET, <strong>France</strong></td>
+                        </tr>
+                        <tr>
+                          <td className="col1"></td>
+                          <td className="col2"></td>
+                        </tr>
+                        <tr>
+                          <td className="col1">Téléphone</td>
+                          <td className="col2">+33 (0) 6 31 89 80 34</td>
+                        </tr>
+                        <tr>
+                          <td className="col1">mail</td>
+                          <td className="col2">contact@groupe-gds.eu</td>
+                        </tr>
+                    </table>
                     </>
                     )}
 
                     { showContactGuadeloupe && (
                     <> 
-                      <p>Adresse <span className="footer-info">171 rue Wiliam Youyoute Dunnoyer 97190 GOSIER, Guadeloupe</span></p>
-                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
-                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                      <table className="branch-details">
+                          <tr>
+                            <td className="col1">Adresse</td>
+                            <td className="col2">171 rue Wiliam Youyoute Dunnoyer 97190 GOSIER, <strong>Guadeloupe</strong></td>
+                          </tr>
+                          <tr>
+                            <td className="col1"></td>
+                            <td className="col2"></td>
+                          </tr>
+                          <tr>
+                            <td className="col1">Téléphone</td>
+                            <td className="col2">+33 (0) 6 31 89 80 34</td>
+                          </tr>
+                          <tr>
+                            <td className="col1">mail</td>
+                            <td className="col2">contact@groupe-gds.eu</td>
+                          </tr>
+                      </table>
                     </>
                     )}
 
                     { showContactMartinique && (
                     <> 
-                      <p>Adresse <span className="footer-info">24 rue Raymond Berger ZAC La Marie 97224 DUCOS, Martinique</span></p>
-                      <p>Téléphone <span className="footer-info">+33 (0) 5 96 42 31 67</span ></p>
-                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                      <table className="branch-details">
+                          <tr>
+                            <td className="col1">Adresse</td>
+                            <td className="col2">24 rue Raymond Berger ZAC La Marie 97224 DUCOS, <strong>Martinique</strong></td>
+                          </tr>
+                          <tr>
+                            <td className="col1"></td>
+                            <td className="col2"></td>
+                          </tr>
+                          <tr>
+                            <td className="col1">Téléphone</td>
+                            <td className="col2">+33 (0) 5 96 42 31 67</td>
+                          </tr>
+                          <tr>
+                            <td className="col1">mail</td>
+                            <td className="col2">contact@groupe-gds.eu</td>
+                          </tr>
+                      </table>
                     </>
                     )}
 
                     { showContactGuyane && (
                     <> 
-                      <p>Adresse <span className="footer-info">607 route des Plages 97354 Rémire-Montjoly, Guyane</span></p>
-                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
-                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                      <table className="branch-details">
+                          <tr>
+                            <td className="col1">Adresse</td>
+                            <td className="col2">607 route des Plages 97354 Rémire-Montjoly, <strong>Guyane</strong></td>
+                          </tr>
+                          <tr>
+                            <td className="col1"></td>
+                            <td className="col2"></td>
+                          </tr>
+                          <tr>
+                            <td className="col1">Téléphone</td>
+                            <td className="col2">+33 (0) 6 31 89 80 34</td>
+                          </tr>
+                          <tr>
+                            <td className="col1">mail</td>
+                            <td className="col2">contact@groupe-gds.eu</td>
+                          </tr>
+                      </table>
                     </>
                     )}
 
                     { showContactReunion && (
                     <> 
-                      <p>Adresse <span className="footer-info">16 rue Claude Chappe CS 71151 97829 LE PORT CEDEX, La Réunion</span></p>
-                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
-                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                      <table className="branch-details">
+                          <tr>
+                            <td className="col1">Adresse</td>
+                            <td className="col2">16 rue Claude Chappe CS 71151 97829 LE PORT CEDEX, <strong>La Réunion</strong></td>
+                          </tr>
+                          <tr>
+                            <td className="col1"></td>
+                            <td className="col2"></td>
+                          </tr>
+                          <tr>
+                            <td className="col1">Téléphone</td>
+                            <td className="col2">+33 (0) 6 31 89 80 34</td>
+                          </tr>
+                          <tr>
+                            <td className="col1">mail</td>
+                            <td className="col2">contact@groupe-gds.eu</td>
+                          </tr>
+                      </table>
                     </>
                     )}
                     
                     { showContactMauritius && (
                     <> 
-                      <p>Adresse <span className="footer-info">19, Church Street PORT LOUIS, Mauritius</span></p>
-                      <p>Téléphone <span className="footer-info">+33 (0) 6 31 89 80 34</span ></p>
-                      <p>E-mail <span className="footer-info">contact@groupe-gds.eu</span></p> 
+                      <table className="branch-details">
+                          <tr>
+                            <td className="col1">Adresse</td>
+                            <td className="col2">19, Church Street PORT LOUIS, <strong>Mauritius</strong></td>
+                          </tr>
+                          <tr>
+                            <td className="col1"></td>
+                            <td className="col2"></td>
+                          </tr>
+                          <tr>
+                            <td className="col1">Téléphone</td>
+                            <td className="col2">+33 (0) 6 31 89 80 34</td>
+                          </tr>
+                          <tr>
+                            <td className="col1">mail</td>
+                            <td className="col2">contact@groupe-gds.eu</td>
+                          </tr>
+                      </table>
                     </>
                     )}
 

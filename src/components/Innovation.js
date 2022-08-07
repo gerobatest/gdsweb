@@ -39,7 +39,7 @@ export default function Innovation(props) {
 
         {/* Image avec effet parallaxe */}
         <div className="sectionImage">
-          <Parallax translateX={['320px', '-100px']}> 
+          <Parallax translateX={['-90px', '-400px']}> 
               <img src="/tablette.png" alt="Tablette Geroba"/>
           </Parallax> 
         </div>
