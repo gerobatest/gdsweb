@@ -104,7 +104,6 @@
 }
 
 /*Alice carousel*/
-
 .alice-carousel {
     position: relative;
     max-width: 100%;
@@ -186,7 +185,8 @@
     .employeeInfo{
         //display: none;
         bottom: 0;
-
+        text-align: center;
+        
         @include keyframes(fadeIn){
             0%{
                 opacity: 0;
@@ -202,6 +202,10 @@
 
         .function{
             color: $grey-slider; 
+            text-align: center;
+        }
+        p{
+            text-align: center;
         }
         .email{
             text-decoration: none;
@@ -225,7 +229,6 @@
     }
 
     &:hover{
-        background: purple;
         .emp-btn{
             display: block; //montrer le bouton
         }
@@ -233,8 +236,44 @@
             height: 80%;
         }
     }
-} 
+}
 
+.item-mauritius{
+    &:hover{
+        background:$purple;
+    }
+}
+
+
+.item-ligne{
+    &:hover{
+        background: $brown-ligneSens;
+    }
+}
+
+.item-guadeloupe{
+    &:hover{
+        background: $orange-guadeloupe;
+    }
+}
+
+.item-martinique{
+    &:hover{
+        background: $pink-martinique;
+    }
+}
+
+.item-guyane{
+    &:hover{
+        background: $green-guyane;
+    }
+}
+
+.item-reunion{
+    &:hover{
+        background: $green-reunion;
+    }
+}
 
 //Responsive styles
 @include mediaXs{

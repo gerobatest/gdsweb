@@ -36,6 +36,10 @@
                             color: $grey; 
                             cursor: pointer;
                         }
+
+                        &.active{
+                            font-weight: bold;
+                        }
                     }    
 
                     .nav-actu-link::after { 
@@ -61,12 +65,7 @@
         .publication{
             padding: 0 $sectionPaddingLg;
             width: 70%;
-            //overflow: hidden;
             margin: auto;
-            //display: flex;
-            //flex-wrap: wrap;
-            //justify-content: space-between;
-
 
             //Un article de presse
             .singlePublication{

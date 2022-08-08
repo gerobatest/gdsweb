@@ -31,8 +31,10 @@ li{
 .title{
     font-size: 45px;  //TEMP:
     font-weight: lighter;
-    span{
-        font-size:60px;
+    line-height: 45px; //espace entre les mots
+
+    strong{
+        font-size: 70px;
         font-weight: bold;
     }
 }
@@ -116,7 +118,7 @@ li{
     .title{
         font-size: 35px;  //TEMP:
         font-weight: lighter;
-        span{
+        strong{
             font-size:45px;
             font-weight: bold;
         }
@@ -132,7 +134,7 @@ li{
     .title{
         font-size: 30px;  //TEMP:
         font-weight: lighter;
-        span{
+        strong{
             font-size:40px;
             font-weight: bold;
         }
@@ -148,7 +150,7 @@ li{
     .title{
         font-size: 35px;  //TEMP:
         font-weight: lighter;
-        span{
+        strong{
             font-size:45px;
             font-weight: bold;
         }
@@ -176,7 +178,7 @@ li{
     .title{
         font-size: 80px;  //TEMP:
         font-weight: lighter;
-        span{
+        strong{
             font-size:100px;
             font-weight: bold;
         }
