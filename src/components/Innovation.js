@@ -10,7 +10,7 @@ export default function Innovation(props) {
   return (
     <div className="innovation" id="innovation">
         <div className="sectionTexte">
-            <h1 className="title orange-title">Notre<br/><span>innovation</span></h1>
+            <h1 className="title orange-title">Notre<br/><strong>innovation</strong></h1>
             <h1 className="secondTitle">Maitrise d'oeuvre</h1>
 
             {/* Logos geroba image à remplacer*/}

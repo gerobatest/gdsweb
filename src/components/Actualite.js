@@ -1,32 +1,48 @@
 import React, {useState, useRef} from 'react';
 import "../style/Actualite.scss";
 import {BsArrowRightCircle} from "react-icons/bs";
-
-import Slider from "react-slick";
 import AliceCarousel from 'react-alice-carousel';
 
 export default function Actualite() {
 
+  // Pour montrer et cacher les publications par date
   const [showPost2020, setShowPost2020] = useState(false);
   const [showPost2021, setShowPost2021] = useState(true); //initialement, ce sont les postes de 2021 qui sont montrées
   const [showPress, setShowPress] = useState(false);
+
+  //Pour gérer le menu active
+  const [activeLink21, setActiveLink21] = useState(true);
+  const [activeLink20, setActiveLink20] = useState(false);
+  const [activeLinkPress, setActiveLinkPress] = useState(false);
 
   const handlePost2021 = () => {
     setShowPost2021(true);
     setShowPost2020(false);
     setShowPress(false);
+
+    setActiveLink21(true);
+    setActiveLink20(false);
+    setActiveLinkPress(false);
   }
 
   const handlePost2020 = () => {
     setShowPost2020(true);
     setShowPost2021(false);
     setShowPress(false);
+
+    setActiveLink21(false);
+    setActiveLink20(true);
+    setActiveLinkPress(false);
   }
 
   const handlePressPost = () => {
     setShowPress(true);
     setShowPost2020(false);
     setShowPost2021(false);  
+
+    setActiveLink21(false);
+    setActiveLink20(false);
+    setActiveLinkPress(true);
   }
 
   //Dimension résponsive pour chaque carousel 
@@ -39,6 +55,7 @@ export default function Actualite() {
 };
 
 
+  // Les publications de 2021
   const items2021 = [
     <div className="singlePublication">
       <img src="\article2.jpg" alt="description"/>
@@ -63,6 +80,7 @@ export default function Actualite() {
     </div>
   ]
 
+  // Les publications de 2020
   const items2020 = [
     <div className="singlePublication">
     <img src="\article3.jpg" alt="description"/>
@@ -89,6 +107,7 @@ export default function Actualite() {
   </div>
   ]
 
+  // Les publications presse
   const itemsPress = [
     <div className="singlePublication">
     <img src="\article3.jpg" alt="description"/>
@@ -121,18 +140,20 @@ export default function Actualite() {
 
     <div className="actualite" id="actualite">
         <div className="title-container">
-          <h1 className="title blue-title">Notre <br/><span>actualité</span></h1>
+          <h1 className="title blue-title">Notre <br/><strong>actualité</strong></h1>
         </div>
 
         <div className="actu-container">
           {/*Les liens*/}
           <div className="nav-actu-container">
             <h1>Dernier poste</h1>
+
             <ul className="nav-actu">
-              <li><button onClick={handlePost2021} className="nav-actu-link active">2021</button ></li>
-              <li><button  onClick={handlePost2020} className="nav-actu-link">2020</button ></li>
-              <li><button  onClick={handlePressPost} className="nav-actu-link">Press</button ></li>
+              <li><button onClick={handlePost2021} className={activeLink21? "nav-actu-link active" : "nav-actu-link"}>2021</button ></li>
+              <li><button  onClick={handlePost2020} className={activeLink20? "nav-actu-link active" : "nav-actu-link"}>2020</button ></li>
+              <li><button  onClick={handlePressPost} className={activeLinkPress? "nav-actu-link active" : "nav-actu-link"}>Press</button ></li>
             </ul>
+
           </div>
 
           {/* Les publications de 2021*/}

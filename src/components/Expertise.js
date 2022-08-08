@@ -203,7 +203,7 @@ export default function Expertise() {
 
         <div className="top-section">
           <h1 className="title blue-title">Notre<br/>
-            <span>expertise</span>
+            <strong>expertise</strong>
           </h1>
         
           <div>

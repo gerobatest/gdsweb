@@ -22,6 +22,8 @@ import '../style/APropos.scss';
 
 export default function APropos() {
 
+    const aProposSection = useRef();
+
     const [editIndex, setEditIndex] = useState(null);
     const infoLigne = useRef(null);
 
@@ -36,10 +38,17 @@ export default function APropos() {
         setShowContentGuyane(false);
         setShowContentRe(false);
         setShowContent(false);
-        infoLigne.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+
+        window.current.scrollBy({top: "200px", behavior: "smooth"});
+        //infoLigne.scrollIntoView( { behavior: 'smooth', block: 'start' } );
     }
     const hideClickLigne = () => {
         setShowContentLigne(false);
+
+        window.scrollTo({
+            behavior: "smooth",
+            top: aProposSection.current.offsetTop
+        });
     }
     const showDetailsLigne = () => {
         setShowInfoLigne(!showInfoLigne);
@@ -60,6 +69,11 @@ export default function APropos() {
     }
     const hideClickGuadeloupe = () => {
         setShowContentGuadeloupe(false);
+
+        window.scrollTo({
+            behavior: "smooth",
+            top: aProposSection.current.offsetTop
+        });
     }
     const showDetailsGuadeloupe = () => {
         setShowInfoGuadeloupe(!showInfoGuadeloupe);
@@ -80,6 +94,11 @@ export default function APropos() {
     }
     const hideClickMartinique = () => {
         setShowContentMartinique (false);
+
+        window.scrollTo({
+            behavior: "smooth",
+            top: aProposSection.current.offsetTop
+        });
     }
     const showDetailsMartinique = () => {
         setShowInfoMartinique (!showInfoMartinique);
@@ -100,6 +119,11 @@ export default function APropos() {
     }
     const hideClickGuyane = () => {
         setShowContentGuyane(false);
+
+        window.scrollTo({
+            behavior: "smooth",
+            top: aProposSection.current.offsetTop
+        });
     }
     const showDetailsGuyane = () => {
         setShowInfoGuyane(!showInfoGuyane);
@@ -120,6 +144,11 @@ export default function APropos() {
       }
       const hideClickRe = () => {
           setShowContentRe(false);
+
+          window.scrollTo({
+            behavior: "smooth",
+            top: aProposSection.current.offsetTop
+        });
       }
       const showDetailsRe = () => {
           setShowInfoRe(!showInfoRe);
@@ -141,6 +170,11 @@ export default function APropos() {
     }
     const hideClick = () => {
         setShowContent(false);
+
+        window.scrollTo({
+            behavior: "smooth",
+            top: aProposSection.current.offsetTop
+        });
     }
     const showDetails = () => {
         setShowInfo(!showInfo);
@@ -161,7 +195,7 @@ export default function APropos() {
     //pour les données Ligne 
     const itemsLigne = EmployeeLigne.map( (item, index) => {
         return (
-            <div key={index} className="item">
+            <div key={index} className="item item-ligne">
                 <img src={item.imgPath} alt={item.nom}/>
                 <div onClick={ ()=> {showDetailsLigne(!showInfoLigne); setEditIndex(index);}} className="emp-btn" id="emp-btn">
                     {showInfoLigne ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
@@ -181,7 +215,7 @@ export default function APropos() {
     //pour le données Guadeloupe
     const itemsGuadeloupe= EmployeeGuadeloupe.map( (item, index) => {
         return (
-            <div key={index} className="item">
+            <div key={index} className="item item-guadeloupe">
                 <img src={item.imgPath} alt=""/>
                 <div onClick={ ()=> {showDetailsGuadeloupe(!showInfoGuadeloupe); setEditIndex(index);}} className="emp-btn" id="emp-btn">
                     {showInfoGuadeloupe ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
@@ -201,7 +235,7 @@ export default function APropos() {
     //pour le données Martinique
     const itemsMartinique = EmployeeMartinique.map( (item, index) => {
         return (
-            <div key={index} className="item">
+            <div key={index} className="item item-martinique">
                 <img src={item.imgPath} alt=""/>
                 <div onClick={ ()=> {showDetailsMartinique(!showInfoMartinique); setEditIndex(index);}} className="emp-btn" id="emp-btn">
                     {showInfoMartinique? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
@@ -221,7 +255,7 @@ export default function APropos() {
     //pour le données Guyane
     const itemsGuyane = EmployeeGuyane.map( (item, index) => {
         return (
-            <div key={index} className="item">
+            <div key={index} className="item item-guyane">
                 <img src={item.imgPath} alt=""/>
                 <div onClick={ ()=> {showDetailsGuyane(!showInfoGuyane); setEditIndex(index);}} className="emp-btn" id="emp-btn">
                     {showInfoGuyane? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
@@ -242,7 +276,7 @@ export default function APropos() {
     //pour le données Reunion
     const itemsre = EmployeeReunion.map( (item, index) => {
         return (
-            <div key={index} className="item">
+            <div key={index} className="item item-reunion">
                 <img src={item.imgPath} alt=""/>
                 <div onClick={ ()=> {showDetailsRe(!showInfoRe); setEditIndex(index);}} className="emp-btn" id="emp-btn">
                     {showInfoRe? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
@@ -267,7 +301,7 @@ export default function APropos() {
     //const [editIndex, setEditIndex] = useState(null);
     const items = EmployeeMauritius.map( (item, index) => {
         return (
-            <div key={index} className="item">
+            <div key={index} className="item item-mauritius">
                 <img src={item.imgPath} alt={item.nom}/>
                 {/* Au bas, le onClick appelle 2 fonctions, il faut imperativement mettre les 2 fonctions entre des {} et puis mettre un ; à la fin de chaque fonction.
                     on sauvegarde l'index dans le hook en utilisant le setEditIndex.
@@ -295,10 +329,13 @@ export default function APropos() {
 
     return (
     <div className="about">
-       <div className="about-visible">
+       <div className="about-visible" ref={aProposSection}>
+
             <div className="title-container">
-                <h1 className="title blue-title">À notre<br/><span>propos</span></h1>
+                <h1 className="title blue-title">À notre<br/><strong>propos</strong></h1> 
             </div>
+
+
             <div className="sectionText"> 
             <div className='ligne'></div>
                 <h1 className='titre'>GROUPE GDS</h1>

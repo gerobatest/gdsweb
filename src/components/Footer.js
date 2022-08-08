@@ -388,22 +388,24 @@ function Footer() {
                     { showContactSauzet && (
                     <> 
                       <table className="branch-details">
-                        <tr>
-                          <td className="col1">Adresse</td>
-                          <td className="col2">81 rue du Moulin, 46140 SAUZET, <strong>France</strong></td>
-                        </tr>
-                        <tr>
-                          <td className="col1"></td>
-                          <td className="col2"></td>
-                        </tr>
-                        <tr>
-                          <td className="col1">Téléphone</td>
-                          <td className="col2">+33 (0) 6 31 89 80 34</td>
-                        </tr>
-                        <tr>
-                          <td className="col1">mail</td>
-                          <td className="col2">contact@groupe-gds.eu</td>
-                        </tr>
+                        <tbody>
+                          <tr>
+                            <td className="col1">Adresse</td>
+                            <td className="col2">81 rue du Moulin, 46140 SAUZET, <strong>France</strong></td>
+                          </tr>
+                          <tr>
+                            <td className="col1"></td>
+                            <td className="col2"></td>
+                          </tr>
+                          <tr>
+                            <td className="col1">Téléphone</td>
+                            <td className="col2">+33 (0) 6 31 89 80 34</td>
+                          </tr>
+                          <tr>
+                            <td className="col1">mail</td>
+                            <td className="col2">contact@groupe-gds.eu</td>
+                          </tr>
+                        </tbody>
                     </table>
                     </>
                     )}
@@ -411,6 +413,7 @@ function Footer() {
                     { showContactGuadeloupe && (
                     <> 
                       <table className="branch-details">
+                        <tbody>
                           <tr>
                             <td className="col1">Adresse</td>
                             <td className="col2">171 rue Wiliam Youyoute Dunnoyer 97190 GOSIER, <strong>Guadeloupe</strong></td>
@@ -427,6 +430,7 @@ function Footer() {
                             <td className="col1">mail</td>
                             <td className="col2">contact@groupe-gds.eu</td>
                           </tr>
+                          </tbody>
                       </table>
                     </>
                     )}
@@ -434,6 +438,7 @@ function Footer() {
                     { showContactMartinique && (
                     <> 
                       <table className="branch-details">
+                        <tbody>
                           <tr>
                             <td className="col1">Adresse</td>
                             <td className="col2">24 rue Raymond Berger ZAC La Marie 97224 DUCOS, <strong>Martinique</strong></td>
@@ -450,6 +455,7 @@ function Footer() {
                             <td className="col1">mail</td>
                             <td className="col2">contact@groupe-gds.eu</td>
                           </tr>
+                        </tbody>
                       </table>
                     </>
                     )}
@@ -457,6 +463,7 @@ function Footer() {
                     { showContactGuyane && (
                     <> 
                       <table className="branch-details">
+                        <tbody>
                           <tr>
                             <td className="col1">Adresse</td>
                             <td className="col2">607 route des Plages 97354 Rémire-Montjoly, <strong>Guyane</strong></td>
@@ -473,6 +480,7 @@ function Footer() {
                             <td className="col1">mail</td>
                             <td className="col2">contact@groupe-gds.eu</td>
                           </tr>
+                        </tbody>
                       </table>
                     </>
                     )}
@@ -480,6 +488,7 @@ function Footer() {
                     { showContactReunion && (
                     <> 
                       <table className="branch-details">
+                        <tbody>
                           <tr>
                             <td className="col1">Adresse</td>
                             <td className="col2">16 rue Claude Chappe CS 71151 97829 LE PORT CEDEX, <strong>La Réunion</strong></td>
@@ -496,6 +505,7 @@ function Footer() {
                             <td className="col1">mail</td>
                             <td className="col2">contact@groupe-gds.eu</td>
                           </tr>
+                        </tbody>
                       </table>
                     </>
                     )}
@@ -503,6 +513,7 @@ function Footer() {
                     { showContactMauritius && (
                     <> 
                       <table className="branch-details">
+                        <tbody>
                           <tr>
                             <td className="col1">Adresse</td>
                             <td className="col2">19, Church Street PORT LOUIS, <strong>Mauritius</strong></td>
@@ -519,6 +530,7 @@ function Footer() {
                             <td className="col1">mail</td>
                             <td className="col2">contact@groupe-gds.eu</td>
                           </tr>
+                        </tbody>
                       </table>
                     </>
                     )}
