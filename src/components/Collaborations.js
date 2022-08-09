@@ -14,7 +14,7 @@ export default function Collaborations() {
     arrows: false,
     pauseOnHover: true,
     dots: true,
-    speed: 1000,
+    speed: 700,
     slidesToShow: 6,
     slidesToScroll: 1,
     initialSlide: 5,
