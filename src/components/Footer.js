@@ -131,7 +131,7 @@ function Footer() {
 
     //submission après avoir appuyer sur le bouton envoyer
     async function onSubmit(e) {
-      e.preventDefault();
+      /*e.preventDefault();
     
       // When a post request is sent to the create url, we'll add a new record to the database.
       const newMessage = { ...formVal };
@@ -150,7 +150,7 @@ function Footer() {
     
       setFormVal({ name: " ", phone: " ", email: " ", message:" " });
       document.getElementById("contact-form").reset();
-      navigate("/");
+      navigate("/");*/
     }
 
 
