@@ -252,9 +252,5 @@ export default function Actualite() {
           }
 
     </div>
-
-
-
-
   )
 }
