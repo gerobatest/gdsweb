@@ -83,3 +83,23 @@
         }
     }
 }
+
+@include mediaXl{
+    .innovation{
+        .sectionTexte{
+            .geroba-link{
+                font-size: $fontsizeXl;
+            }
+        }
+    }
+}
+
+@include mediaXxl{
+    .innovation{
+        .sectionTexte{
+            .geroba-link{
+                font-size: $fontsizeXxl;
+            }
+        }
+    }
+}

@@ -108,6 +108,72 @@
     }
 }
 
+//Modals - Pop Ups
+body .active-modal{
+    overflow-y: hidden;
+}
+
+.modal, .overlay {
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    overflow: scroll;
+    background: rgba(255, 254, 254, 0.8);
+
+    .modalContainer{
+        position: relative;
+        width:90%;
+        margin: auto;
+        background: $white;
+        box-shadow: 0px 0px 1px 1px $grey-link;
+
+        .close-modal{
+            z-index:99;
+            position:absolute;
+            top:10px;
+            right:10px;
+            background:none;
+            font-size:18px;
+            padding:5px 10px;
+            color: $grey;
+            border: $grey solid;
+
+            &:hover{
+                cursor:pointer;
+                color: $white;
+                background: $grey;
+            }
+        }
+
+        .modalContent{
+            display: flex;
+            align-items: center;
+            h1, p{
+                margin-bottom: 20px;
+            }
+            .imgContainer{  
+                flex-basis: 30%;
+                height: 100%;
+
+                img{
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+            .texteContainer{
+                flex-basis: 70%;     
+                padding: $sectionspacingLg;       
+            }
+        }   
+    }
+}
+
+
+
 //Slider 
 
 
@@ -136,6 +202,23 @@
         }      
     }
 
+    .modal, .overlay {
+        .modalContainer{
+            position: relative;
+            width:95%;
+    
+            .modalContent{
+                display: block;
+                .texteContainer{   
+                    padding: $sectionspacingSm;       
+                }
+            }   
+        }
+    }
+}
+
+@include mediaSm{
+    
 }
 
 
