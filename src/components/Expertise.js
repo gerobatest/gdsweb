@@ -26,6 +26,7 @@ export default function Expertise() {
     const ingenierieContent = useRef();
     const productionContent = useRef();
     const aideContent = useRef();
+
     const expertiseSection = useRef();
 
     //Route et équipements de la route
@@ -38,13 +39,15 @@ export default function Expertise() {
       setShowIngenierie(false);
       setShowProduction(false);
       setShowAide(false);
+
+      expertiseSection.current.scrollTop = expertiseSection.current.scrollHeight;
       
       /*window.scrollTo({
         behavior: "smooth",
         top: routeContent.current.offsetTop
       });*/
 
-      routeContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' }); //marche avec deux clicks
+      //routeContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' }); //marche avec deux clicks
     }
 
     //Cache la section Route
@@ -67,7 +70,7 @@ export default function Expertise() {
       setShowRoute(false);
       setShowAide(false);
 
-      signaletiqueContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //signaletiqueContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
@@ -90,7 +93,7 @@ export default function Expertise() {
       setShowRoute(false);
       setShowAide(false);
 
-      designContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //designContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
@@ -113,7 +116,7 @@ export default function Expertise() {
       setShowRoute(false);
       setShowAide(false);
 
-      deplacementContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //deplacementContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
@@ -136,7 +139,7 @@ export default function Expertise() {
       setShowRoute(false);
       setShowAide(false);
 
-      ingenierieContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //ingenierieContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
@@ -159,7 +162,7 @@ export default function Expertise() {
       setShowRoute(false);
       setShowAide(false);
 
-      productionContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //productionContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     
@@ -182,7 +185,7 @@ export default function Expertise() {
       setShowProduction(false);
       setShowRoute(false);
 
-      aideContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //aideContent.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     

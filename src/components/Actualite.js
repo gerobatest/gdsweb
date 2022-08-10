@@ -2,6 +2,7 @@ import React, {useState, useRef} from 'react';
 import "../style/Actualite.scss";
 import {BsArrowRightCircle} from "react-icons/bs";
 import AliceCarousel from 'react-alice-carousel';
+import { HiOutlineX } from "react-icons/hi";
 
 export default function Actualite() {
 
@@ -52,15 +53,28 @@ export default function Actualite() {
     993: { items: 2 },
     1281: { items: 3},
     2560: { items: 3}
-};
+  };
 
+
+  const [showModal, setShowModal] = useState(false);
+
+  if(showModal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
+
+  const toggleModal = (event) => {
+    event.preventDefault();
+    setShowModal(!showModal);
+  }
 
   // Les publications de 2021
   const items2021 = [
-    <div className="singlePublication">
+    <div onClick={toggleModal} className="singlePublication">
       <img src="\article2.jpg" alt="description"/>
       <p> 
-        2021 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
+        2021 n*1 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  
         <a href="/"> <BsArrowRightCircle/> En savoir plus </a>
       </p>
     </div>,
@@ -207,6 +221,40 @@ export default function Actualite() {
           }
 
         </div>
+
+          {showModal && 
+            <div className="modal">
+               <div onClick={toggleModal} className="overlay">
+                  <div className="modalContainer">
+                    <button className="close-modal" onClick={toggleModal}>
+                      <HiOutlineX />
+                    </button>  
+                    <div className="modalContent">
+                      <div className="imgContainer">
+                        <img src="\article2.jpg" alt="description"/>
+                      </div>
+                      <div className="texteContainer">
+                        <h1>Titre de l'article</h1>
+                        <p>
+                          Pages you view in this window won't appear in the browser history and they won't leave other traces, like cookies, on the computer after you close all open Guest windows. Any files you download will be preserved, however.
+                        </p>
+                        <p>
+                          Pages you view in this window won't appear in the browser history and they won't leave other traces, like cookies, on the computer after you close all open Guest windows. Any files you download will be preserved, however.
+                        </p>
+                        <p>
+                          Pages you view in this window won't appear in the browser history and they won't leave other traces, like cookies, on the computer after you close all open Guest windows. Any files you download will be preserved, however.
+                        </p>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+            </div>
+          }
+
     </div>
+
+
+
+
   )
 }

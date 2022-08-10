@@ -20,11 +20,7 @@ import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import {Icon} from 'ol/style';
 
-
-/*const iconFeature = new Feature({
-    geometry: new Point([1.253639, 44.414870]),
-    name: '81 rue du Moulin, 46140 SAUZET, France'
-});*/
+import { useNavigate } from "react-router"; //ajout
 
   //La marqueur orange (location)
   const iconStyle = new Style({
@@ -37,8 +33,6 @@ import {Icon} from 'ol/style';
     }),
   });
 
-  /*iconFeature.setStyle(iconStyle);*/
-
   //Ce paragraphe récupère les données géographique de chaque location depuis config.json
   const geojsonObject1 = mapConfig.geojsonObject1;//France sauzet
   const geojsonObject2 = mapConfig.geojsonObject2; //Guadeloupe
@@ -48,6 +42,8 @@ import {Icon} from 'ol/style';
   const geojsonObject6 = mapConfig.geojsonObject6; //Maurice
 
 function Footer() {
+
+    const navigate = useNavigate(); //ajout
 
     const [center, setCenter] = useState([1.253327, 44.414888]); //le centre de la carte après chargement
     const [zoom, setZoom] = useState(18)
@@ -132,6 +128,31 @@ function Footer() {
         })
         document.getElementById("contact-form").reset();
     };
+
+    //submission après avoir appuyer sur le bouton envoyer
+    async function onSubmit(e) {
+      e.preventDefault();
+    
+      // When a post request is sent to the create url, we'll add a new record to the database.
+      const newMessage = { ...formVal };
+    
+      await fetch("http://localhost:4000/record/add", { //redirige dans la fonction add dans routes (server)
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newMessage),
+      })
+      .catch(error => {
+        window.alert(error);
+        return;
+      });
+    
+      setFormVal({ name: " ", phone: " ", email: " ", message:" " });
+      document.getElementById("contact-form").reset();
+      navigate("/");
+    }
+
 
     //Doit rediriger la carte en France (Sauzet) 
     const showSauzet = () => {
@@ -271,7 +292,7 @@ function Footer() {
             <div className="contact-container">
                 <div className="form">
                     <h1 className="footer-title">Contactez-nous</h1>
-                    <form id="contact-form">
+                     <form id="contact-form" onSubmit={onSubmit}> {/*ajout */}
                         {/* Nom */}
                         <div className="nameField">
                             <input 

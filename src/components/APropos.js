@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import {IoMdAddCircleOutline, IoIosCloseCircleOutline} from 'react-icons/io';
 import {FaAngleDoubleUp} from "react-icons/fa";
@@ -32,14 +32,14 @@ export default function APropos() {
     const [showInfoLigne, setShowInfoLigne] = useState(false);
     
     const handleClickLigne = () => {
-        setShowContentLigne(true);
+        setShowContentLigne(!showContentLigne); //true
         setShowContentGuadeloupe(false);
         setShowContentMartinique(false);
         setShowContentGuyane(false);
         setShowContentRe(false);
         setShowContent(false);
 
-        window.current.scrollBy({top: "200px", behavior: "smooth"});
+        //current.scrollBy({top: "200px", behavior: "smooth"});
         //infoLigne.scrollIntoView( { behavior: 'smooth', block: 'start' } );
     }
     const hideClickLigne = () => {
@@ -60,7 +60,7 @@ export default function APropos() {
     const [showContentGuadeloupe, setShowContentGuadeloupe] = useState(false);
     const [showInfoGuadeloupe, setShowInfoGuadeloupe] = useState(false);
     const handleClickGuadeloupe = () => {
-        setShowContentGuadeloupe(true);
+        setShowContentGuadeloupe(!showContentGuadeloupe);
         setShowContentLigne(false);
         setShowContentMartinique(false);
         setShowContentGuyane(false);
@@ -85,7 +85,7 @@ export default function APropos() {
     const [showContentMartinique, setShowContentMartinique] = useState(false);
     const [showInfoMartinique, setShowInfoMartinique] = useState(false);
     const handleClickMartinique = () => {
-        setShowContentMartinique(true);
+        setShowContentMartinique(!showContentMartinique);
         setShowContentLigne(false);
         setShowContentGuadeloupe(false);
         setShowContentGuyane(false);
@@ -110,7 +110,7 @@ export default function APropos() {
     const [showContentGuyane, setShowContentGuyane] = useState(false);
     const [showInfoGuyane, setShowInfoGuyane] = useState(false);
     const handleClickGuyane = () => {
-        setShowContentGuyane(true);
+        setShowContentGuyane(!showContentGuyane);
         setShowContentLigne(false);
         setShowContentGuadeloupe(false);
         setShowContentMartinique(false);
@@ -135,7 +135,7 @@ export default function APropos() {
       const [showContentRe, setShowContentRe] = useState(false);
       const [showInfoRe, setShowInfoRe] = useState(false);
       const handleClickRe = () => {
-        setShowContentRe(true);
+        setShowContentRe(!showContentRe);
         setShowContentLigne(false);
         setShowContentGuadeloupe(false);
         setShowContentMartinique(false);
@@ -161,7 +161,7 @@ export default function APropos() {
     const [showContent, setShowContent] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const handleClick = () => {
-        setShowContent(true);
+        setShowContent(!showContent);
         setShowContentLigne(false);
         setShowContentGuadeloupe(false);
         setShowContentMartinique(false);
@@ -299,22 +299,16 @@ export default function APropos() {
     //pour le données Maurices 
     //le hook aubas, servira à récuperer et stocker l'index, en d'autre mot, la position de l'élément sélectionner.
     //const [editIndex, setEditIndex] = useState(null);
+
     const items = EmployeeMauritius.map( (item, index) => {
         return (
             <div key={index} className="item item-mauritius">
                 <img src={item.imgPath} alt={item.nom}/>
-                {/* Au bas, le onClick appelle 2 fonctions, il faut imperativement mettre les 2 fonctions entre des {} et puis mettre un ; à la fin de chaque fonction.
-                    on sauvegarde l'index dans le hook en utilisant le setEditIndex.
-                */}
-                <div onClick={ ()=> {showDetails(!showInfo); setEditIndex(index);}} className="emp-btn" id="emp-btn">
+    
+                <div onClick={ () => {showDetails(!showInfo); setEditIndex(index);}} className="emp-btn" id="emp-btn">
                     {showInfo ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
-                    {/*<IoMdAddCircleOutline className="plus-info"/>*/}
-                    </div>
-                    {/* Pour afficher le div, avant, vous verifiez juste une condition, c'est à dire, si showInfo est vrai, et si c'est le cas vous affichez toutes les 
-                        données de chaque images. Pour afficher les données d'une seule image, on doit ajouter une nouvelle condition. Quand la fonction .map(ligne 77)
-                        va charger une à une les images sur le site et leur données, on verifie si editIndex(la valeur de index qu'on a récuperer sur ligne 84) correspond 
-                        actuellement à l'index que la fonction .map est en train de charger. Si c'est le cas, on affiche que c'est données la.
-                    */}
+                </div>
+    
                 {showInfo && editIndex === index &&
                     <div key={index} className="employeeInfo">
                         <h3 className="name"><b>{item.nom}</b></h3>
@@ -325,7 +319,57 @@ export default function APropos() {
             </div>
         );
     });
-    //fin pour le données Maurices
+    /*const items = (props) => (
+            <div key={props._id} className="item item-mauritius">
+                <img src={props.imgPath} alt={props.nom}/>
+     
+                <div onClick={ ()=> {showDetails(!showInfo); setEditIndex(props._id);}} className="emp-btn" id="emp-btn">
+                    {showInfo ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
+                </div>
+              
+                {showInfo && editIndex === props._id &&
+                    <div key={props._id} className="employeeInfo">
+                        <h3 className="name"><b>{props.nom}</b></h3>
+                        <p className="function">{props.position}</p>
+                        <p ><a className="email" style={{color: props.couleurMail}} href={'mailto: ' + props.mail + ''}>{props.mail}</a></p>
+                    </div>
+                }
+            </div>
+        );  //fin pour le données Maurices*/
+
+        /*const [records, setRecords] = useState([]);
+         // This method fetches the records from the database.
+        useEffect(() => {
+            async function getRecords() {
+            const response = await fetch(`http://localhost:4000/record/`);
+        
+            if (!response.ok) {
+                const message = `An error occurred: ${response.statusText}`;
+                window.alert(message);
+                return;
+            }
+        
+            const records = await response.json();
+            setRecords(records);
+            }
+            getRecords();
+            return;
+        }, [records.length]);
+
+
+        // This method will map out the records on the table
+        function recordList() {
+            return records.map((record) => {
+            return (
+                //depuis le tableau des employés de maurice
+                <items
+                record={record}
+                key={record._id}
+                />
+            );
+            });
+        }*/
+
 
     return (
     <div className="about">
