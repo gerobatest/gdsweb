@@ -188,7 +188,7 @@ export default function APropos() {
         0: { items: 1 },
         568: { items: 2 },
         993: { items: 3 },
-        1281: { items: 5},
+        1366: { items: 5},
         2560: { items: 6}
     };
 
@@ -198,7 +198,7 @@ export default function APropos() {
             <div key={index} className="item item-ligne">
                 <img src={item.imgPath} alt={item.nom}/>
                 <div onClick={ ()=> {showDetailsLigne(!showInfoLigne); setEditIndex(index);}} className="emp-btn" id="emp-btn">
-                    {showInfoLigne ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
+                    {editIndex === index && showInfoLigne ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
                 </div>
                 {showInfoLigne && editIndex === index &&
                     <div className="employeeInfo">
@@ -218,7 +218,7 @@ export default function APropos() {
             <div key={index} className="item item-guadeloupe">
                 <img src={item.imgPath} alt=""/>
                 <div onClick={ ()=> {showDetailsGuadeloupe(!showInfoGuadeloupe); setEditIndex(index);}} className="emp-btn" id="emp-btn">
-                    {showInfoGuadeloupe ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
+                    {editIndex === index && showInfoGuadeloupe ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
                 </div>
                 {showInfoGuadeloupe && editIndex === index && 
                     <div className="employeeInfo">
@@ -238,7 +238,7 @@ export default function APropos() {
             <div key={index} className="item item-martinique">
                 <img src={item.imgPath} alt=""/>
                 <div onClick={ ()=> {showDetailsMartinique(!showInfoMartinique); setEditIndex(index);}} className="emp-btn" id="emp-btn">
-                    {showInfoMartinique? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
+                    {editIndex === index && showInfoMartinique? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
                 </div>
                 {showInfoMartinique && editIndex === index &&
                     <div className="employeeInfo">
@@ -258,7 +258,7 @@ export default function APropos() {
             <div key={index} className="item item-guyane">
                 <img src={item.imgPath} alt=""/>
                 <div onClick={ ()=> {showDetailsGuyane(!showInfoGuyane); setEditIndex(index);}} className="emp-btn" id="emp-btn">
-                    {showInfoGuyane? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
+                    {editIndex === index && showInfoGuyane? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
                 </div>
                 {showInfoGuyane && editIndex === index &&
                     <div className="employeeInfo">
@@ -279,7 +279,7 @@ export default function APropos() {
             <div key={index} className="item item-reunion">
                 <img src={item.imgPath} alt=""/>
                 <div onClick={ ()=> {showDetailsRe(!showInfoRe); setEditIndex(index);}} className="emp-btn" id="emp-btn">
-                    {showInfoRe? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
+                    {editIndex === index && showInfoRe? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
                 </div>
                 {showInfoRe && editIndex === index &&
                     <div className="employeeInfo">
@@ -306,7 +306,7 @@ export default function APropos() {
                 <img src={item.imgPath} alt={item.nom}/>
     
                 <div onClick={ () => {showDetails(!showInfo); setEditIndex(index);}} className="emp-btn" id="emp-btn">
-                    {showInfo ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
+                    {editIndex === index && showInfo ? <IoIosCloseCircleOutline className="plus-info"/>:<IoMdAddCircleOutline className="plus-info"/>}
                 </div>
     
                 {showInfo && editIndex === index &&
@@ -319,6 +319,8 @@ export default function APropos() {
             </div>
         );
     });
+
+
     /*const items = (props) => (
             <div key={props._id} className="item item-mauritius">
                 <img src={props.imgPath} alt={props.nom}/>
