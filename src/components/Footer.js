@@ -20,7 +20,7 @@ import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import {Icon} from 'ol/style';
 
-import { useNavigate } from "react-router"; //ajout
+//import { useNavigate } from "react-router"; ajout
 
   //La marqueur orange (location)
   const iconStyle = new Style({
@@ -43,7 +43,7 @@ import { useNavigate } from "react-router"; //ajout
 
 function Footer() {
 
-    const navigate = useNavigate(); //ajout
+    //const navigate = useNavigate(); ajout
 
     const [center, setCenter] = useState([1.253327, 44.414888]); //le centre de la carte après chargement
     const [zoom, setZoom] = useState(18)
@@ -130,8 +130,8 @@ function Footer() {
     };
 
     //submission après avoir appuyer sur le bouton envoyer
-    async function onSubmit(e) {
-      /*e.preventDefault();
+    /*async function onSubmit(e) {
+      e.preventDefault();
     
       // When a post request is sent to the create url, we'll add a new record to the database.
       const newMessage = { ...formVal };
@@ -150,8 +150,8 @@ function Footer() {
     
       setFormVal({ name: " ", phone: " ", email: " ", message:" " });
       document.getElementById("contact-form").reset();
-      navigate("/");*/
-    }
+      navigate("/");
+    }*/
 
 
     //Doit rediriger la carte en France (Sauzet) 
@@ -292,7 +292,7 @@ function Footer() {
             <div className="contact-container">
                 <div className="form">
                     <h1 className="footer-title">Contactez-nous</h1>
-                     <form id="contact-form" onSubmit={onSubmit}> {/*ajout */}
+                     <form id="contact-form"> {/*onSubmit={onSubmit}*/}
                         {/* Nom */}
                         <div className="nameField">
                             <input 
